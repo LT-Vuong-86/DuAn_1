@@ -123,7 +123,10 @@
 }
 
 /* xs */
-@media (max-width: 767px) {
+@media  (max-width: 767px) {
+	.footer-widget{
+display: none;
+	}
 
 .header_top .col-sm-6:first-child{
 	display: inline-block;
@@ -275,8 +278,11 @@ ul.sub-menu{
 .well{
 	display: inline-block;
 }
-
+.footer-top{
+	display: none;
 }
+}
+
 
 /* XS Portrait */
 @media (max-width: 480px) {
