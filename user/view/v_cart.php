@@ -1,24 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Contact | E-Shopper</title>
+    <title>Cart | E-Shopper</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
     <link href="css/price-range.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
-    </head>
-<!--/head-->
+	<link href="css/main.css" rel="stylesheet">
+	<link href="css/responsive.css" rel="stylesheet">
+   </head><!--/head-->
 
 <body>
-    <header id="header">
+	<header id="header">
         <!--header-->
         <div class="header_top">
             <!--header_top-->
@@ -54,39 +52,17 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="logo pull-left">
-                            <a href="index.html"><img src="images/home/logo.png" alt="" /></a>
+                            <a href="index.html"><img  hright src="images/home/logo.png" alt="" /></a>
                         </div>
-                        <div class="btn-group pull-right">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									USA
-									<span class="caret"></span>
-								</button>
-                                <ul class="dropdown-menu">
-                                    <li><a href="">Canada</a></li>
-                                    <li><a href="">UK</a></li>
-                                </ul>
-                            </div>
-
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									DOLLAR
-									<span class="caret"></span>
-								</button>
-                                <ul class="dropdown-menu">
-                                    <li><a href="">Canadian Dollar</a></li>
-                                    <li><a href="">Pound</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        
                     </div>
                     <div class="col-sm-8">
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
-                                <li><a href=""><i class="fa fa-user"></i>Tài khoản</a></li>
-                                <li><a href=""><i class="fa fa-star"></i>danh sách yêu thích</a></li>
-                                <li><a href="checkout.html"><i class="fa fa-crosshairs"></i>Thủ tục thanh toán</a></li>
-                                <li><a href="cart.html"><i class="fa fa-shopping-cart"></i>Giỏ hàng</a></li>
+                                <li><a href=""><i class="fa fa-user"></i> Tài khoản</a></li>
+                                <li><a href=""><i class="fa fa-star"></i> Danh sách yêu thích</a></li>
+                                <li><a href="checkout.html"><i class="fa fa-crosshairs"></i>  Thanh toán</a></li>
+                                <li><a href="cart.html" class="active"><i class="fa fa-shopping-cart"></i>Giỏ hàng</a></li>
                                 <li><a href="login.html"><i class="fa fa-lock"></i> Đăng nhập</a></li>
                             </ul>
                         </div>
@@ -103,7 +79,7 @@
                     <div class="col-sm-9">
                         <div class="navbar-header">
                             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-								<span class="sr-only">Toggle navigation</span>
+								<span class="sr-only">Chuyển đổi điều hướng </span>
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
@@ -114,10 +90,10 @@
                                 <li><a href="index.html">Trang chủ</a></li>
                                 <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.html">Các sản phẩm</a></li>
-                                        <li><a href="product-details.html">Thông tin chi tiết sản phẩm</a></li>
-                                        <li><a href="checkout.html">    Thủ tục thanh toán</a></li>
-                                        <li><a href="cart.html">Giỏ hàng</a></li>
+                                        <li><a href="shop.html">Sản phẩm</a></li>
+                                        <li><a href="product-details.html">Chi tiết sản phẩm</a></li>
+                                        <li><a href="checkout.html">Thanh toán</a></li>
+                                        <li><a href="cart.html" class="active">Giỏ hàng</a></li>
                                         <li><a href="login.html">Đăng nhập</a></li>
                                     </ul>
                                 </li>
@@ -128,7 +104,7 @@
                                     </ul>
                                 </li>
                                 <li><a href="404.html">404</a></li>
-                                <li><a href="contact-us.html" class="active">Liên hệ</a></li>
+                                <li><a href="contact-us.html">Liên hệ</a></li>
                             </ul>
                         </div>
                     </div>
@@ -144,73 +120,133 @@
     </header>
     <!--/header-->
 
-    <div id="contact-page" class="container">
-        <div class="bg">
-            <div class="row">
-                <!-- <div class="col-sm-12">    			   			
-					<h2 class="title text-center">Contact <strong>Us</strong></h2>    			    				    				
-					<div id="gmap" class="contact-map">
-					</div>
-				</div>			 		 -->
+    <section id="cart_items">
+        <div class="container">
+            <div class="breadcrumbs">
+                <ol class="breadcrumb">
+                    <li><a href="#">Tran chủ</a></li>
+                    <li class="active">Giỏ hàng</li>
+                </ol>
+            </div>
+            <div class="table-responsive cart_info">
+                <table class="table table-condensed">
+                    <thead>
+                        <tr class="cart_menu">
+                            <td class="image">Mục</td>
+                            <td class="description"></td>
+                            <td class="price">Giá</td>
+                            <td class="quantity">Số lượng</td>
+                            <td class="total">Tổng</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="cart_product">
+                                <a href=""><img src="images/cart/one.png" alt=""></a>
+                            </td>
+                            <td class="cart_description">
+                                <h4><a href="">Colorblock Scuba</a></h4>
+                                <p>Web ID: 1089772</p>
+                            </td>
+                            <td class="cart_price">
+                                <p>$59</p>
+                            </td>
+                            <td class="cart_quantity">
+                                <div class="cart_quantity_button">
+                                    <a class="cart_quantity_up" href=""> + </a>
+                                    <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
+                                    <a class="cart_quantity_down" href=""> - </a>
+                                </div>
+                            </td>
+                            <td class="cart_total">
+                                <p class="cart_total_price">$59</p>
+                            </td>
+                            <td class="cart_delete">
+                                <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="cart_product">
+                                <a href=""><img src="images/cart/two.png" alt=""></a>
+                            </td>
+                            <td class="cart_description">
+                                <h4><a href="">Colorblock Scuba</a></h4>
+                                <p>Web ID: 1089772</p>
+                            </td>
+                            <td class="cart_price">
+                                <p>$59</p>
+                            </td>
+                            <td class="cart_quantity">
+                                <div class="cart_quantity_button">
+                                    <a class="cart_quantity_up" href=""> + </a>
+                                    <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
+                                    <a class="cart_quantity_down" href=""> - </a>
+                                </div>
+                            </td>
+                            <td class="cart_total">
+                                <p class="cart_total_price">$59</p>
+                            </td>
+                            <td class="cart_delete">
+                                <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="cart_product">
+                                <a href=""><img src="images/cart/three.png" alt=""></a>
+                            </td>
+                            <td class="cart_description">
+                                <h4><a href="">Colorblock Scuba</a></h4>
+                                <p>Web ID: 1089772</p>
+                            </td>
+                            <td class="cart_price">
+                                <p>$59</p>
+                            </td>
+                            <td class="cart_quantity">
+                                <div class="cart_quantity_button">
+                                    <a class="cart_quantity_up" href=""> + </a>
+                                    <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
+                                    <a class="cart_quantity_down" href=""> - </a>
+                                </div>
+                            </td>
+                            <td class="cart_total">
+                                <p class="cart_total_price">$59</p>
+                            </td>
+                            <td class="cart_delete">
+                                <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <!--/#cart_items-->
+
+    <section id="do_action">
+        <div class="container">
+            <div class="heading">
+                <h3>Bạn thích làm gì tiếp theo=</h3>
             </div>
             <div class="row">
-                <div class="col-sm-8">
-                    <div class="contact-form">
-                        <h2 class="title text-center">Liên lạc</h2>
-                        <div class="status alert alert-success" style="display: none"></div>
-                        <form id="main-contact-form" class="contact-form row" name="contact-form" method="post">
-                            <div class="form-group col-md-6">
-                                <input type="text" name="name" class="form-control" required="required" placeholder="Tên">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <input type="email" name="email" class="form-control" required="required" placeholder="Email">
-                            </div>
-                            <div class="form-group col-md-12">
-                                <input type="text" name="subject" class="form-control" required="required" placeholder="Chủ thể">
-                            </div>
-                            <div class="form-group col-md-12">
-                                <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Tin nhắn của bạn ở đây"></textarea>
-                            </div>
-                            <div class="form-group col-md-12">
-                                <input type="submit" name="submit" class="btn btn-primary pull-right" value="Thêm">
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="contact-info">
-                        <h2 class="title text-center"> Thông tin liên lạc</h2>
-                        <address>
-	    					<p>E-Shopper Inc.</p>
-							<p>935 W. Webster Ave New Streets Chicago, IL 60614, NY</p>
-							<p>Newyork USA</p>
-							<p>Mobile: +2346 17 38 93</p>
-							<p>Fax: 1-714-252-0026</p>
-							<p>Email: info@e-shopper.com</p>
-	    				</address>
-                        <div class="social-networks">
-                            <h2 class="title text-center">Mạng xã hội</h2>
-                            <ul>
-                                <li>
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fa fa-youtube"></i></a>
-                                </li>
-                            </ul>
-                        </div>
+
+                <div class="col-sm-12">
+                    <div class="total_area">
+                        <ul>
+                            <li>Giỏ hàng phụ Tổng cộng <span>$59</span></li>
+                            <li> Thuế sinh thái<span>$2</span></li>
+                            <li>Giá vận chuyển <span>Miễn phí</span></li>
+                            <li>Tổng <span>$61</span></li>
+                        </ul>
+                        <a class="btn btn-default update" href="">Cập nhật</a>
+                        <a class="btn btn-default check_out" href="">Thanh toán</a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!--/#contact-page-->
+    </section>
+    <!--/#do_action-->
 
     <footer id="footer">
         <!--Footer-->
@@ -315,7 +351,7 @@
                             <ul class="nav nav-pills nav-stacked">
                                 <li><a href="">Áo thun</a></li>
                                 <li><a href="">Nam</a></li>
-                                <li><a href="">Nư</a></li>
+                                <li><a href="">Nữ</a></li>
                                 <li><a href="">Thẻ quà tặng</a></li>
                                 <li><a href="">Giày</a></li>
                             </ul>
@@ -323,7 +359,7 @@
                     </div>
                     <div class="col-sm-2">
                         <div class="single-widget">
-                            <h2>chính sách</h2>
+                            <h2>Policies</h2>
                             <ul class="nav nav-pills nav-stacked">
                                 <li><a href="">Điều khoản sử dụng</a></li>
                                 <li><a href="">Chính sách bảo mật</a></li>
@@ -335,12 +371,12 @@
                     </div>
                     <div class="col-sm-2">
                         <div class="single-widget">
-                            <h2>Giới thiệu về người mua hàng</h2>
+                            <h2>About Shopper</h2>
                             <ul class="nav nav-pills nav-stacked">
                                 <li><a href="">Thông tin công ty</a></li>
                                 <li><a href="">nghề nghiệp</a></li>
                                 <li><a href="">Vị trí cửa hàng</a></li>
-                                <li><a href=""> Chương trình liên kết</a></li>
+                                <li><a href="">Chương trình liên kết</a></li>
                                 <li><a href="">bản quyền</a></li>
                             </ul>
                         </div>
@@ -351,7 +387,7 @@
                             <form action="#" class="searchform">
                                 <input type="text" placeholder="Your email address" />
                                 <button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
-                                <p>Nhận các bản cập nhật mới nhất từ <br />trang web của chúng tôi và tự cập nhật cho chính bạn...</p>
+                                <p>Get the most recent updates from <br />our site and be updated your self...</p>
                             </form>
                         </div>
                     </div>
@@ -364,20 +400,19 @@
             <div class="container">
                 <div class="row">
                     <p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
-                    <p class="pull-right">Thiết kế bởi <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
+                    <p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
                 </div>
             </div>
         </div>
 
-    </footer>
-    <!--/Footer-->
+    </footer><!--/Footer-->
+	
 
 
-
-
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
-    <script type="text/javascript" src="js/gmaps.js"></script>
-
+    <script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.scrollUp.min.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/main.js"></script>
 </body>
-
 </html>

@@ -37,7 +37,10 @@
 
 /* sm */
 @media (min-width: 768px) and (max-width: 991px) {
-   
+	.left-sidebar{
+		display: none;
+	}
+	
 .shop-menu ul li a{
 	padding-left: 0;
 }
@@ -125,17 +128,18 @@
 /* xs */
 @media  (max-width: 767px) {
 	.footer-widget{
-display: none;
+		display: none;
 	}
+	
 
 .header_top .col-sm-6:first-child{
 	display: inline-block;
-	float: left;
+	
 }
 
 .header_top .col-sm-6:last-child{
 	display: inline-block;
-	float: right;
+	
 }
 
 .header-middle .col-sm-4 {
