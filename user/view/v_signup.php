@@ -6,11 +6,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>signup | E-Shopper</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/animate.css" rel="stylesheet">
-	<link href="css/main.css" rel="stylesheet">
-	<link href="css/responsive.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/animate.css" rel="stylesheet">
+	<link href="../css/main.css" rel="stylesheet">
+	<link href="../css/responsive.css" rel="stylesheet">
    </head><!--/head-->
 <body>
 	<header id="header">
@@ -49,19 +49,19 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="logo pull-left">
-                            <a href="index.html"><img src="images/home/logo.png" alt="" /></a>
+                        <a href="?controller=home"><img src="../images/home/logo.png" alt="" /></a>
                         </div>
                        
                     </div>
                     <div class="col-sm-8">
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
-                                <li><a href=""><i class="fa fa-user"></i>Tài khoản</a></li>
+                            <li><a href="?controller=account"><i class="fa fa-user"></i> Tài khoản</a></li>
                                 <li><a href=""><i class="fa fa-star"></i> danh sách yêu thích</a></li>
-                                <li><a href="checkout.html"><i class="fa fa-crosshairs"></i>Thủ tục thanh toán</a></li>
-                                <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
-                                <li><a href="login.html" ><i class="fa fa-lock"></i> Đăng nhập</a></li>
-                            </ul>
+                                <li><a href="?controller=checkout"><i class="fa fa-crosshairs"></i> thanh toán</a></li>
+                                <li><a href="?controller=cart"><i class="fa fa-shopping-cart"></i>Giỏ hàng</a></li>
+                                <li><a href="?controller=login"><i class="fa fa-lock"></i>Đăng nhập</a></li>
+                             </ul>
                         </div>
                     </div>
                 </div>
@@ -228,7 +228,7 @@
                             <div class="video-gallery text-center">
                                 <a href="#">
                                     <div class="iframe-img">
-                                        <img src="images/home/iframe1.png" alt="" />
+                                        <img src="../images/home/iframe1.png" alt="" />
                                     </div>
                                     <div class="overlay-icon">
                                         <i class="fa fa-play-circle-o"></i>
@@ -243,7 +243,7 @@
                             <div class="video-gallery text-center">
                                 <a href="#">
                                     <div class="iframe-img">
-                                        <img src="images/home/iframe2.png" alt="" />
+                                        <img src="../images/home/iframe2.png" alt="" />
                                     </div>
                                     <div class="overlay-icon">
                                         <i class="fa fa-play-circle-o"></i>
@@ -258,7 +258,7 @@
                             <div class="video-gallery text-center">
                                 <a href="#">
                                     <div class="iframe-img">
-                                        <img src="images/home/iframe3.png" alt="" />
+                                        <img src="../images/home/iframe3.png" alt="" />
                                     </div>
                                     <div class="overlay-icon">
                                         <i class="fa fa-play-circle-o"></i>
@@ -273,7 +273,7 @@
                             <div class="video-gallery text-center">
                                 <a href="#">
                                     <div class="iframe-img">
-                                        <img src="images/home/iframe4.png" alt="" />
+                                        <img src="../images/home/iframe4.png" alt="" />
                                     </div>
                                     <div class="overlay-icon">
                                         <i class="fa fa-play-circle-o"></i>
@@ -286,7 +286,7 @@
                     </div>
                     <div class="col-sm-3">
                         <div class="address">
-                            <img src="images/home/map.png" alt="" />
+                            <img src="../images/home/map.png" alt="" />
                             <p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
                         </div>
                     </div>

@@ -6,12 +6,15 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Home | E-Shopper</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-	<link href="css/main.css" rel="stylesheet">
-	<link href="css/responsive.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+	<link href="../css/main.css" rel="stylesheet">
+	<link href="../css/responsive.css" rel="stylesheet">
   </head><!--/head-->
-
+<style>
+ 
+  
+</style>
 <body>
 	<header id="header">
         <!--header-->
@@ -49,17 +52,18 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="logo pull-left">
-                            <a href="index.html"><img src="images/home/logo.png" alt="" /></a>
+                            <a href="?controller=home"><img src="../images/home/logo.png" alt="" /></a>
                         </div>
                         
                     </div>
                     <div class="col-sm-8">
                         <div class="shop-menu pull-right">
-                            <ul class="nav navbar-nav">
-                                <li><a href="#"><i class="fa fa-user"></i> Tài khoản</a></li>
-                                <li><a href="checkout.html"><i class="fa fa-crosshairs"></i>Thanh toán </a></li>
-                                <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> đơn hàng </a></li>
-                                <li><a href="login.html"><i class="fa fa-lock"></i> Đăng nhập</a></li>
+                        <ul class="nav navbar-nav">
+                        <li><a href="?controller=account"><i class="fa fa-user"></i> Tài khoản</a></li>
+                                <li><a href=""><i class="fa fa-star"></i> danh sách yêu thích</a></li>
+                                <li><a href="?controller=checkout"><i class="fa fa-crosshairs"></i> thanh toán</a></li>
+                                <li><a href="?controller=cart"><i class="fa fa-shopping-cart"></i>Giỏ hàng</a></li>
+                                <li><a href="?controller=login"><i class="fa fa-lock"></i>Đăng nhập</a></li>
                             </ul>
                         </div>
                     </div>
@@ -73,17 +77,17 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-9">
-                        <div class="navbar-header">
+                        <!-- <div class="navbar-header">
                             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 								<span class="sr-only">Toggle navigation</span>
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							</button>
-                        </div>
+                        </div> -->
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
-                                <li><a href="index.html" class="active">Trang chủ</a></li>
+                                <li><a href="?controller=home" class="active">Trang chủ</a></li>
                                 <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="shop.html">Sản phẩm</a></li>
@@ -117,24 +121,25 @@
     <!--/header-->
     <section id="body_account">
         <div class="container">
-            <div class="row body_account_row">
-                <div class="body_acount_left col-md-3 col-xs-3">
+            <div class="row body_account_row col-xs-12 col-sm-12">
+            
+                <div class="body_acount_left col-xs-12 col-md-3 ">
 
-
-		<li class="body_acount_left_taikhoan"> <h3>tên tài khoản</h3></li>
-		<li class="tablinks" onclick="openCity( 'thongtintaikhoan')" id="defaultOpen">thông tin tài khoản</li>
+		<li class="body_acount_left_taikhoan"  id="click_menu"> <h3 class="col-sm-6 col-xs-6">tên tài khoản</h3 ><h1  class="col-sm-6 col-xs-6 click_none_html" >&dArr;</h1></li>
+        <div id="click_none_menu" class="col-sm-12 col-xs-12">
+		<li class="tablinks"  onclick="openCity( 'thongtintaikhoan')" id="defaultOpen">thông tin tài khoản</li>
 		<li  class="tablinks" onclick="openCity('quanlidonhang')" >quản lý đơn hàng</li>
 		<li  class="tablinks" onclick="openCity('sanphamdamua')" >sản phẩm đã mua</li>
-
+       
                     <li> tin nhắn</li>
                     <li>giỏ hàng</li>
+        </div>
 
-
-                </div>
+        </div>
                 <div class="mid_body col-xs-1 col-md-1"></div>
-                <div id="thongtintaikhoan" class="body_acount_right col-xs-8 col-md-8 tabcontent ">
+                <div id="thongtintaikhoan" class="body_acount_right col-xs-12 col-sm-12 col-md-8 tabcontent ">
                     <form action="">
-                        <div class="body_acount_right_form_left">
+                        <div class="body_acount_right_form_left col-xs-12 ">
                             <li><span>Họ</span><span><input type="text" value="fghhhhu"></span></li>
                             <li><span>Tên</span><span><input type="text" value="fghhhhu"></span></li>
                             <li><span>Sdt</span><span><input type="text" value="fghhhhu"></span></li>
@@ -171,7 +176,7 @@
 
 
 </div>
-<div id="quanlidonhang" class="tabcontent body_acount_right col-xs-8 col-md-8 " >
+<div id="quanlidonhang" class="tabcontent body_acount_right col-xs-12 col-md-12 col-md-8 " >
 	<h3>quản lý đơn hàng</h3>
 	<table class="col-xs-12 col-md-12">
 		<tr >
@@ -184,7 +189,7 @@
 		</tr>
 		<tr class="item_table">
 			
-			<td > <img src="images/cart/three.png" alt=""></td>
+			<td > <img src="../images/cart/three.png" alt=""></td>
 			<td class="col-xs-4 col-md-4">
 				<li>1:aghfedwqqefdfbgn</li>
 				<li>2:bfghfmngdff</li>
@@ -197,7 +202,7 @@
 		</tr>
 		<tr class="item_table">
 			
-			<td > <img src="images/cart/three.png" alt=""></td>
+			<td > <img src="../images/cart/three.png" alt=""></td>
 			<td class="col-xs-4 col-md-4">
 				<li>1:aghfedwqqefdfbgn</li>
 				<li>2:bfghfmngdff</li>
@@ -210,7 +215,7 @@
 		</tr>
 		<tr class="item_table">
 			
-			<td > <img src="images/cart/three.png" alt=""></td>
+			<td > <img src="../images/cart/three.png" alt=""></td>
 			<td class="col-xs-4 col-md-4">
 				<li>1:aghfedwqqefdfbgn</li>
 				<li>2:bfghfmngdff</li>
@@ -224,7 +229,7 @@
 		
 		<tr class="item_table">
 			
-			<td > <img src="images/cart/three.png" alt=""></td>
+			<td > <img src="../images/cart/three.png" alt=""></td>
 			<td class="col-xs-4 col-md-4">
 				<li>1:aghfedwqqefdfbgn</li>
 				<li>2:bfghfmngdff</li>
@@ -237,7 +242,7 @@
 		</tr>
 		<tr class="item_table">
 			
-			<td > <img src="images/cart/three.png" alt=""></td>
+			<td > <img src="../images/cart/three.png" alt=""></td>
 			<td class="col-xs-4 col-md-4">
 				<li>1:aghfedwqqefdfbgn</li>
 				<li>2:bfghfmngdff</li>
@@ -250,7 +255,7 @@
 		</tr>
 	</table>
 </div>
-<div id="sanphamdamua" class="tabcontent body_acount_right col-xs-8 col-md-8 " >
+<div id="sanphamdamua" class="tabcontent body_acount_right col-xs-12 col-md-12 col-md-8 " >
 	<h3>sản phẩm đâ mua</h3>
 	<table class="col-xs-12 col-md-12">
 		<tr >
@@ -264,7 +269,7 @@
 		</tr>
 		<tr class="item_table">
 			
-			<td > <img src="images/cart/three.png" alt=""></td>
+			<td > <img src="../images/cart/three.png" alt=""></td>
 			<td class="col-xs-4 col-md-4">
 				<li>1:aghfedwqqefdfbgn</li>
 				<li>2:bfghfmngdff</li>
@@ -286,7 +291,7 @@
 </div>
 
                 </div>
-                <div id="quanlidonhang" class="tabcontent body_acount_right col-xs-8 col-md-8 ">
+                <div id="quanlidonhang" class="tabcontent body_acount_right col-xs-12 col-md-8 ">
                     <h3>quản lý đơn hàng</h3>
                     <table class="col-xs-12 col-md-12">
                         <tr>
@@ -300,7 +305,7 @@
                         </tr>
                         <tr class="item_table">
 
-                            <td> <img src="images/cart/three.png" alt=""></td>
+                            <td> <img src="../images/cart/three.png" alt=""></td>
                             <td class="col-xs-4 col-md-4">
                                 <li>1:aghfedwqqefdfbgn</li>
                                 <li>2:bfghfmngdff</li>
@@ -313,7 +318,7 @@
                         </tr>
                         <tr class="item_table">
 
-                            <td> <img src="images/cart/three.png" alt=""></td>
+                            <td> <img src="../images/cart/three.png" alt=""></td>
                             <td class="col-xs-4 col-md-4">
                                 <li>1:aghfedwqqefdfbgn</li>
                                 <li>2:bfghfmngdff</li>
@@ -326,7 +331,7 @@
                         </tr>
                         <tr class="item_table">
 
-                            <td> <img src="images/cart/three.png" alt=""></td>
+                            <td> <img src="../images/cart/three.png" alt=""></td>
                             <td class="col-xs-4 col-md-4">
                                 <li>1:aghfedwqqefdfbgn</li>
                                 <li>2:bfghfmngdff</li>
@@ -340,7 +345,7 @@
 
                         <tr class="item_table">
 
-                            <td> <img src="images/cart/three.png" alt=""></td>
+                            <td> <img src="../images/cart/three.png" alt=""></td>
                             <td class="col-xs-4 col-md-4">
                                 <li>1:aghfedwqqefdfbgn</li>
                                 <li>2:bfghfmngdff</li>
@@ -353,7 +358,7 @@
                         </tr>
                         <tr class="item_table">
 
-                            <td> <img src="images/cart/three.png" alt=""></td>
+                            <td> <img src="../images/cart/three.png" alt=""></td>
                             <td class="col-xs-4 col-md-4">
                                 <li>1:aghfedwqqefdfbgn</li>
                                 <li>2:bfghfmngdff</li>
@@ -387,7 +392,7 @@
                             <div class="video-gallery text-center">
                                 <a href="#">
                                     <div class="iframe-img">
-                                        <img src="images/home/iframe1.png" alt="" />
+                                        <img src="../images/home/iframe1.png" alt="" />
                                     </div>
                                     <div class="overlay-icon">
                                         <i class="fa fa-play-circle-o"></i>
@@ -402,7 +407,7 @@
                             <div class="video-gallery text-center">
                                 <a href="#">
                                     <div class="iframe-img">
-                                        <img src="images/home/iframe2.png" alt="" />
+                                        <img src="../images/home/iframe2.png" alt="" />
                                     </div>
                                     <div class="overlay-icon">
                                         <i class="fa fa-play-circle-o"></i>
@@ -417,7 +422,7 @@
                             <div class="video-gallery text-center">
                                 <a href="#">
                                     <div class="iframe-img">
-                                        <img src="images/home/iframe3.png" alt="" />
+                                        <img src="../images/home/iframe3.png" alt="" />
                                     </div>
                                     <div class="overlay-icon">
                                         <i class="fa fa-play-circle-o"></i>
@@ -432,7 +437,7 @@
                             <div class="video-gallery text-center">
                                 <a href="#">
                                     <div class="iframe-img">
-                                        <img src="images/home/iframe4.png" alt="" />
+                                        <img src="../images/home/iframe4.png" alt="" />
                                     </div>
                                     <div class="overlay-icon">
                                         <i class="fa fa-play-circle-o"></i>
@@ -445,7 +450,7 @@
                     </div>
                     <div class="col-sm-3">
                         <div class="address">
-                            <img src="images/home/map.png" alt="" />
+                            <img src="../images/home/map.png" alt="" />
                             <p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
                         </div>
                     </div>
@@ -529,7 +534,19 @@
         </div>
 
     </footer><!--/Footer-->
-<script src="js/account.js"></script>
+<script src="../js/account.js"></script>
+<script src="../js/jquery.js"></script>
+   <script>
+// $(document).ready(function(){
+//   $(".tablinks").click(function(){
+//     $("#click_none_menu").fadeToggle();
    
+//   });});
+$(document).ready(function(){
+  $("#click_menu").click(function(){
+    $("#click_none_menu").fadeToggle();
+  });
+});
+   </script>
 </body>
 </html>

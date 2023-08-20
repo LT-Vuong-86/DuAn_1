@@ -7,13 +7,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Product Details | E-Shopper</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/prettyPhoto.css" rel="stylesheet">
-    <link href="css/price-range.css" rel="stylesheet">
-    <link href="css/animate.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prettyPhoto.css" rel="stylesheet">
+    <link href="../css/price-range.css" rel="stylesheet">
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
        <style>
         .category-tab ul {
             background: whitesmoke;
@@ -59,7 +59,7 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="logo pull-left">
-                            <a href="index.html"><img src="images/home/logo.png" alt="" /></a>
+                        <a href="?controller=home"><img src="../images/home/logo.png" alt="" /></a>
                         </div>
                         <div class="btn-group pull-right">
                             <div class="btn-group">
@@ -88,11 +88,11 @@
                     <div class="col-sm-8">
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
-                                <li><a href=""><i class="fa fa-user"></i>Tài khoản</a></li>
-                                <li><a href=""><i class="fa fa-star"></i>danh sách yêu thích</a></li>
-                                <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Thủ tục thanh toán</a></li>
-                                <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
-                                <li><a href="login.html"><i class="fa fa-lock"></i>Đăng nhập</a></li>
+                            <li><a href="?controller=account"><i class="fa fa-user"></i> Tài khoản</a></li>
+                                <li><a href=""><i class="fa fa-star"></i> danh sách yêu thích</a></li>
+                                <li><a href="?controller=checkout"><i class="fa fa-crosshairs"></i> thanh toán</a></li>
+                                <li><a href="?controller=cart"><i class="fa fa-shopping-cart"></i>Giỏ hàng</a></li>
+                                <li><a href="?controller=login"><i class="fa fa-lock"></i>Đăng nhập</a></li>
                             </ul>
                         </div>
                     </div>
@@ -218,7 +218,7 @@
 
                         <div class="shipping text-center">
                             <!--shipping-->
-                            <img src="images/home/shipping.jpg" alt="" />
+                            <img src="../images/home/shipping.jpg" alt="" />
                         </div>
                         <!--/shipping-->
 
@@ -230,7 +230,7 @@
                         <!--product-details-->
                         <div class="col-sm-5">
                             <div class="view-product">
-                                <img src="images/product-details/1.jpg" alt="" />
+                                <img src="../images/product-details/1.jpg" alt="" />
                                 <h3>ZOOM</h3>
                             </div>
                             <div id="similar-product" class="carousel slide" data-ride="carousel">
@@ -238,11 +238,11 @@
                                 <!-- Wrapper for slides -->
                                 <div class="carousel-inner">
                                     <div class="item active">
-                                        <img class="imagess" src="images/product-details/similar1.jpg" alt=""></a>
-                                        <img class="imagess" src="images/product-details/similar2.jpg" alt="">
-                                        <img class="imagess" src="images/product-details/similar3.jpg" alt="">
-                                        <img class="imagess" src="images/product-details/similar2.jpg" alt="">
-                                        <img class="imagess" src="images/product-details/similar3.jpg" alt="">
+                                        <img class="imagess" src="../images/product-details/similar1.jpg" alt=""></a>
+                                        <img class="imagess" src="../images/product-details/similar2.jpg" alt="">
+                                        <img class="imagess" src="../images/product-details/similar3.jpg" alt="">
+                                        <img class="imagess" src="../images/product-details/similar2.jpg" alt="">
+                                        <img class="imagess" src="../images/product-details/similar3.jpg" alt="">
                                     </div>
                                   
                                 </div>
@@ -260,13 +260,13 @@
                         <div class="col-sm-7">
                             <div class="product-information">
                                 <!--/product-information-->
-                                <img src="images/product-details/new.jpg" class="newarrival" alt="" />
+                                <img src="../images/product-details/new.jpg" class="newarrival" alt="" />
 
                                 <!-- /// product-name //// -->
                                 <div class="product-content-right-product-name">
                                     <strong><h1>ELLIE DRESS - ĐẦM REN SERONA</h1></strong>
                                     <p>Web ID: 1089772</p>
-                                    <img src="images/product-details/rating.png" alt="" />
+                                    <img src="../images/product-details/rating.png" alt="" />
                                 </div>
 
                                 <!-- //// productproduct-giá //// -->
@@ -318,7 +318,7 @@
                                 </span>
                                 <p><b>Sẵn có:</b> Còn hàng</p>
                                 <p><b>Tình trạng:</b> Mới</p>
-                                <a href=""><img src="images/product-details/share.png" class="share img-responsive" alt="" /></a>
+                                <a href=""><img src="../images/product-details/share.png" class="share img-responsive" alt="" /></a>
                             </div>
                             <!--/product-information-->
                         </div>
@@ -363,17 +363,17 @@
                                     <!--/rating-area-->
 
                                     <div class="socials-share">
-                                        <a href=""><img src="images/blog/socials.png" alt=""></a>
+                                        <a href=""><img src="../images/blog/socials.png" alt=""></a>
                                     </div>
                                     <!--/socials-share-->
 
                                     <div class="media commnets">
                                         <a class="pull-left" href="#">
-                                            <img class="media-object" src="images/blog/man-one.jpg" alt="">
+                                            <img class="media-object" src="../images/blog/man-one.jpg" alt="">
                                         </a>
                                         <div class="media-body">
                                             <h4 class="media-heading">Annie Davis</h4>
-                                            <img src="images/product-details/rating.png" alt="" />
+                                            <img src="../images/product-details/rating.png" alt="" />
                                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
                                                 ex ea commodo consequat.</p>
                                             <div class="blog-socials">
@@ -394,7 +394,7 @@
                                             <li class="media">
 
                                                 <a class="pull-left" href="#">
-                                                    <img class="media-object" src="images/blog/man-two.jpg" alt="">
+                                                    <img class="media-object" src="../images/blog/man-two.jpg" alt="">
                                                 </a>
                                                 <div class="media-body">
                                                     <ul class="sinlge-post-meta">
@@ -402,7 +402,7 @@
                                                         <li><i class="fa fa-clock-o"></i> 1:33 pm</li>
                                                         <li><i class="fa fa-calendar"></i> DEC 5, 2013</li>
                                                     </ul>
-                                                    <img src="images/product-details/rating.png" alt="" style="width:80px; height:15px;">
+                                                    <img src="../images/product-details/rating.png" alt="" style="width:80px; height:15px;">
                                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                                                         aliquip ex ea commodo consequat.</p>
                                                     <a class="btn btn-primary" href=""><i class="fa fa-reply"></i>phát lại</a>
@@ -410,7 +410,7 @@
                                             </li>
                                             <li class="media second-media">
                                                 <a class="pull-left" href="#">
-                                                    <img class="media-object" src="images/blog/man-three.jpg" alt="">
+                                                    <img class="media-object" src="../images/blog/man-three.jpg" alt="">
                                                 </a>
                                                 <div class="media-body">
                                                     <ul class="sinlge-post-meta">
@@ -418,7 +418,7 @@
                                                         <li><i class="fa fa-clock-o"></i> 1:33 pm</li>
                                                         <li><i class="fa fa-calendar"></i> DEC 5, 2013</li>
                                                     </ul>
-                                                    <img src="images/product-details/rating.png" alt="" style="width:80px; height:15px;">
+                                                    <img src="../images/product-details/rating.png" alt="" style="width:80px; height:15px;">
                                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                                                         aliquip ex ea commodo consequat.</p>
                                                     <a class="btn btn-primary" href=""><i class="fa fa-reply"></i>phát lại</a>
@@ -426,7 +426,7 @@
                                             </li>
                                             <li class="media">
                                                 <a class="pull-left" href="#">
-                                                    <img class="media-object" src="images/blog/man-four.jpg" alt="">
+                                                    <img class="media-object" src="../images/blog/man-four.jpg" alt="">
                                                 </a>
                                                 <div class="media-body">
                                                     <ul class="sinlge-post-meta">
@@ -434,7 +434,7 @@
                                                         <li><i class="fa fa-clock-o"></i> 1:33 pm</li>
                                                         <li><i class="fa fa-calendar"></i> DEC 5, 2013</li>
                                                     </ul>
-                                                    <img src="images/product-details/rating.png" alt="" style="width:80px; height:15px;">
+                                                    <img src="../images/product-details/rating.png" alt="" style="width:80px; height:15px;">
                                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                                                         aliquip ex ea commodo consequat.</p>
                                                     <a class="btn btn-primary" href=""><i class="fa fa-reply"></i>phát lại</a>
@@ -499,7 +499,7 @@
 											</span>
                                         </div>
                                         <a href="">
-                                            <img src="images/blog/blog-one.jpg" alt="">
+                                            <img src="../images/blog/blog-one.jpg" alt="">
                                         </a>
                                         <p>
                                             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
@@ -537,7 +537,7 @@
 											<input type="email" placeholder="Địa chỉ email"/>
 										</span>
                                         <textarea name=""></textarea>
-                                        <b>Xếp hạng: </b> <img src="images/product-details/rating.png" alt="" />
+                                        <b>Xếp hạng: </b> <img src="../images/product-details/rating.png" alt="" />
                                         <button type="button" class="btn btn-default pull-right">
 											Thêm
 										</button>
@@ -561,7 +561,7 @@
                                         <div class="product-image-wrapper">
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
-                                                    <img src="images/home/recommend1.jpg" alt="" />
+                                                    <img src="../images/home/recommend1.jpg" alt="" />
                                                     <h2>$56</h2>
                                                     <p>Easy Polo Black Edition</p>
                                                     <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
@@ -573,7 +573,7 @@
                                         <div class="product-image-wrapper">
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
-                                                    <img src="images/home/recommend2.jpg" alt="" />
+                                                    <img src="../images/home/recommend2.jpg" alt="" />
                                                     <h2>$56</h2>
                                                     <p>Easy Polo Black Edition</p>
                                                     <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
@@ -585,7 +585,7 @@
                                         <div class="product-image-wrapper">
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
-                                                    <img src="images/home/recommend3.jpg" alt="" />
+                                                    <img src="../images/home/recommend3.jpg" alt="" />
                                                     <h2>$56</h2>
                                                     <p>Easy Polo Black Edition</p>
                                                     <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
@@ -599,7 +599,7 @@
                                         <div class="product-image-wrapper">
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
-                                                    <img src="images/home/recommend1.jpg" alt="" />
+                                                    <img src="../images/home/recommend1.jpg" alt="" />
                                                     <h2>$56</h2>
                                                     <p>Easy Polo Black Edition</p>
                                                     <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
@@ -611,7 +611,7 @@
                                         <div class="product-image-wrapper">
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
-                                                    <img src="images/home/recommend2.jpg" alt="" />
+                                                    <img src="../images/home/recommend2.jpg" alt="" />
                                                     <h2>$56</h2>
                                                     <p>Easy Polo Black Edition</p>
                                                     <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
@@ -623,7 +623,7 @@
                                         <div class="product-image-wrapper">
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
-                                                    <img src="images/home/recommend3.jpg" alt="" />
+                                                    <img src="../images/home/recommend3.jpg" alt="" />
                                                     <h2>$56</h2>
                                                     <p>Easy Polo Black Edition</p>
                                                     <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
@@ -664,7 +664,7 @@
                             <div class="video-gallery text-center">
                                 <a href="#">
                                     <div class="iframe-img">
-                                        <img src="images/home/iframe1.png" alt="" />
+                                        <img src="../images/home/iframe1.png" alt="" />
                                     </div>
                                     <div class="overlay-icon">
                                         <i class="fa fa-play-circle-o"></i>
@@ -679,7 +679,7 @@
                             <div class="video-gallery text-center">
                                 <a href="#">
                                     <div class="iframe-img">
-                                        <img src="images/home/iframe2.png" alt="" />
+                                        <img src="../images/home/iframe2.png" alt="" />
                                     </div>
                                     <div class="overlay-icon">
                                         <i class="fa fa-play-circle-o"></i>
@@ -694,7 +694,7 @@
                             <div class="video-gallery text-center">
                                 <a href="#">
                                     <div class="iframe-img">
-                                        <img src="images/home/iframe3.png" alt="" />
+                                        <img src="../images/home/iframe3.png" alt="" />
                                     </div>
                                     <div class="overlay-icon">
                                         <i class="fa fa-play-circle-o"></i>
@@ -709,7 +709,7 @@
                             <div class="video-gallery text-center">
                                 <a href="#">
                                     <div class="iframe-img">
-                                        <img src="images/home/iframe4.png" alt="" />
+                                        <img src="../images/home/iframe4.png" alt="" />
                                     </div>
                                     <div class="overlay-icon">
                                         <i class="fa fa-play-circle-o"></i>
@@ -722,7 +722,7 @@
                     </div>
                     <div class="col-sm-3">
                         <div class="address">
-                            <img src="images/home/map.png" alt="" />
+                            <img src="../images/home/map.png" alt="" />
                             <p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
                         </div>
                     </div>
@@ -847,12 +847,12 @@
             })
         })
     </script>
-    <script src="js/jquery.js"></script>
-    <script src="js/price-range.js"></script>
-    <script src="js/jquery.scrollUp.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.prettyPhoto.js"></script>
-    <script src="js/main.js"></script>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/price-range.js"></script>
+    <script src="../js/jquery.scrollUp.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.prettyPhoto.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 
 </html>

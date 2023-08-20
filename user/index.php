@@ -3,6 +3,6 @@ if (isset($_GET['controller'])) {
    $controller=$_GET['controller'];
 
 }else{
-    $controller="login";
+    $controller="home";
 }
 include "controller/c_".$controller.".php";

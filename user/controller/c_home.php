@@ -1,2 +1,2 @@
 <?php
-include "view/v_hone.php";
+include "view/v_home.php";

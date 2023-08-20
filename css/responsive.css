@@ -3,36 +3,7 @@
 
 }
 
-/* md */
-@media (min-width: 992px) and (max-width: 1199px) {
- 
- 
-.usa{
-	margin-right: 0;
-} 
 
-.shipping img{
-	width: 100%;
-}
-
-.searchform input{
-	width: 160px;
-}
-
-.product-information span span{
-	width: 100%;
-}
-
-#similar-product .carousel-inner .item img{
-	width: 65px;
-}
-
-#cart_items .cart_info .cart_description h4, 
-#cart_items .cart_info .cart_description p{
-	text-align: center;
-} 
-
-}
 
 
 /* sm */
@@ -40,7 +11,20 @@
 	.left-sidebar{
 		display: none;
 	}
-	
+	#click_none_menu{
+		display: none;
+	}
+	.mid_body {
+		display: none;
+	}
+	.body_account_row{
+		display:unset;
+	}
+	#click_menu{   
+        display: block;
+        width: 100%;
+        padding: 0px 0px 0px 40px;
+    }
 .shop-menu ul li a{
 	padding-left: 0;
 }
@@ -126,11 +110,42 @@
 }
 
 /* xs */
-@media  (max-width: 767px) {
+@media  (max-width: 768px) {
 	.footer-widget{
 		display: none;
 	}
-	
+	.body_account_row{
+		display:unset;
+		background-color: white;
+	}
+	.body_acount_right_form_right{
+		margin-bottom: 50px;
+	}
+
+	.body_acount_right_form_left{
+margin-bottom: 20px;
+	}
+.body_acount_right form{
+		display: unset;
+		margin-bottom: 450px;
+		padding-bottom: 450px;
+	}
+	.body_acount_right{
+		max-height: fit-content;
+		border: 1px solid rgb(176, 172, 165);
+	}
+
+#click_none_menu{
+display: none;
+}
+#click_menu{
+display: flex;
+	display: block;
+	padding: 0px 0px 0px 40px;
+}
+.mid_body{
+	display: none;
+}
 
 .header_top .col-sm-6:first-child{
 	display: inline-block;
@@ -194,6 +209,7 @@
 .dropdown .fa-angle-down{
 	display: none;
 }
+
 
 ul.sub-menu{
   position: relative;
@@ -535,3 +551,35 @@ ul.sub-menu{
 }
 
 }
+/* md */
+@media (min-width: 992px) and (max-width: 1199px) {
+
+ #click_none_menu{
+	display: block;
+ }
+	.usa{
+		margin-right: 0;
+	} 
+	
+	.shipping img{
+		width: 100%;
+	}
+	
+	.searchform input{
+		width: 160px;
+	}
+	
+	.product-information span span{
+		width: 100%;
+	}
+	
+	#similar-product .carousel-inner .item img{
+		width: 65px;
+	}
+	
+	#cart_items .cart_info .cart_description h4, 
+	#cart_items .cart_info .cart_description p{
+		text-align: center;
+	} 
+	
+	}

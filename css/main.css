@@ -590,10 +590,14 @@ ul.sub-menu {
   position: absolute;
   right: 40%;
   top: 52%;
+  width: 172px;
+  height: 172px;
 }
 
 .girl {
   margin-left: 0;
+  width: 484px;
+  height: 441px;
 }
 
 .item h1 {
@@ -1137,7 +1141,13 @@ align-items: center;
 .recommended-item-control i:hover {
   background: #ccccc6;
 }
-
+#click_none_menu{
+  display: block;
+}
+ #click_menu{
+      display: none;
+  
+  }
 .size_color{
   display: flex;
 list-style-type: none;
@@ -1157,9 +1167,11 @@ list-style-type: none;
   margin-bottom: 50px;
 }
 #body_account{
-  margin-top:150px ;
+  margin-top:50px ;
   margin-bottom: 150px;
-  background-color: rgb(255, 255, 255); width:100%; height:400px;
+  background-color: rgb(255, 255, 255);
+   width:100%; 
+ 
 }
 .body_acount_left {
  border: 1px solid gainsboro;
@@ -1235,7 +1247,7 @@ margin-left: 20px;
 }
 .body_acount_right_form_right{
   width: 300px;
-  margin-left: 30px;
+  margin-left: 20px;
 }
 .body_acount_right_form_right li input{
   background-color: white;
@@ -1649,7 +1661,7 @@ margin-left: 10%;
 /*************************
 *******404 CSS******
 **************************/
-.logo{
+.logo img{
   width: 150px;
   height:60px
 }
