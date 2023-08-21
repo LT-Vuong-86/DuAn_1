@@ -21,7 +21,7 @@
             <img src="images/404/404.png" class="img-responsive" alt="" />
             <h1><b>OPPS!</b> Chúng tôi không thể tìm thấy trang này</h1>
             <p>Uh... Vì vậy, có vẻ như bạn đã phá vỡ một cái gì đó. Trang bạn đang tìm kiếm đã xuất hiện và biến mất.</p>
-            <h2><a href="index.html">Đưa tôi về nhà</a></h2>
+            <h2><a href="?controller=home">Quay lại</a></h2>
         </div>
     </div>
 

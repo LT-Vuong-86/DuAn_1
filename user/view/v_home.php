@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Home | </title>
+    <title>Home</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/prettyPhoto.css" rel="stylesheet">
@@ -82,8 +82,8 @@
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
                             <li><a href="?controller=account"><i class="fa fa-user"></i> Tài khoản</a></li>
-                                <li><a href=""><i class="fa fa-star"></i> danh sách yêu thích</a></li>
-                                <li><a href="?controller=checkout"><i class="fa fa-crosshairs"></i> thanh toán</a></li>
+                                <li><a href=""><i class="fa fa-star"></i>Danh sách yêu thích</a></li>
+                                <li><a href="?controller=checkout"><i class="fa fa-crosshairs"></i>Thanh toán</a></li>
                                 <li><a href="?controller=cart"><i class="fa fa-shopping-cart"></i>Giỏ hàng</a></li>
                                 <li><a href="?controller=login"><i class="fa fa-lock"></i>Đăng nhập</a></li>
                              </ul>
@@ -327,7 +327,7 @@
                                 </div>
                                 <div class="choose">
                                     <ul class="nav nav-pills nav-justified">
-                                        <li><a href="#"><i class="fa fa-plus-square"></i>   Thêm vào danh sách yêu thích</a></li>
+                                        <li><a href="#"><i class="fa fa-plus-square"></i>Thêm vào danh sách yêu thích</a></li>
                                         <li><a href="#"><i class="fa fa-plus-square"></i>Thêm vào để so sánh</a></li>
                                     </ul>
                                 </div>
