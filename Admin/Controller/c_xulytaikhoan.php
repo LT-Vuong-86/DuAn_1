@@ -2,7 +2,8 @@
 if(isset($_SESSION['ss_admin'])){
     $user = $db->get('admin', array('id'=>$_SESSION['ss_admin']));
     if($user[0]['level']==0){
-        
+        $vt= $_GET['vt'];
+
         $method = $_GET['method'];
         $id = $_GET['id'];
         switch ($method) {
@@ -56,10 +57,11 @@ if(isset($_SESSION['ss_admin'])){
                             'vaitro'=>$vaitro,
                             'diachi'=>$diachi
                         ),array('id'=>$id));
-                        header('location: ?controller=nhanvien');
+                       
+                        header('location: ?controller='.$vt);
                     }
                 }
-                require 'View_web/v_suanhanvien.php';
+                require 'View_web/v_suataikhoan.php';
                 break;
 
             default:

@@ -63,10 +63,10 @@
             border-bottom-left-radius: 30px;
         }
 
-        .navigation ul li:hover,
+        /* .navigation ul li:hover,
         .navigation ul li.hovered{
             background: var(--white);
-        }
+        } */
 
         .navigation ul li:nth-child(1){
             margin-bottom: 40px;
@@ -82,10 +82,10 @@
             color: var(--white);
         }
 
-        .navigation ul li:hover a,
+        /* .navigation ul li:hover a,
         .navigation ul li.hovered a{
             color: var(--black);
-        }
+        } */
 
         .navigation ul li a .icon{
             position: relative;
@@ -112,7 +112,7 @@
             text-align: start;
             white-space: nowrap;
         }
-
+/* 
         .navigation ul li:hover a::before,
         .navigation ul li.hovered a::before{
             content: '';
@@ -125,8 +125,8 @@
             border-radius: 50%;
             box-shadow: 35px 35px 0 10px var(--white);
             pointer-events: none;
-        }
-
+        } */
+/* 
         .navigation ul li:hover a::after,
         .navigation ul li.hovered a::after{
             content: '';
@@ -139,7 +139,7 @@
             border-radius: 50%;
             box-shadow: 35px -35px 0 10px var(--white);
             pointer-events: none;
-        }
+        } */
 
         .main{
             position: absolute;
@@ -200,10 +200,18 @@
             border: 1px solid var(--black);
         }
 
-        .search label i{
+        .search label span:hover{
+            cursor: pointer;
+            opacity: 0.6;
+        }
+        .search label span{
             position: absolute;
             top: 0;
-            left: 10px;
+            margin-top: -11px;
+            border-radius: 45%;
+            margin-right: -10px;
+            right: 10px;
+           cursor: pointer;
             font-size: 1.2rem;
         }
 
@@ -420,6 +428,24 @@
             text-shadow: 0 0 10px crimson;
             font-weight: bold;
         }
+        .active_admin{
+            background: var(--yellow);
+        }
+        .search_codition{
+            position: absolute;
+        }
+        .search_codition h4 {
+            margin-left: -120px;
+           
+        }
+        .search_codition select{
+            margin-left: -120px;
+            
+        }
+       .toggle form {
+            width:2000px ;
+            display: flex;
+        }
 
     </style>
 </head>
@@ -477,7 +503,7 @@
                 </li>
                 
                 <li>
-                    <a href="?controller=khachhang">
+                    <a href="?controller=khachhang" class="active_admin">
                         <span class="icon"><i class='bx bx-user nav_icon'></i></span>
                         <span class="title">Khách hàng</span>
                     </a>
@@ -497,14 +523,22 @@
                 <div class="toggle">
                     <i class='bx bx-menu' ></i>
                 </div>
-
+                <form action="">
+                <div class="search_codition">
+                    <h4>Tìm kiếm theo</h4>
+                    <select name="" id="">
+                        <option value="sdt">SĐT</option>
+                        <option value="tài khoản">Tài khoản</option>
+                        <option value="name">Tên</option>
+                    </select>
+                </div>
                 <div class="search">
                     <label for="">
                         <input type="text" placeholder="Tìm kiếm...">
-                        <i class='bx bx-search'></i>
+                        <span><input type="submit" name="search"></span>
                     </label>
                 </div>
-
+                </form>
                 <div class="user">
                     <img src="assets/img/iconE.png" alt="">
                 </div>
@@ -525,6 +559,7 @@
                                 <td>SĐT</td>
                                 <td>Email</td>
                                 <td>Nơi ở</td>
+                                <td>Vai trò</td>
                                 <td>Thao tác</td>
                             </tr>
                         </thead>
@@ -536,13 +571,20 @@
                             <tr>
                                 <td><?php echo $i++?></td>
                                 <td><?php echo $value['username']?></td>
-                                <td><?php echo $value['name']?></td>
+                                <td><?php echo $value['full_name']?></td>
                                 <td><?php echo $value['sdt']?></td>
                                 <td><?php echo $value['email']?></td>
                                 <td><?php echo $value['diachi']?></td>
+                                <td><?php echo $value['vaitro']?></td>
                                 <td class="xuly">
-                                    <a  class="xoa" onclick="return confirm('Xóa nhân viên này?');" 
-                                        href="?controller=xulynhanvien&method=xoa&id=<?php echo $value['id']?>">
+                                <a  class="sua" onclick="return confirm('Sửa khách hàng này?');" 
+                                        href="?controller=xulytaikhoan&method=sua&id=<?php echo $value['id']?>&vt=khachhang">
+                                        <button  class="noselect">
+                                            <span class="textsua">Sửa</span>
+                                        </button>
+                                    </a>
+                                    <a  class="xoa" onclick="return confirm('Xóa khách hàng này?');" 
+                                        href="?controller=xulytaikhoan&method=xoa&id=<?php echo $value['id']?>khachhang">
                                         <button  class="noselect">
                                             <span class="textxoa">Xóa</span>
                                         </button>
@@ -559,14 +601,14 @@
 
     <script>
         //add hovered
-        let list = document.querySelectorAll(".navigation li");
-        function activeLink(){
-            list.forEach(item=>{
-                item.classList.remove("hovered");
-            });
-            this.classList.add("hovered");
-        }
-        list.forEach((item) => item.addEventListener("mouseover", activeLink));
+        // let list = document.querySelectorAll(".navigation li");
+        // function activeLink(){
+        //     list.forEach(item=>{
+        //         item.classList.remove("hovered");
+        //     });
+        //     this.classList.add("hovered");
+        // }
+        // list.forEach((item) => item.addEventListener("mouseover", activeLink));
 
         //menu toggle
         let toggle = document.querySelector(".toggle");

@@ -62,10 +62,10 @@
             border-bottom-left-radius: 30px;
         }
 
-        .navigation ul li:hover,
+        /* .navigation ul li:hover,
         .navigation ul li.hovered{
             background: var(--white);
-        }
+        } */
 
         .navigation ul li:nth-child(1){
             margin-bottom: 40px;
@@ -81,10 +81,10 @@
             color: var(--white);
         }
 
-        .navigation ul li:hover a,
+        /* .navigation ul li:hover a,
         .navigation ul li.hovered a{
             color: var(--black);
-        }
+        } */
 
         .navigation ul li a .icon{
             position: relative;
@@ -112,7 +112,7 @@
             white-space: nowrap;
         }
 
-        .navigation ul li:hover a::before,
+        /* .navigation ul li:hover a::before,
         .navigation ul li.hovered a::before{
             content: '';
             position: absolute;
@@ -124,8 +124,8 @@
             border-radius: 50%;
             box-shadow: 35px 35px 0 10px var(--white);
             pointer-events: none;
-        }
-
+        } */
+/* 
         .navigation ul li:hover a::after,
         .navigation ul li.hovered a::after{
             content: '';
@@ -138,7 +138,7 @@
             border-radius: 50%;
             box-shadow: 35px -35px 0 10px var(--white);
             pointer-events: none;
-        }
+        } */
 
         .main{
             position: absolute;
@@ -199,10 +199,18 @@
             border: 1px solid var(--black);
         }
 
-        .search label i{
+        .search label span:hover{
+            cursor: pointer;
+            opacity: 0.6;
+        }
+        .search label span{
             position: absolute;
             top: 0;
-            left: 10px;
+            margin-top: -11px;
+            border-radius: 45%;
+            margin-right: -10px;
+            right: 10px;
+           cursor: pointer;
             font-size: 1.2rem;
         }
 
@@ -335,24 +343,24 @@
             color: var(--black );
         }
 
-        .details .recentstaff table tr td{
+        /* .details .recentstaff table tr td{
             padding: 10px;
-        }
+        } */
 
         .details .recentstaff table tr td:last-child {
             text-align: center;
         }
-
+        .details .recentstaff table tr td:nth-child(4){
+            text-align:center ;
+            width: 300px;
+        }
         .details .recentstaff table tr td:nth-child(1),
         .details .recentstaff table tr td:nth-child(2),
-        .details .recentstaff table tr td:nth-child(4),
+        
         .details .recentstaff table tr td:nth-child(5),
         .details .recentstaff table tr td:nth-child(6),
-        .details .recentstaff table tr td:nth-child(8) {
-            text-align: center;
-        }
-
-        .details .recentstaff table tr td:nth-child(7){
+        .details .recentstaff table tr td:nth-child(7)
+         {
             text-align: center;
         }
 
@@ -490,7 +498,7 @@
             color: crimson;
         }
 
-        button {
+        /* button {
         width: auto;
         height: auto;
         cursor: pointer;
@@ -499,7 +507,7 @@
         border: none;
         border-radius: 5px;
         background: transparent;
-        }
+        } */
 
         button, button span {
             transition: 0.02s;
@@ -518,6 +526,42 @@
         .details .recentstaff td.xuly button span.textxoa:hover{
             text-shadow: 0 0 10px black;
             font-weight: bold;
+        }
+        .active_admin{
+            background: var(--yellow);
+        }
+        .details .recentstaff td a.sua{
+            float: left;
+            text-decoration: none;
+        }
+
+        .details .recentstaff td a.sua:hover{
+            color: greenyellow;
+        }
+
+        .details .recentstaff td a.xoa{
+            float: right;
+            text-decoration: none;
+        }
+
+        .details .recentstaff td a.xoa:hover{
+            color: crimson;
+        }
+        .search_codition{
+            position: absolute;
+        }
+        .search_codition h4 {
+            margin-left: -120px;
+           
+        }
+        .search_codition select{
+            margin-left: -120px;
+            
+        }
+       .toggle form {
+            width:2000px ;
+            display: flex;
+         
         }
     </style>
 </head>
@@ -554,7 +598,7 @@
                 </li>
 
                 <li>
-                    <a href="?controller=donhang">
+                    <a href="?controller=donhang" class="active_admin" >
                         <span class="icon"><i class='bx bx-notepad'></i></span>
                         <span class="title">Đơn hàng</span>
                     </a>
@@ -595,112 +639,37 @@
                 <div class="toggle">
                     <i class='bx bx-menu'></i>
                 </div>
-
+                <form action="" method=post>
+                <div class="search_codition">
+                    <h4>Tìm kiếm theo</h4>
+                    <select name="codition_search" id="">
+                        <option value="sdt" selected >SĐT</option>
+                        <option value="tinhtrang">Tình trạng</option>
+                        <option value="username">Tên</option>
+                    </select>
+                </div>
                 <div class="search">
                     <label for="">
-                        <input type="text" placeholder="Tìm kiếm...">
-                        <i class='bx bx-search'></i>
+                        <input type="text" name="content" placeholder="Tìm kiếm...">
+                        <span><input  type="submit"  id="myInput" name="search"></span>
                     </label>
                 </div>
-
+                </form>
                 <div class="user">
                     <img src="assets/img/iconE.png" alt="">
                 </div>
             </div>
 
-            <!-- <div class="cardBox">
-                <div class="card">
-                    <div>
-                        <div class="numbers">1513</div>
-                        <div class="cardName">Lượt xem</div>
-                    </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="numbers">100</div>
-                        <div class="cardName">Giảm giá</div>
-                    </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="cart-outline"></ion-icon>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="numbers">20</div>
-                        <div class="cardName">Bình luận</div>
-                    </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="chatbubble-outline"></ion-icon>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="numbers">15000</div>
-                        <div class="cardName">Lợi nhuận</div>
-                    </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="cash-outline"></ion-icon>
-                    </div>
-                </div>
-            </div> -->
+          
 
             <div class="details">
                 <div class="recentstaff">
                     <div class="cardHeader">
                         <h2>Quản lý đơn hàng</h2>
+                        <a href="?controller=addnhanvien" class="btn">Thêm đơn hàng</a>
                     </div>
 
-                    <!-- <table>
-                        <thead>
-                            <tr>
-                                <td>STT</td>
-                                <td>Tên khách hàng</td>                                
-                                <td>Số lượng đơn hàng</td>
-                                <td>Tổng tiền</td>
-                                <td>Tình trạng</td>
-                                <td>Thao tác</td>
-                                <td>Chi tiết</td>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Hoàng Đức Tiến</td>
-                                <td>2</td>
-                                <td>60.000đ</td>
-                                <td><span class="status check">Chưa xác nhận</span></td>
-                                <td class="xuly">
-                                    <a  class="sua" onclick="return confirm('Sửa sản phẩm này?');" 
-                                        href="#">
-                                        <button  class="noselect">
-                                            <span class="textsua">Sửa</span>
-                                        </button>
-                                    </a>
-
-                                    <a  class="xoa" onclick="return confirm('Xóa sản phẩm này?');" 
-                                        href="#">
-                                        <button  class="noselect">
-                                            <span class="textxoa">Xóa</span>
-                                        </button>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a class="chitiet" href="?controller=chitiet"><i class='bx bx-right-arrow-alt'></i></a>
-                                </td>
-                            </tr> 
-                        </tbody>
-                    </table>-->
+                   
 
                     
                         <table>
@@ -710,55 +679,100 @@
                             <thead>
                                 <tr>
                                     <td>STT</td>
-                                    <td>Họ và tên</td>
+                                    <td>Name</td>
+                                    <td>Số điện thoại</td>    
                                     <td>Địa chỉ</td>
-                                    <td>Số điện thoại</td>
-                                    <td>Trạng thái</td>
+                                    <td>Tổng</td>
+                                    <td>Tình trạng</td>
                                     <td>Thao tác</td>
                                     <td>Chi tiết</td>
+                                   
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="myTable">
                                 <?php
                                     $i = 1;
-                                    foreach ($khachhang as $key => $value) {?>
-                                <tr>
-                                    <td><?php echo $i++ ?></td>
-                                    <td><?php echo $value['name'] ?></td>
-                                    <td><?php echo $value['diachi'] ?></td>
-                                    <td><?php echo $value['sdt'] ?></td>
-                                    <td class="text_warning" style="color:red;">
-                                        <?php
-                                            foreach($dhcho as $key => $value){
-                                                echo $value['tinhtrang_id'];
-                                            }
-                                        ?>
+                                    foreach ($donhang as $key => $value) {
+                                         $khachhang = $db->get('khachhang',array('id_kh'=>$value['id_kh']));
+                                         $tinhtrang=$db->get('tinhtrang_dh',array('id_tinhtrang'=>$value['id_tinhtrang']));
+                                      if (isset($_POST['search'])) {
+                                        $codition_search=$_POST['codition_search'];
+                                        $content=$_POST['content'];
+                                        if ($codition_search=="tinhtrang") {
+                                           $tinhtrang=$db->get_like('tinhtrang_dh',$codition_search,$content);
+                                       
+                                        }else{
+                                        $khachhang=$db->get_like('khachhang',$codition_search,$content);
+                                        }
+                                    }  ?>
+                                    <tr id="tr">
+                                    <td class='td'><?php echo $i++ ?></td>
+                                    <td class='td'><?php echo $khachhang[0]['username'] ?></td>
+                                    <td class='td'><?php echo $khachhang[0]['sdt']  ?></td>
+                                    <td class='td'><?php echo $khachhang[0]['diachi']  ?></td>
+                                    <td class='td'><?php echo "tổng đơn giá trong giỏ hàng" ?></td>
+                                    <td class='td'><?php echo $tinhtrang[0]['tinhtrang']; ?>
+                                    <a class="status" href="?controller=xulydh&method=status&id=<?php echo $value['id_donhang']?>&tt=<?php echo $value['id_tinhtrang']?>">
+                                        <?php switch($value['id_tinhtrang']){
+                                            case '1':
+                                                echo "<input type='submit' style='background-color:green ; cursor: pointer;' value='Duyệt'>";
+                                                break;
+                                           case '2':
+                                            echo" <input type='submit' style='background-color:red ; cursor: pointer;' value='Hủy'>";
+                                            break;
+                                            case '3':
+                                                echo" <input type='submit' style='background-color:red ; cursor: pointer;' value='Hủy'>";
+                                                break;
+                                            
+                                            case '4':
+                                                echo "";
+                                                break;
+                                              }  ?></a>
+                                   
                                     </td>
-                                    <td>
-                                        <a style="text-decoration: none" href="?controller=chitietdh&id=<?php echo $value['id'] ?>">Xử lí</a>
-                                    </td>
-                                    <td>
-                                        <a class="chitiet" href="?controller=chitiet"><i class='bx bx-right-arrow-alt'></i></a>
-                                    </td>
+
+                                    <td class='td' class="xuly">
+                                   
+                                        <button  class="noselect">
+                                        <a  class="sua" onclick="return confirm('Sửa nhân viên này?');" 
+                                     href="?controller=xulydh&method=sua&id=<?php echo $value['id_donhang']?>">
+                                            <span class="textsua">Sửa</span>
+                                            </a>
+                                        </button>
+                                    
+
+                                    
+                                        <button  class="noselect">
+                                        <a  class="xoa" onclick="return confirm('Xóa nhân viên này?');" 
+                                        href="?controller=xulydh&method=xoa&id=<?php echo $value['id_donhang']?>">
+                                            <span class="textxoa">Xóa</span>
+                                            </a>
+                                        </button>
+                                    
+                                </td class='td'>
+                                <td><a class="chitiet" href="?controller=chitietdh&id=<?php echo $value['id_donhang']?>"><h2><i class='bx bx-right-arrow-alt'></i></h2></a></td>
+                                   
                                 </tr>
                                 <?php } ?>
                             </tbody>
+                            <?php } ?>
                         </table>
-                    <?php }?>
+                    
                 </div>
             </div>
         </div>
     </div>
 
     <script>
+  
         let list = document.querySelectorAll(".navigation li");
-        function activeLink(){
-            list.forEach(item=>{
-                item.classList.remove("hovered");
-            });
-            this.classList.add("hovered");
-        }
-        list.forEach((item) => item.addEventListener("mouseover", activeLink));
+        // function activeLink(){
+        //     list.forEach(item=>{
+        //         item.classList.remove("hovered");
+        //     });
+        //     this.classList.add("hovered");
+        // }
+        // list.forEach((item) => item.addEventListener("mouseover", activeLink));
 
         //menu toggle
         let toggle = document.querySelector(".toggle");

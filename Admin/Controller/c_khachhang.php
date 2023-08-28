@@ -1,7 +1,8 @@
 <?php
-    if(isset($_POST['ss_admin'])){
+    if(isset($_SESSION['ss_admin'])){
         $user = $db->get('admin', array('id'=>$_SESSION['ss_admin']));
-        $data_khachhang = $db->get('khachhang', array());
+        $vaitro='user';
+        $data_khachhang = $db->get('taikhoan', array("vaitro"=>$vaitro));
     }else{
         header('location: ?controller=login');
     }

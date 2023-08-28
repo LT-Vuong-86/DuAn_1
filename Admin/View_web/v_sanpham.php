@@ -63,10 +63,10 @@
             border-bottom-left-radius: 30px;
         }
 
-        .navigation ul li:hover,
+        /* .navigation ul li:hover,
         .navigation ul li.hovered{
             background: var(--white);
-        }
+        } */
 
         .navigation ul li:nth-child(1){
             margin-bottom: 40px;
@@ -82,10 +82,10 @@
             color: var(--white);
         }
 
-        .navigation ul li:hover a,
+        /* .navigation ul li:hover a,
         .navigation ul li.hovered a{
             color: var(--black);
-        }
+        } */
 
         .navigation ul li a .icon{
             position: relative;
@@ -113,7 +113,7 @@
             white-space: nowrap;
         }
 
-        .navigation ul li:hover a::before,
+        /* .navigation ul li:hover a::before,
         .navigation ul li.hovered a::before{
             content: '';
             position: absolute;
@@ -125,9 +125,9 @@
             border-radius: 50%;
             box-shadow: 35px 35px 0 10px var(--white);
             pointer-events: none;
-        }
+        } */
 
-        .navigation ul li:hover a::after,
+        /* .navigation ul li:hover a::after,
         .navigation ul li.hovered a::after{
             content: '';
             position: absolute;
@@ -139,7 +139,7 @@
             border-radius: 50%;
             box-shadow: 35px -35px 0 10px var(--white);
             pointer-events: none;
-        }
+        } */
 
         .main{
             position: absolute;
@@ -200,10 +200,18 @@
             border: 1px solid var(--black);
         }
 
-        .search label i{
+        .search label span:hover{
+            cursor: pointer;
+            opacity: 0.6;
+        }
+        .search label span{
             position: absolute;
             top: 0;
-            left: 10px;
+            margin-top: -11px;
+            border-radius: 45%;
+            margin-right: -10px;
+            right: 10px;
+           cursor: pointer;
             font-size: 1.2rem;
         }
 
@@ -343,15 +351,19 @@
         .details .recentstaff table tr td:last-child {
             text-align: center;
         }
-
+        .details .recentstaff table tr td:nth-child(7),
         .details .recentstaff table tr td:nth-child(1),
         .details .recentstaff table tr td:nth-child(3),
         .details .recentstaff table tr td:nth-child(4),
         .details .recentstaff table tr td:nth-child(5),
-        .details .recentstaff table tr td:nth-child(6),
-        .details .recentstaff table tr td:nth-child(7),
-        .details .recentstaff table tr td:nth-child(8){
+        .details .recentstaff table tr td:nth-child(6),     
+        .details .recentstaff table tr td:nth-child(8)
+        {
             text-align: center;
+            max-width: 150px;
+        }
+        .details .recentstaff table tr td:nth-child(9){
+            max-width: 60px;
         }
 
         .details .recentstaff table tr td:nth-child(2){
@@ -421,7 +433,24 @@
             text-shadow: 0 0 10px black;
             font-weight: bold;
         }
-
+        .active_admin{
+            background: var(--yellow);
+        }
+        .search_codition{
+            position: absolute;
+        }
+        .search_codition h4 {
+            margin-left: -120px;
+           
+        }
+        .search_codition select{
+            margin-left: -120px;
+            
+        }
+       .toggle form {
+            width:2000px ;
+            display: flex;
+        }
     </style>
 </head>
 <body>
@@ -450,7 +479,7 @@
                 </li>
 
                 <li>
-                    <a href="?controller=sanpham">
+                    <a href="?controller=sanpham" class="active_admin">
                         <span class="icon"><i class='bx bxl-product-hunt'></i></span>
                         <span class="title">Sản phẩm</span>
                     </a>
@@ -498,14 +527,22 @@
                 <div class="toggle">
                     <i class='bx bx-menu' ></i>
                 </div>
-
+                <form action="">
+                <div  class="search_codition">
+                    <h4>Tìm kiếm theo</h4>
+                    <select name="" id="">
+                        <option value="sdt">SĐT</option>
+                        <option value="tài khoản">Tài khoản</option>
+                        <option value="name">Tên</option>
+                    </select>
+                </div>
                 <div class="search">
                     <label for="">
                         <input type="text" placeholder="Tìm kiếm...">
-                        <i class='bx bx-search'></i>
+                        <span><input type="submit" name="search"></span>
                     </label>
                 </div>
-
+                </form>
                 <div class="user">
                     <img src="assets/img/iconE.png" alt="">
                 </div>
@@ -567,52 +604,52 @@
                     <table>
                         <thead>
                             <tr>
-                                <td>STT</td>
-                                <td>Danh mục</td>
+                                <td>STT</td>                                
                                 <td>Tên sản phẩm</td>
                                 <td>Ảnh sản phẩm</td>
                                 <td>Tồn kho</td>
                                 <td>Giá</td>
                                 <td>Xuất xứ</td>
-                                <td>Trạng thái</td>
+                                <td>Danh mục</td>
                                 <td>Đã bán</td>
                                 <td>Thao tác</td>
-                                <td>Chi tiết</td>
+                                
                             </tr>
                         </thead>
 
                         <tbody>
                             <?php
                                 $i = 1;
-                                foreach($data_sanpham as $key => $value){?>
+                                foreach($data_sanpham as $key => $value){
+                                    $danhmuc =$db->get('danhmuc' ,array('id_danhmuc'=>$value['id_danhmuc']));
+                                    ?>
                             <tr>
-                                <td><?php echo $i++?></td>
-                                <td><?php echo $value['id_dm']?></td>
+                                <td><?php echo $i++?></td> 
                                 <td><?php echo $value['tensanpham']?></td>
-                                <td><img width="100px" src="<?php echo $value['anh']?>" alt=""></td>
+                                <td><img width="100px" src="../images/sanpham/<?php echo $value['anh_chinh']?>" alt=""></td>
                                 <td><?php echo $value['tonkho']?></td>
                                 <td><?php echo $value['gia']?>đ</td>
                                 <td><?php echo $value['xuatxu']?></td>
-                                <td><?php echo $value['trangthai']?></td>
+                                <td><?php echo $danhmuc[0]['danhmuc']?></td>
                                 <td><?php echo $value['daban']?></td>
                                 <td class="xuly">
                                     <a  class="sua" onclick="return confirm('Sửa sản phẩm này?');" 
-                                        href="#">
+                                        href="?controller=xulysanpham&method=sua&id=<?php echo $value['id_sanpham']?>">
                                         <button  class="noselect">
                                             <span class="textsua">Sửa</span>
                                         </button>
                                     </a>
 
                                     <a  class="xoa" onclick="return confirm('Xóa sản phẩm này?');" 
-                                        href="#">
+                                        href="?controller=xulysanpham&method=xoa&id=<?php echo $value['id_sanpham']?>">
                                         <button  class="noselect">
                                             <span class="textxoa">Xóa</span>
                                         </button>
                                     </a>
                                 </td>
-                                <?php }?>
+                                
 
-                                <td><a class="chitiet" href=""><i class='bx bx-right-arrow-alt'></i></a></td>
+                                 <?php } ?>
                             </tr>
                         </tbody>
                     </table>
@@ -623,14 +660,14 @@
 
     <script>
         //add hovered
-        let list = document.querySelectorAll(".navigation li");
-        function activeLink(){
-            list.forEach(item=>{
-                item.classList.remove("hovered");
-            });
-            this.classList.add("hovered");
-        }
-        list.forEach((item) => item.addEventListener("mouseover", activeLink));
+        // let list = document.querySelectorAll(".navigation li");
+        // function activeLink(){
+        //     list.forEach(item=>{
+        //         item.classList.remove("hovered");
+        //     });
+        //     this.classList.add("hovered");
+        // }
+        // list.forEach((item) => item.addEventListener("mouseover", activeLink));
 
         //menu toggle
         let toggle = document.querySelector(".toggle");

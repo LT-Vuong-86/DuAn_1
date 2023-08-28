@@ -24,6 +24,7 @@
             }
         }
         if(!$loi){
+            
             $_SESSION['ss_admin'] = $user[0]['id'];
             header('location: ?controller=trangchu');
         }

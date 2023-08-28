@@ -38,7 +38,7 @@ body{
 }
 
 .container{
-    width: 400px;
+    width: 800px;
     height: auto;
     border: 1px solid black;
     border-radius: 10px;
@@ -172,21 +172,7 @@ h3{
     margin-bottom: 35px;       
 }
 
-@keyframes rotate{
-    100%{
-        background-position: 15% 50%;
-    }
-}
 
-@media (width >= 500px){
-    body{
-        padding: 0;
-    }
-    .container{
-        margin: 0;
-        width: 400px;
-    }
-}
         
     </style>
 </head>
@@ -194,7 +180,7 @@ h3{
 <div class="container">
     <form action="#" method="post">
         <div>
-            <h3 class="text-uppercase text-center">Cập nhật nhân viên</h3>
+            <h3 class="text-uppercase text-center">Cập nhật <?php echo $vt ?></h3>
         </div>
         <h6>Tên người dùng:</h6>
         <div id="username" class="form-control row mx-1">

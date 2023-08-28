@@ -59,7 +59,9 @@
         }
 
         .cardHeader .btn{
-            position: relative;
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
             padding: 5px 10px;
             background: var(--yellow);
             text-decoration: none;
@@ -169,34 +171,9 @@
             padding: 0 10px;
         }
 
-        .search{
-            position: relative;
-            width: 400px;
-            margin: 0 10px;
-        }
+       
 
-        .search label{
-            position: relative;
-            width: 100%;
-        }
-
-        .search label input{
-            width: 100%;
-            height: 40px;
-            border-radius: 40px;
-            padding: 5px 20px;
-            padding-left: 35px;
-            font-size: 18px;
-            outline: none;
-            border: 1px solid var(--black);
-        }
-
-        .search label i{
-            position: absolute;
-            top: 0;
-            left: 10px;
-            font-size: 1.2rem;
-        }
+        
 
         .toggle{
             position: relative;
@@ -236,12 +213,6 @@
             
         </div>
 
-        <div class="search">
-            <label for="">
-                <input type="text" placeholder="Tìm kiếm...">
-                <i class='bx bx-search'></i>
-            </label>
-        </div>
 
         <div class="user">
             <img src="./img/iconE.png" alt="">
@@ -250,66 +221,51 @@
 
     <div class="details">
         <div class="recentstaff">
+        <h2>Trạng thái đơn hàng</h2>
+        <a href="?controller=donhang">Quay lại</a>
+        <form action="" method="post">
             <div class="cardHeader">
-                <h2>Trạng thái đơn hàng</h2>
-                <a href="?controller=donhang" class="btn">Quay lại</a>
+                
+                <button class="btn" name="btn_donhang">Lưu trạng thái</button>
             </div>
-
+            
+        <h2><?php echo $khachhang[0]['username'] ?></h2>
             <table>
                 <thead>
                     <tr>
-                        <td>STT</td>
-                        <td>Tên khách hàng</td>
-                        <td>SĐT</td>
-                        <td>Tên mặt hàng</td>
-                        <td>Số lượng đơn hàng</td>
+                        <td>Mã đơn hàng</td>
+                        <td>Mặt hàng</td>
+                        <td>Số lượng sản phẩm</td>
                         <td>Tổng giá trị</td>
+                        
+                        <td>Ghi chú</td>
+                        <td>Địa chỉ</td>
                         <td>Trạng thái</td>
                     </tr>
                 </thead>
 
                 <tbody>
                     <tr>
-                        <td>1</td>
-                        <td>Hoàng Đức Tiến</td>
-                        <td>0123456789</td>
-                        <td>Quần đùi nam ống rộng</td>
-                        <td>2</td>
-                        <td>60.000đ</td>
-                        <td><span class="status delivered">Đã giao</span></td>
+                        <td><input type="text" disabled value="<?php echo $donhang[0]['id_donhang'] ?>"></td>
+                        <td><input type="text" name="ct_ten" value="<?php echo $ctdonhang[0]['tensanpham'] ?>" ></td>
+                        <td><input type="text" name="ct_sl" value="<?php echo $ctdonhang[0]['soluongsp'] ?>" ></td>
+                        <td><input type="text" name="dh_tong" value="<?php echo $donhang[0]['tong'] ?>" ></td>
+                        
+                        <td><textarea name="ct_ghichu" id="" cols="30" rows="5"><?php echo $ctdonhang[0]['ghichu'] ?></textarea></td>
+                        <td><textarea name="ct_diachi" id="" cols="30" rows="5"><?php echo $khachhang[0]['diachi'] ?></textarea></td>
+                        <td><span class="status delivered">
+                            <select name="dh_tinhtrang" id="">
+                                <option value="1" <?php if ($donhang[0]['id_tinhtrang']==1) {echo "selected";} ?>>Chờ xác nhận</option>
+                                <option value="2"  <?php if ($donhang[0]['id_tinhtrang']==2) {echo "selected";} ?>>Hàng đang giao</option>         
+                                <option value="3"  <?php if ($donhang[0]['id_tinhtrang']==3) {echo "selected";} ?>>Giao thành công</option>
+                                <option value="4"  <?php if ($donhang[0]['id_tinhtrang']==4) {echo "selected";} ?>>Hàng đã bị hủy</option>
+                            </select>
+                        </span></td>
                     </tr>
 
-                    <tr>
-                        <td>2</td>
-                        <td>Hoàng Đức Tiến</td>
-                        <td>0123456789</td>
-                        <td>Quần đùi nam ống rộng</td>
-                        <td>2</td>
-                        <td>60.000đ</td>
-                        <td><span class="status pending">Chưa giải quyết</span></td>
-                    </tr>
-
-                    <tr>
-                        <td>3</td>
-                        <td>Hoàng Đức Tiến</td>
-                        <td>0123456789</td>
-                        <td>Quần đùi nam ống rộng</td>
-                        <td>2</td>
-                        <td>60.000đ</td>
-                        <td><span class="status return">Trả hàng</span></td>
-                    </tr>
-
-                    <tr>
-                        <td>4</td>
-                        <td>Hoàng Đức Tiến</td>
-                        <td>0123456789</td>
-                        <td>Quần đùi nam ống rộng</td>
-                        <td>2</td>
-                        <td>60.000đ</td>
-                        <td><span class="status inProgress">Đang giao hàng</span></td>
-                    </tr>
                 </tbody>
             </table>
+            </form>
         </div>
     </div>
 </body>
