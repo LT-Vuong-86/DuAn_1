@@ -1,8 +1,14 @@
 <?php
-if (isset($_GET['controller'])) {
-   $controller=$_GET['controller'];
+    session_start();
+    include 'model/m_Database.php';
+        
+        $db = new database();;
+        if (isset($_GET['controller'])){
+            $controller = $_GET['controller'];
+        }
+        else{
+            $controller = 'home';
+        }
 
-}else{
-    $controller="home";
-}
-include "controller/c_".$controller.".php";
+        include 'Controller/c_' .$controller. '.php';
+?>

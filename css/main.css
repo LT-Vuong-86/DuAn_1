@@ -8,9 +8,8 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background:;
   position: relative;
-  font-weight:400px;
+  font-weight: 400px;
 }
 
 ul li {
@@ -266,7 +265,6 @@ a#scrollUp i{
   background-image: url(../images/home/searchicon.png);
   background-repeat: no-repeat;
   background-position: 130px;
-  cursor: pointer;
 }
 
 
@@ -1174,9 +1172,9 @@ list-style-type: none;
  
 }
 .body_acount_left {
- border: 1px solid gainsboro;
-background-color: white;
- border-radius: 32px 32px;
+  border: 1px solid gainsboro;
+  background-color: white;
+  border-radius: 32px 32px;
 }
 .body_acount_left li img{
   width: 20px;
@@ -1197,13 +1195,12 @@ border-bottom: 1px solid gray;
 }
 .body_acount_left li{
   list-style-type: none;
-  margin-left: 20px;
   margin: 15px 15px 15px 15px;
   font-weight: 600;
   font-size: 14px;
-color: #363432;
-line-height: 50px;
-color: #696763;
+  color: #363432;
+  line-height: 50px;
+  color: #696763;
 }
 
 .mid_body{
@@ -1217,8 +1214,11 @@ margin: 20px 20px 20px 20px;
   overflow: scroll;
   border-left: 15px solid whitesmoke;
   border-top: 15px solid whitesmoke;
-  border-radius: 10% 10%;
+  border-radius: 25px;
+  border-right: 15px solid whitesmoke;
+  border-bottom: 15px solid whitesmoke;
 }
+
 .body_acount_right td li{
   margin-bottom: -3px;
   max-width: 250px;
@@ -1232,7 +1232,7 @@ margin: 20px 20px 20px 20px;
 }
 .body_acount_right form{
   display: flex;
-margin-left: 20px;
+  margin-left: 20px;
 }
 .body_acount_right form li{
   margin-top: 20px;
@@ -1263,9 +1263,7 @@ margin-left: 20px;
   margin-top: -20px;
   float: right;
 }
-.all_submit_form{
-  display: flex;
-}
+
 .submit_form{
   margin-top: 20px;
   margin-left: 20px;
@@ -1342,7 +1340,7 @@ background: #F0F0E9;
     
  
 }
-.signup-form-ttr  button {
+.signup-form-ttr button {
   background: #FE980F;
   border: medium none;
   border-radius: 0;
@@ -1350,8 +1348,9 @@ background: #F0F0E9;
   display: block;
   font-family: 'Roboto', sans-serif;
   padding: 6px 25px;
-margin-top: 20px;
+  margin-top: 20px;
 }
+
 .h2h2h2{
 margin-left: 10%;
 }
@@ -1704,10 +1703,10 @@ margin-left: 10%;
 *******login page CSS******
 **************************/
 
-#form {
+section #form {
   display: block;
   margin-bottom: 185px;
-  margin-top: 100px;
+  margin-top: 150px;
   overflow: hidden;
 }
 .product-content-right-product-name{
@@ -1721,7 +1720,7 @@ margin-left: 10%;
   margin-top: -10px;
 }  
 
-.login-form h2, .signup-form h2 {
+.login-form h2 {
   color: #696763;
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
@@ -1730,7 +1729,7 @@ margin-left: 10%;
 }
 
 
-.login-form form input, .signup-form form input {
+.login-form input {
   background: #F0F0E9;
   border: medium none;
   color: #696763;
@@ -1739,28 +1738,17 @@ margin-left: 10%;
   font-size: 14px;
   font-weight: 300;
   height: 40px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   outline: medium none;
   padding-left: 10px;
   width: 100%;
-}
-
-.login-form form span{
-  line-height: 25px;
-}
-
-.login-form form span input {
-  width: 15px;
-  float: left;
-  height: 15px;
-  margin-right: 5px;
 }
 
 .login-form form button {
   margin-top: 23px;
 }
 
-.login-form form button, .signup-form form button {
+.login-form form button {
   background: #FE980F;
   border: medium none;
   border-radius: 0;
@@ -1829,7 +1817,7 @@ margin-left: 10%;
   border-color:transparent transparent transparent #FE980F;
   position: absolute;
   top: 11px;
-  left:48px;
+  left: 55px;
 
 }
 
@@ -2026,9 +2014,6 @@ margin-left: 10%;
 .user_info > li {
   float: left;
   margin-right: 10px
-}
-
-.user_info > li > span {
 }
 
 .user_info input, select, textarea {
@@ -2276,9 +2261,6 @@ margin-left: 10%;
   text-transform: uppercase;
   font-weight: 500;
   margin-bottom: 17px;
-}
-
-.single-blog-post > a {
 }
 
 .blog-post-area 

@@ -1,2 +1,3 @@
 <?php
-include "view/v_cart.php";
+    require ("view/v_cart.php");
+?>

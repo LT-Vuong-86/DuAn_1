@@ -1,2 +1,3 @@
 <?php
-include "view/v_account.php";
+require_once("view/v_account.php") ;
+?>

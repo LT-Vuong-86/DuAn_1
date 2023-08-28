@@ -17,35 +17,6 @@
 
 <body>
 	<header id="header">
-        <!--header-->
-        <div class="header_top">
-            <!--header_top-->
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="contactinfo">
-                            <ul class="nav nav-pills">
-                                <li><a href=""><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-                                <li><a href=""><i class="fa fa-envelope"></i> info@domain.com</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="social-icons pull-right">
-                            <ul class="nav navbar-nav">
-                                <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                                <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                                <li><a href=""><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href=""><i class="fa fa-dribbble"></i></a></li>
-                                <li><a href=""><i class="fa fa-google-plus"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--/header_top-->
-
         <div class="header-middle">
             <!--header-middle-->
             <div class="container">
@@ -85,7 +56,7 @@
                                  <li><a href=""><i class="fa fa-star"></i>Danh sách yêu thích</a></li>
                                <li><a href="?controller=checkout"><i class="fa fa-crosshairs"></i>Thanh toán</a></li>
                                 <li><a href="?controller=cart"><i class="fa fa-shopping-cart"></i>Giỏ hàng</a></li>
-                                <li><a href="?controller=login"><i class="fa fa-lock"></i>Đăng nhập</a></li>
+                                <li><a href="?controller=logout"><i class="fa fa-lock"></i>Đăng xuất</a></li>
                            </ul>
                         </div>
                     </div>
@@ -109,24 +80,22 @@
                         </div>
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
-                                <li><a href="index.html">Trang chủ</a></li>
-                                <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
+                                <li><a href="?controller=home" class="active">Trang chủ</a></li>
+                                <li class="dropdown"><a href="?controller=shop">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.html">Products</a></li>
-                                        <li><a href="product-details.html">Chi tiết sản phẩm</a></li>
-                                        <li><a href="checkout.html">Thanh toán</a></li>
-                                        <li><a href="cart.html">Giỏ hàng</a></li>
-                                        <li><a href="login.html">Đăng nhập</a></li>
+                                        <li><a href="?controller=shop">Các sản phẩm</a></li>
+                                        <li><a href="?controller=product-detail">Thông tin chi tiết sản phẩm</a></li>
+                                        <li><a href="?controller=checkout">Thủ tục thanh toán</a></li>
+                                        <li><a href="?controller=cart">Giỏ hàng</a></li>
                                     </ul>
                                 </li>
-                                <li class="dropdown"><a href="#" class="active">Nhật ký<i class="fa fa-angle-down"></i></a>
+                                <li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="blog.html" class="active">Danh sách nhật ký</a></li>
-                                        <li><a href="blog-single.html">Nhật ký đơn</a></li>
+                                        <li><a href="?controller=blog">Blog List</a></li>
+                                        <li><a href="?controller=blog-single">Blog Single</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="404.html">404</a></li>
-                                <li><a href="contact-us.html">Liên hệ</a></li>
+                                <li><a href="?controller=contact">Liên hệ</a></li>
                             </ul>
                         </div>
                     </div>
@@ -148,25 +117,22 @@
                 <div class="col-sm-3">
                     <div class="left-sidebar">
                         <h2>Loại</h2>
-                        <div class="panel-group category-products" id="accordian">
-                            <!--category-productsr-->
                             <div class="panel-group category-products" id="accordian">
                                 <!--category-productsr-->
-                            
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <h4 class="panel-title">
                                             <a data-toggle="collapse" data-parent="#accordian" href="#mens">
-                                                <span class="badge pull-right"><i class="fa fa-plus"></i></span> Nam
+                                                <span class="badge pull-right"><i class="fa fa-plus"></i></span>Nam
                                             </a>
                                         </h4>
                                     </div>
                                     <div id="mens" class="panel-collapse collapse">
                                         <div class="panel-body">
                                             <ul>
-                                                <li><a href=""> áo vest</a></li>
-                                                <li><a href=""> quần</a></li>
-                                                <li><a href="">áo polo</a></li>
+                                                <li><a href="">Áo vest</a></li>
+                                                <li><a href="">Quần</a></li>
+                                                <li><a href="">Áo Polo</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -176,16 +142,16 @@
                                     <div class="panel-heading">
                                         <h4 class="panel-title">
                                             <a data-toggle="collapse" data-parent="#accordian" href="#womens">
-                                                <span class="badge pull-right"><i class="fa fa-plus"></i></span> Nữ
+                                                <span class="badge pull-right"><i class="fa fa-plus"></i></span>Nữ
                                             </a>
                                         </h4>
                                     </div>
                                     <div id="womens" class="panel-collapse collapse">
                                         <div class="panel-body">
                                             <ul>
-                                                <li><a href="">đầm</a></li>
-                                                <li><a href="">quần</a></li>
-                                                <li><a href="">sơ mi</a></li>
+                                                <li><a href="">Đầm</a></li>
+                                                <li><a href="">Quần</a></li>
+                                                <li><a href="">Sơ mi</a></li>
     
                                             </ul>
                                         </div>
@@ -195,26 +161,22 @@
                                     <div class="panel-heading">
                                         <h4 class="panel-title">
                                             <a data-toggle="collapse" data-parent="#accordian" href="#kid">
-                                                <span class="badge pull-right"><i class="fa fa-plus"></i></span> trẻ em
+                                                <span class="badge pull-right"><i class="fa fa-plus"></i></span>Trẻ em
                                             </a>
                                         </h4>
                                     </div>
                                     <div id="kid" class="panel-collapse collapse">
                                         <div class="panel-body">
                                             <ul>
-                                                <li><a href="">áo</a></li>
-                                                <li><a href="">quần</a></li>
-                                                <li><a href="">bộ</a></li>
+                                                <li><a href="">Áo</a></li>
+                                                <li><a href="">Quần</a></li>
+                                                <li><a href="">Bộ</a></li>
     
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
-                                
-    
                             </div>
-
-                        </div>
                         <!--/category-products-->
 
                         <!-- <div class="brands_products">

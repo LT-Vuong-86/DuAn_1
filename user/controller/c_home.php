@@ -1,2 +1,3 @@
 <?php
-include "view/v_home.php";
+    require "view/v_home.php";
+?>
