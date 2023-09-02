@@ -375,7 +375,9 @@
                 <li>
                     <a href="?controller=trangchu" >
                         <span class="icon"><img style="width: 40px; height: 40px; " src="assets/img/iconE.png" alt=""></span>
-                        <span class="title">E-SHOPPER</span>
+                        <span class="title"><?php if (isset( $_SESSION['name_admin'] )) {
+                            echo  $_SESSION['name_admin'] ;
+                        } ?></span>
                     </a>
                 </li>
 
@@ -387,9 +389,9 @@
                 </li>
 
                 <li>
-                    <a href="?controller=nhanvien">
+                    <a href="?controller=taikhoan">
                         <span class="icon"><i class='bx bxs-user-detail'></i></span>
-                        <span class="title">Nhân viên</span>
+                        <span class="title">Tài khoản</span>
                     </a>
                 </li>
 

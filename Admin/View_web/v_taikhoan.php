@@ -355,6 +355,7 @@
         .details .recentstaff table tr td:nth-child(3),
         .details .recentstaff table tr td:nth-child(6){
             text-align: center;
+            max-width: 280px;
         }
 
         .details .recentstaff table tr td:nth-child(7){
@@ -454,7 +455,9 @@
             <li>
                     <a href="?controller=trangchu">
                         <span class="icon"><img style="width: 40px; height: 40px;" src="assets/img/iconE.png" alt=""></span>
-                        <span class="title">E-SHOPPER</span>
+                        <span class="title"><?php if (isset( $_SESSION['name_admin'] )) {
+                            echo  $_SESSION['name_admin'] ;
+                        } ?></span>
                     </a>
                 </li>
 
@@ -466,9 +469,9 @@
                 </li>
 
                 <li>
-                    <a href="?controller=nhanvien" class="active_admin">
+                    <a href="?controller=taikhoan" class="active_admin">
                         <span class="icon"><i class='bx bxs-user-detail'></i></span>
-                        <span class="title">Nhân viên</span>
+                        <span class="title">Tài khoản</span>
                     </a>
                 </li>
 
@@ -521,18 +524,18 @@
                 <div class="toggle">
                     <i class='bx bx-menu' ></i>
                 </div>
-                <form action="">
+                <form action="#" method="post">
                 <div  class="search_codition">
                     <h4>Tìm kiếm theo</h4>
-                    <select name="" id="">
+                    <select name="search_codition" id="">
+                        <option value="full_name">Tên đầy đủ</option>
+                        <option value="username">Tài khoản</option>
                         <option value="sdt">SĐT</option>
-                        <option value="tài khoản">Tài khoản</option>
-                        <option value="name">Tên</option>
                     </select>
                 </div>
                 <div class="search">
                     <label for="">
-                        <input type="text" placeholder="Tìm kiếm...">
+                        <input type="text"  name="content" placeholder="Tìm kiếm...">
                         <span><input type="submit" name="search"></span>
                         
                     </label>
@@ -548,19 +551,19 @@
             <div class="details">
                 <div class="recentstaff">
                     <div class="cardHeader">
-                        <h2>Quản lý nhân viên</h2>
-                        <a href="?controller=addnhanvien" class="btn">Thêm nhân viên</a>
+                        <h2>Quản lý tài khoản</h2>
+                        <a href="?controller=addnhanvien" class="btn">Thêm Tài khoản</a>
                     </div>
 
                     <table>
                         <thead>
                             <tr>
                                 <td>STT</td>
-                                <td>Tên người dùng</td>
+                                <td>Tên tài khoản</td>
                                 <td>Tên đầy đủ</td>
                                 <td>SĐT</td>
                                 <td>Email</td>
-                                <td>Nơi ở</td>
+                                <td>Địa chỉ</td>
                                 <td>Vai trò</td>
                                 <td>Thao tác</td>
                             </tr>
@@ -580,14 +583,14 @@
                                 <td><?php echo $value['vaitro']?></td>
                                 <td class="xuly">
                                     <a  class="sua" onclick="return confirm('Sửa nhân viên này?');" 
-                                        href="?controller=xulytaikhoan&method=sua&id=<?php echo $value['id']?>&vt=nhanvien">
+                                        href="?controller=xulytaikhoan&method=sua&id=<?php echo $value['id']?>">
                                         <button  class="noselect">
                                             <span class="textsua">Sửa</span>
                                         </button>
                                     </a>
 
                                     <a  class="xoa" onclick="return confirm('Xóa nhân viên này?');" 
-                                        href="?controller=xulytaikhoan&method=xoa&id=<?php echo $value['id']?>&vt=nhanvien">
+                                        href="?controller=xulytaikhoan&method=xoa&id=<?php echo $value['id']?>">
                                         <button  class="noselect">
                                             <span class="textxoa">Xóa</span>
                                         </button>

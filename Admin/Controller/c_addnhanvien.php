@@ -1,14 +1,21 @@
 <?php
 if(isset($_SESSION['ss_admin'])){
-    $user=$db->get('admin', array('id'=>$_SESSION['ss_admin']));
+    $user=$db->get('taikhoan', array('id'=>$_SESSION['ss_admin']));
 
-    if($user[0]['level']==0){
+    if(($user[0]['vaitro']=='admin') || ($user[0]['vaitro']=='manager')){
+        if ($user[0]['vaitro']=='manager') {
+            $vaitro='user';
+        }else{
+            $vaitro=null;
+        }
+       
         if(isset($_POST['btn_addnhanvien'])){
             $username = $_POST['username'];
             $full_name = $_POST['full_name'];
             $password = $_POST['pass'];
             $email = $_POST['email'];
             $sdt = $_POST['sdt'];
+            
             $vaitro = $_POST['vaitro'];
             $diachi = $_POST['diachi'];
 
@@ -50,7 +57,10 @@ if(isset($_SESSION['ss_admin'])){
                     'vaitro'=>$vaitro,
                     'diachi'=>$diachi
                 ));
-                header('location: ?controller=nhanvien');
+                // $id_donhang=$db->insert_id();
+                // echo  $id_donhang ;
+                // echo die;
+                header('location: ?controller=taikhoan');
             }
         }
     }else{

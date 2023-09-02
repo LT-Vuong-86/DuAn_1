@@ -355,6 +355,8 @@
         .details .recentstaff table tr td:nth-child(1),
         .details .recentstaff table tr td:nth-child(3),
         .details .recentstaff table tr td:nth-child(4),
+        
+        .details .recentstaff table tr td:nth-child(2),
         .details .recentstaff table tr td:nth-child(5),
         .details .recentstaff table tr td:nth-child(6),     
         .details .recentstaff table tr td:nth-child(8)
@@ -366,9 +368,7 @@
             max-width: 60px;
         }
 
-        .details .recentstaff table tr td:nth-child(2){
-            text-align: start;
-        }
+    
 
         .details .recentstaff td a.chitiet{
             position: relative;
@@ -451,6 +451,9 @@
             width:2000px ;
             display: flex;
         }
+        .images_sp{
+            width: 100px;
+        }
     </style>
 </head>
 <body>
@@ -460,7 +463,9 @@
             <li>
                     <a href="?controller=trangchu">
                         <span class="icon"><img style="width: 40px; height: 40px;" src="assets/img/iconE.png" alt=""></span>
-                        <span class="title">E-SHOPPER</span>
+                        <span class="title"><?php if (isset( $_SESSION['name_admin'] )) {
+                            echo  $_SESSION['name_admin'] ;
+                        } ?></span>
                     </a>
                 </li>
 
@@ -472,9 +477,9 @@
                 </li>
 
                 <li>
-                    <a href="?controller=nhanvien">
+                    <a href="?controller=taikhoan">
                         <span class="icon"><i class='bx bxs-user-detail'></i></span>
-                        <span class="title">Nhân viên</span>
+                        <span class="title">Tài khoản</span>
                     </a>
                 </li>
 
@@ -527,18 +532,17 @@
                 <div class="toggle">
                     <i class='bx bx-menu' ></i>
                 </div>
-                <form action="">
+                <form action="" method='post'>
                 <div  class="search_codition">
                     <h4>Tìm kiếm theo</h4>
-                    <select name="" id="">
-                        <option value="sdt">SĐT</option>
-                        <option value="tài khoản">Tài khoản</option>
-                        <option value="name">Tên</option>
+                    <select name="search_codition" id="">
+                        <option value="id_sanpham">Mã sản phẩm</option>                     
+                        <option value="tensanpham">Tên sản phẩm</option>
                     </select>
                 </div>
                 <div class="search">
                     <label for="">
-                        <input type="text" placeholder="Tìm kiếm...">
+                        <input type="text" name="content" placeholder="Tìm kiếm...">
                         <span><input type="submit" name="search"></span>
                     </label>
                 </div>
@@ -604,7 +608,8 @@
                     <table>
                         <thead>
                             <tr>
-                                <td>STT</td>                                
+                                <td>STT</td>
+                                <td>Mã sản phẩm</td>                                
                                 <td>Tên sản phẩm</td>
                                 <td>Ảnh sản phẩm</td>
                                 <td>Tồn kho</td>
@@ -625,8 +630,9 @@
                                     ?>
                             <tr>
                                 <td><?php echo $i++?></td> 
+                                <td  ><?php echo $value['id_sanpham']?></td> 
                                 <td><?php echo $value['tensanpham']?></td>
-                                <td><img width="100px" src="../images/sanpham/<?php echo $value['anh_chinh']?>" alt=""></td>
+                                <td><img src="../images/sanpham/<?php echo $value['anh_chinh']?>" class="images_sp" alt=""></td>
                                 <td><?php echo $value['tonkho']?></td>
                                 <td><?php echo $value['gia']?>đ</td>
                                 <td><?php echo $value['xuatxu']?></td>

@@ -2,7 +2,6 @@
 if(isset($_SESSION['ss_admin'])){
     $user = $db->get('admin', array('id'=>$_SESSION['ss_admin']));
     if($user[0]['level']==0){
-        $vt= $_GET['vt'];
 
         $method = $_GET['method'];
         $id = $_GET['id'];

@@ -77,6 +77,7 @@ public function get_join($column=array(),$table1,$table2,$condition,$condition1=
         //Function lấy dữ liệu theo điều kiện
         public function get_like($table, $column, $value,$condition=array()){
             $sql = "SELECT * FROM $table WHERE $column LIKE '%$value%'";
+          
             if(!empty($condition)){
                 $sql.=" AND ";
                 foreach ($condition as $key => $value){
@@ -151,7 +152,7 @@ public function get_join($column=array(),$table1,$table2,$condition,$condition1=
             // }
             
             foreach ($files as $file) {
-            // $file = self::validateUploadFile($file, $uploadPath);
+             $file = self::validateUploadFile($file, $uploadPath);
             if ($files != false) {
                  move_uploaded_file($file["tmp_name"], $uploadPath .'/'.$file["name"]);
             }else {
@@ -181,6 +182,14 @@ public function get_join($column=array(),$table1,$table2,$condition,$condition1=
            $file['name']=$filename . '.' .$fileType;
            return $file;
        }
+       function insert_id()
+{
+  // Lấy kết nối đến cơ sở dữ liệu
+  return $this->conn->insert_id;
+
+  // Trả về ID của bản ghi mới nhất
+ 
+}
      
        
     }

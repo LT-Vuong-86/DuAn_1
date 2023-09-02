@@ -180,7 +180,7 @@ h3{
 <div class="container">
     <form action="#" method="post">
         <div>
-            <h3 class="text-uppercase text-center">Cập nhật <?php echo $vt ?></h3>
+            <h3 class="text-uppercase text-center">Cập nhật tài khoản</h3>
         </div>
         <h6>Tên người dùng:</h6>
         <div id="username" class="form-control row mx-1">

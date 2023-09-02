@@ -572,7 +572,9 @@
                 <li>
                     <a href="?controller=trangchu">
                         <span class="icon"><img style="width: 40px; height: 40px;" src="assets/img/iconE.png" alt=""></span>
-                        <span class="title">E-SHOPPER</span>
+                        <span class="title"><?php if (isset( $_SESSION['name_admin'] )) {
+                            echo  $_SESSION['name_admin'] ;
+                        } ?></span>
                     </a>
                 </li>
 
@@ -584,9 +586,9 @@
                 </li>
 
                 <li>
-                    <a href="?controller=nhanvien">
+                    <a href="?controller=taikhoan">
                         <span class="icon"><i class='bx bxs-user-detail'></i></span>
-                        <span class="title">Nhân viên</span>
+                        <span class="title">Tài khoản</span>
                     </a>
                 </li>
 
@@ -666,7 +668,7 @@
                 <div class="recentstaff">
                     <div class="cardHeader">
                         <h2>Quản lý đơn hàng</h2>
-                        <a href="?controller=addnhanvien" class="btn">Thêm đơn hàng</a>
+                        <a href="?controller=adddonhang" class="btn">Thêm đơn hàng</a>
                     </div>
 
                    
@@ -675,7 +677,7 @@
                         <table>
                             <?php 
                                 $admin = $db->get('admin', array('id'=>$_SESSION['ss_admin']));
-                                if($admin[0]['level']==0) {?>
+                                ?>
                             <thead>
                                 <tr>
                                     <td>STT</td>
@@ -691,7 +693,30 @@
                             </thead>
                             <tbody id="myTable">
                                 <?php
+                                global $donhang;
                                     $i = 1;
+                                    if (isset($_POST['search'])) {
+           
+            
+                                        $codition_search=$_POST['codition_search'];
+                                        $content=$_POST['content'];
+                                        foreach ($donhang as $key => $value) {     
+                                        if ($codition_search=='tinhtrang') {
+                                            $tinhtrang=$db->get_like('tinhtrang_dh',$codition_search,$content,array('id_tinhtrang'=>$value['id_tinhtrang']));     
+                                           foreach($tinhtrang as $key => $valuess) {
+                                                $donhang=$db->get('donhang',array('id_tinhtrang'=>$valuess['id_tinhtrang']));       
+                                            }  
+                                        }else{               
+                                            $khachhang=$db->get_like('khachhang',$codition_search,$content,array('id_kh'=>$value['id_kh']));                                                       
+                                             foreach ($khachhang as $key =>  $values) {
+                                              $donhang = $db->get('donhang',array('id_kh'=>$values['id_kh']));
+                 
+                                             }   
+                                           
+                                                                            
+                                        } 
+                                    }        
+                                }
                                     foreach ($donhang as $key => $value) {
                                          $khachhang = $db->get('khachhang',array('id_kh'=>$value['id_kh']));
                                          $tinhtrang=$db->get('tinhtrang_dh',array('id_tinhtrang'=>$value['id_tinhtrang']));
@@ -699,10 +724,10 @@
                                         $codition_search=$_POST['codition_search'];
                                         $content=$_POST['content'];
                                         if ($codition_search=="tinhtrang") {
-                                           $tinhtrang=$db->get_like('tinhtrang_dh',$codition_search,$content);
+                                           $tinhtrang=$db->get_like('tinhtrang_dh',$codition_search,$content,array());
                                        
                                         }else{
-                                        $khachhang=$db->get_like('khachhang',$codition_search,$content);
+                                        $khachhang=$db->get_like('khachhang',$codition_search,$content,array());
                                         }
                                     }  ?>
                                     <tr id="tr">
@@ -753,7 +778,7 @@
                                 <td><a class="chitiet" href="?controller=chitietdh&id=<?php echo $value['id_donhang']?>"><h2><i class='bx bx-right-arrow-alt'></i></h2></a></td>
                                    
                                 </tr>
-                                <?php } ?>
+                               
                             </tbody>
                             <?php } ?>
                         </table>

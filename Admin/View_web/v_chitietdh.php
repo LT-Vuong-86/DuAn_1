@@ -102,7 +102,6 @@
             text-align: center;
         }
 
-        .details .recentstaff table tr td:nth-child(1),
         .details .recentstaff table tr td:nth-child(2),
         .details .recentstaff table tr td:nth-child(5),
         .details .recentstaff table tr td:nth-child(6) {
@@ -214,6 +213,9 @@
             
      border: 1px solid black;
     }
+    .msp{
+        width: 100px;
+    }
     </style>
 </head>
 <body>
@@ -251,6 +253,7 @@
 					<table class="table">
 					  <thead>
 					    <tr>
+                            <th class="msp" >Mã sản phẩm</th>
 					      <th scope="col">Ảnh</th>
 					      <th scope="col">Tên sản phẩm</th>
                           <th>Ngày đặt</th>
@@ -267,10 +270,11 @@
 					    	$sanpham = $db->get('sanpham',array('id_sanpham'=>$value['id_sanpham']));
                             
 					   	?>
+                        <td><?php echo $value['id_sanpham'] ?></td>
 					      <th scope="row"><img height="100" width="100"  src="../images/sanpham/<?php echo $sanpham[0]['anh_chinh']?>" > </th>
-					      <td><?php echo $value['tensanpham'] ?></td>
+					      <td><?php echo $sanpham[0]['tensanpham'] ?></td>
 					      <td><?php echo $value['ngaydat'] ?></td>
-					      <td><?php echo number_format($value['dongia']) ?>đ</td>
+					      <td><?php echo number_format($sanpham[0]['gia']) ?>đ</td>
 					      <td style="max-width:300px"><?php echo $value['ghichu'] ?></td>	      
 					    </tr>
 					    <?php } ?>

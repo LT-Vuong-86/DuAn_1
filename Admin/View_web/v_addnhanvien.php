@@ -177,10 +177,12 @@
 <body>
 <div class="container">
     <form action="?controller=addnhanvien" method="post">
-        <div><h2 class="text-uppercase text-center">Thêm nhân viên</h2></div>
+        <div><h2 class="text-uppercase text-center">Thêm tài khoản</h2></div>
+        
         <div id="username" class="form-control row mx-1">
+        <h4>Username</h4>
             <input name="username" type="text" placeholder="Tên đăng nhập" 
-            value="<?php echo (isset($username))?$username:'' ?>" required>
+            value="" required>
         </div>
         <div id="canhbao" class="row mt-2">
             <?php if(isset($loi['username'])){?>
@@ -189,8 +191,9 @@
         </div> 
 
         <div id="full_name" class="form-control row mx-1">
+        <h4>Fullname</h4>
             <input name="full_name" type="text" placeholder="Tên đầy đủ" 
-            value="<?php echo (isset($full_name))?$full_name:'' ?>" required>
+            value="" required>
         </div>
         <div id="canhbao" class="row mt-2">
             <?php if(isset($loi['full_name'])){?>
@@ -199,8 +202,9 @@
         </div>
 
         <div id="matkhau" class="form-control row mx-1">
+        <h4>Password</h4>
             <input name="pass" type="password" placeholder="Mật khẩu" 
-            value="<?php echo (isset($password))?$password:'' ?>" required>
+            value="" required>
         </div>
         <div id="canhbao" class="row mt-2">
             <?php if(isset($loi['pass'])){?>
@@ -208,17 +212,8 @@
             <?php }?>
         </div>
 
-        <div id="email" class="form-control row mx-1">
-            <input name="email" type="text" placeholder="Email" 
-            value="<?php echo (isset($email))?$email:'' ?>" required>
-        </div>
-        <div id="canhbao" class="row mt-2">
-            <?php if(isset($loi['email'])){?>
-                <p class="text-danger"><?php echo $loi['email']?></p> 
-            <?php }?>
-        </div>
-
         <div id="sdt" class="form-control row mx-1">
+        <h4>Phone number</h4>
             <input name="sdt" type="text" placeholder="SĐT" 
             value="<?php echo (isset($sdt))?$sdt:'' ?>" required>
         </div>
@@ -230,8 +225,9 @@
 
 
         <div id="vaitro" class="form-control row mx-1">
+            <h4>Role</h4>
             <input name="vaitro" type="text" placeholder="Vai trò" 
-            value="<?php echo (isset($vaitro))?$vaitro:'' ?>" required>
+            value="<?php echo (isset($vaitro))?$vaitro:'' ?>"  <?php  if ($user[0]['vaitro']=='manager') { echo "disabled"; }?> required>
         </div>
         <div id="canhbao" class="row mt-2">
             <?php if(isset($loi['vaitro'])){?>
@@ -239,16 +235,29 @@
             <?php }?>
         </div>
 
+
+        <div id="email" class="form-control row mx-1">
+        <h4>Email</h4>
+            <input name="email" type="text" placeholder="Email" 
+            value="" <?php  if ($user[0]['vaitro']=='manager') { echo "required"; }?> >
+        </div>
+        <div id="canhbao" class="row mt-2">
+            <?php if(isset($loi['email'])){?>
+                <p class="text-danger"><?php echo $loi['email']?></p> 
+            <?php }?>
+        </div>
+
         <div id="diachi" class="form-control row mx-1">
-            <input name="diachi" type="text" placeholder="Nơi ở hiện tại" 
-            value="<?php echo (isset($diachi))?$diachi:'' ?>" required>
+        <h4>address</h4>
+            <input name="diachi" type="text" placeholder="Địa chỉ " 
+            value="<?php echo (isset($diachi))?$diachi:'' ?>" <?php  if ($user[0]['vaitro']=='manager') { echo "required"; }?>>
         </div>
         <div id="canhbao" class="row mt-2">
             <?php if(isset($loi['diachi'])){?>
                 <p class="text-danger"><?php echo $loi['diachi']?></p> 
             <?php }?>
         </div>
-    
+
         <button style="border: none; border-radius:25px; background: white; width: 100%;" 
         class="button" name="btn_addnhanvien" type="submit">
             <span>add</span>

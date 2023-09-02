@@ -201,6 +201,9 @@
 <div class="container">
     <form action="?controller=login" method="post">
         <div><h2 class="text-uppercase text-center">Đăng nhập</h2></div>
+        <?php if(isset($loi['admin'])){?>
+                <p class="text-danger"><?php echo $loi['admin']?></p> 
+            <?php }?>
         <div class="form-control row mx-1">
             <input class="input" name="username"  type="text" placeholder="Tên đăng nhập" 
             value="<?php echo (isset($username))?$username:'' ?>" >

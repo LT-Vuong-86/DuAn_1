@@ -234,7 +234,7 @@
                 <thead>
                     <tr>
                         <td>Mã đơn hàng</td>
-                        <td>Mặt hàng</td>
+                        <td>Mã sản phẩm</td>
                         <td>Số lượng sản phẩm</td>
                         <td>Tổng giá trị</td>
                         
@@ -247,7 +247,7 @@
                 <tbody>
                     <tr>
                         <td><input type="text" disabled value="<?php echo $donhang[0]['id_donhang'] ?>"></td>
-                        <td><input type="text" name="ct_ten" value="<?php echo $ctdonhang[0]['tensanpham'] ?>" ></td>
+                        <td><input type="text" name="ct_ten" value="<?php echo $ctdonhang[0]['id_sanpham'] ?>" ></td>
                         <td><input type="text" name="ct_sl" value="<?php echo $ctdonhang[0]['soluongsp'] ?>" ></td>
                         <td><input type="text" name="dh_tong" value="<?php echo $donhang[0]['tong'] ?>" ></td>
                         

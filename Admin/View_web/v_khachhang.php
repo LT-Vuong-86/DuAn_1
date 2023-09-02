@@ -351,16 +351,18 @@
         .details .recentstaff table tr td:last-child {
             text-align: center;
         }
-
+        .details .recentstaff table tr td:nth-child(7),
         .details .recentstaff table tr td:nth-child(1),
         .details .recentstaff table tr td:nth-child(3),
         .details .recentstaff table tr td:nth-child(6){
             text-align: center;
+            max-width: 250px;
+        }
+        .details .recentstaff table tr td:nth-child(2){
+            max-width: 50px;
         }
 
-        .details .recentstaff table tr td:nth-child(7){
-            text-align: end;
-        }
+      
 
         .details .recentstaff td a.chitiet{
             position: relative;
@@ -456,7 +458,9 @@
             <li>
                     <a href="?controller=trangchu">
                         <span class="icon"><img style="width: 40px; height: 40px;" src="assets/img/iconE.png" alt=""></span>
-                        <span class="title">E-SHOPPER</span>
+                        <span class="title"><?php if (isset( $_SESSION['name_admin'] )) {
+                            echo  $_SESSION['name_admin'] ;
+                        } ?></span>
                     </a>
                 </li>
 
@@ -468,9 +472,9 @@
                 </li>
 
                 <li>
-                    <a href="?controller=nhanvien">
+                    <a href="?controller=taikhoan">
                         <span class="icon"><i class='bx bxs-user-detail'></i></span>
-                        <span class="title">Nhân viên</span>
+                        <span class="title">Tài khoản</span>
                     </a>
                 </li>
 
@@ -523,18 +527,18 @@
                 <div class="toggle">
                     <i class='bx bx-menu' ></i>
                 </div>
-                <form action="">
+                <form action="" method="post">
                 <div class="search_codition">
                     <h4>Tìm kiếm theo</h4>
-                    <select name="" id="">
+                    <select name="search_codition" id="">
+                    <option value="username">Tên khách hàng</option>
+                        <option value="id_kh">Mã đơn hàng</option>
                         <option value="sdt">SĐT</option>
-                        <option value="tài khoản">Tài khoản</option>
-                        <option value="name">Tên</option>
                     </select>
                 </div>
                 <div class="search">
                     <label for="">
-                        <input type="text" placeholder="Tìm kiếm...">
+                        <input type="text" name="content" placeholder="Tìm kiếm...">
                         <span><input type="submit" name="search"></span>
                     </label>
                 </div>
@@ -554,12 +558,12 @@
                         <thead>
                             <tr>
                                 <td>STT</td>
-                                <td>Tên đăng nhập</td>
-                                <td>Tên đầy đủ</td>
+                                <td>Mã khách hàng</td>
+                                <td>Tên khách hàng</td>
                                 <td>SĐT</td>
                                 <td>Email</td>
-                                <td>Nơi ở</td>
-                                <td>Vai trò</td>
+                                <td>Địa chỉ</td>
+                                
                                 <td>Thao tác</td>
                             </tr>
                         </thead>
@@ -570,25 +574,25 @@
                                 foreach($data_khachhang as $key => $value){?>
                             <tr>
                                 <td><?php echo $i++?></td>
+                                <td><?php echo $value['id_kh']?></td>
                                 <td><?php echo $value['username']?></td>
-                                <td><?php echo $value['full_name']?></td>
                                 <td><?php echo $value['sdt']?></td>
                                 <td><?php echo $value['email']?></td>
                                 <td><?php echo $value['diachi']?></td>
-                                <td><?php echo $value['vaitro']?></td>
+                                
                                 <td class="xuly">
                                 <a  class="sua" onclick="return confirm('Sửa khách hàng này?');" 
-                                        href="?controller=xulytaikhoan&method=sua&id=<?php echo $value['id']?>&vt=khachhang">
+                                        href="?controller=xulykhachhang&method=sua&id=<?php echo $value['id_kh']?>">
                                         <button  class="noselect">
                                             <span class="textsua">Sửa</span>
                                         </button>
                                     </a>
-                                    <a  class="xoa" onclick="return confirm('Xóa khách hàng này?');" 
-                                        href="?controller=xulytaikhoan&method=xoa&id=<?php echo $value['id']?>khachhang">
+                                    <!-- <a  class="xoa" onclick="return confirm('Xóa khách hàng này?');" 
+                                        href="?controller=xulykhachhang&method=xoa&id=<?php echo $value['id_kh']?>">
                                         <button  class="noselect">
                                             <span class="textxoa">Xóa</span>
                                         </button>
-                                    </a>
+                                    </a> -->
                                 </td>
                                 <?php }?>
                             </tr>
@@ -620,7 +624,6 @@
             main.classList.toggle("active");
         }
     </script>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+   
 </body>
 </html>

@@ -1,10 +1,15 @@
 <?php
     if(isset($_SESSION['ss_admin'])){
         $user = $db->get('admin', array('id'=>$_SESSION['ss_admin']));
-        $vaitro='user';
-        $data_khachhang = $db->get('taikhoan', array("vaitro"=>$vaitro));
+        if (isset($_POST['search'])) {
+            $search_codition=$_POST['search_codition'];
+            $content=$_POST['content'];
+            $data_khachhang = $db->get_like('khachhang',$search_codition,$content,array());
+        }else {
+            $data_khachhang = $db->get('khachhang', array());
+        }
     }else{
-        header('location: ?controller=login');
+        header('location: ?controller=khachhang');
     }
     require_once('View_web/v_khachhang.php');
 ?>
