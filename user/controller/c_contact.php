@@ -1,2 +1,3 @@
 <?php
-include "view/v_contact.php";
+    require_once("view/v_contact.php") ;
+?>

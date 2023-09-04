@@ -13,65 +13,77 @@
     <link href="../css/animate.css" rel="stylesheet">
 	<link href="../css/main.css" rel="stylesheet">
 	<link href="../css/responsive.css" rel="stylesheet">
+    <style>
+        button {
+            width: 78px;
+            height: 36.5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            background: red;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+            background: #e62222;
+            padding-right: -100px;
+            justify-content: space-between;
+        }
+
+        button, button span {
+            transition: 0.02s;
+        }
+
+        button .text {
+            padding-left: 5px;
+            transform: translateX(10px);
+            color: white;
+            font-weight: bold;
+        }
+
+        button .icon {
+            visibility: hidden;
+            position: absolute;
+            transform: translateX(20px);
+            height: 40px;
+            width: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button svg {
+            width: 15px;
+            fill: #eee;
+        }
+
+        button:hover {
+            background: #ff3636;
+        }
+
+        button:hover .text {
+            color: transparent;
+        }
+
+        button:hover .icon {
+        width: 90px;
+        border-left: none;
+        transform: translateX(-10px);
+        visibility: visible;
+        }
+
+        button:focus {
+        outline: none;
+        }
+
+        button:active .icon svg {
+        transform: scale(1);
+        }
+        
+    </style>
    </head><!--/head-->
 
 <body>
 	<header id="header">
-        <!--header-->
-        <div class="header_top">
-            <!--header_top-->
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="contactinfo">
-                            <ul class="nav nav-pills">
-                                <li><a href=""><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-                                <li><a href=""><i class="fa fa-envelope"></i> info@domain.com</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="social-icons pull-right">
-                            <ul class="nav navbar-nav">
-                                <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                                <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                                <li><a href=""><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href=""><i class="fa fa-dribbble"></i></a></li>
-                                <li><a href=""><i class="fa fa-google-plus"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--/header_top-->
-
-        <div class="header-middle">
-            <!--header-middle-->
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="logo pull-left">
-                        <a href="?controller=home"><img src="../images/home/logo.png" alt="" /></a>
-                        </div>
-                        
-                    </div>
-                    <div class="col-sm-8">
-                        <div class="shop-menu pull-right">
-                            <ul class="nav navbar-nav">
-                            <li><a href="?controller=account"><i class="fa fa-user"></i>Tài khoản</a></li>
-                                <li><a href=""><i class="fa fa-star"></i>Danh sách yêu thích</a></li>
-                                <li><a href="?controller=checkout"><i class="fa fa-crosshairs"></i>Thanh toán</a></li>
-                                <li><a href="?controller=cart"><i class="fa fa-shopping-cart"></i>Giỏ hàng</a></li>
-                                <li><a href="?controller=login"><i class="fa fa-lock"></i>Đăng nhập</a></li>
-                             </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--/header-middle-->
-
         <div class="header-bottom">
             <!--header-bottom-->
             <div class="container">
@@ -87,24 +99,20 @@
                         </div>
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
-                                <li><a href="index.html">Trang chủ</a></li>
-                                <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
+                                <li><a href="?controller=home" class="active">Trang chủ</a></li>
+                                <li class="dropdown"><a href="?controller=shop">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.html">Sản phẩm</a></li>
-                                        <li><a href="product-details.html">Chi tiết sản phẩm</a></li>
-                                        <li><a href="checkout.html">Thanh toán</a></li>
-                                        <li><a href="cart.html" class="active">Giỏ hàng</a></li>
-                                        <li><a href="login.html">Đăng nhập</a></li>
+                                        <li><a href="?controller=shop">Các sản phẩm</a></li>
+                                        <li><a href="?controller=checkout">Thủ tục thanh toán</a></li>
                                     </ul>
                                 </li>
                                 <li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="blog.html">Blog List</a></li>
-                                        <li><a href="blog-single.html">Blog Single</a></li>
+                                        <li><a href="?controller=blog">Blog List</a></li>
+                                        <li><a href="?controller=blog-single">Blog Single</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="404.html">404</a></li>
-                                <li><a href="contact-us.html">Liên hệ</a></li>
+                                <li><a href="?controller=contact">Liên hệ</a></li>
                             </ul>
                         </div>
                     </div>
@@ -123,99 +131,57 @@
     <section id="cart_items">
         <div class="container">
             <div class="breadcrumbs">
-                <ol class="breadcrumb">
-                    <li><a href="#">Tran chủ</a></li>
+                <ul class="breadcrumb">
+                    <li><a href="#">Trang chủ</a></li>
                     <li class="active">Giỏ hàng</li>
-                </ol>
+                </ul>
             </div>
             <div class="table-responsive cart_info">
                 <table class="table table-condensed">
                     <thead>
-                        <tr class="cart_menu">
-                            <td class="image">Mục</td>
-                            <td class="description"></td>
-                            <td class="price">Giá</td>
+                        <tr class="cart_menu text-center">
+                            <td class="image">Ảnh</td>
+                            <td class="description">Tên mặt hàng</td>
+                            <td class="price">Đơn giá</td>
                             <td class="quantity">Số lượng</td>
-                            <td class="total">Tổng</td>
-                            <td></td>
+                            <td class="total">Thành tiền</td>
+                            <td class="delete"></td>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="cart_product">
-                                <a href=""><img src="../images/cart/one.png" alt=""></a>
+                        <?php
+                            $tongtien = 0;
+                            if(isset($_SESSION['cart'])){
+                                foreach ($_SESSION['cart'] as $key => $value){
+                                    $tongtien+=$value['sl']*$value['gia'];
+                        ?>
+                        <tr class="text-center">
+                            <td><img class="img-responsive" src="<?php echo $value['anh_chinh']?>" width="100" alt=""></td>
+                            <td><?php echo $value['tensanpham']?></td>
+                            <td><?php echo number_format($value['gia'])?>đ</td>
+                            <td >
+                                <?php echo $value['sl']?>
                             </td>
-                            <td class="cart_description">
-                                <h4><a href="">Colorblock Scuba</a></h4>
-                                <p>Web ID: 1089772</p>
+                            <td>
+                                <?php echo number_format($value['gia']*$value['sl'])?>đ
                             </td>
-                            <td class="cart_price">
-                                <p>$59</p>
-                            </td>
-                            <td class="cart_quantity">
-                                <div class="cart_quantity_button">
-                                    <a class="cart_quantity_up" href=""> + </a>
-                                    <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-                                    <a class="cart_quantity_down" href=""> - </a>
-                                </div>
-                            </td>
-                            <td class="cart_total">
-                                <p class="cart_total_price">$59</p>
-                            </td>
-                            <td class="cart_delete">
-                                <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+                            <td>
+                                <a style="text-decoration: none;" onclick="return confirm('Xóa sản phẩm này?');" href="?controller=xulyCart&method=xoa&id=<?php echo $value['id_sanpham']?>">
+                                    <button class="noselect">
+                                        <span class="text">Delete</span>
+                                        <span class="icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                            <path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path>
+                                            </svg>
+                                        </span>
+                                    </button>
+                                </a>
                             </td>
                         </tr>
+                        <?php   }  }?>
 
                         <tr>
-                            <td class="cart_product">
-                                <a href=""><img src="../images/cart/two.png" alt=""></a>
-                            </td>
-                            <td class="cart_description">
-                                <h4><a href="">Colorblock Scuba</a></h4>
-                                <p>Web ID: 1089772</p>
-                            </td>
-                            <td class="cart_price">
-                                <p>$59</p>
-                            </td>
-                            <td class="cart_quantity">
-                                <div class="cart_quantity_button">
-                                    <a class="cart_quantity_up" href=""> + </a>
-                                    <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-                                    <a class="cart_quantity_down" href=""> - </a>
-                                </div>
-                            </td>
-                            <td class="cart_total">
-                                <p class="cart_total_price">$59</p>
-                            </td>
-                            <td class="cart_delete">
-                                <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="cart_product">
-                                <a href=""><img src="../images/cart/three.png" alt=""></a>
-                            </td>
-                            <td class="cart_description">
-                                <h4><a href="">Colorblock Scuba</a></h4>
-                                <p>Web ID: 1089772</p>
-                            </td>
-                            <td class="cart_price">
-                                <p>$59</p>
-                            </td>
-                            <td class="cart_quantity">
-                                <div class="cart_quantity_button">
-                                    <a class="cart_quantity_up" href=""> + </a>
-                                    <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-                                    <a class="cart_quantity_down" href=""> - </a>
-                                </div>
-                            </td>
-                            <td class="cart_total">
-                                <p class="cart_total_price">$59</p>
-                            </td>
-                            <td class="cart_delete">
-                                <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-                            </td>
+                            <td><a name="btn_xoatoanbo" href="?controller=xulyCart&method=xoatoanbo&id=<?php echo $value['id_sanpham']?>">Xóa toàn bộ</a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -227,20 +193,17 @@
     <section id="do_action">
         <div class="container">
             <div class="heading">
-                <h3>Bạn thích làm gì tiếp theo=</h3>
+                <h3>Tổng kết:</h3>
             </div>
             <div class="row">
 
                 <div class="col-sm-12">
                     <div class="total_area">
                         <ul>
-                            <li>Giỏ hàng phụ Tổng cộng <span>$59</span></li>
-                            <li> Thuế sinh thái<span>$2</span></li>
-                            <li>Giá vận chuyển <span>Miễn phí</span></li>
-                            <li>Tổng <span>$61</span></li>
+                            <li>Tổng tiền<span><?php echo number_format($tongtien)?></span></li>
                         </ul>
-                        <a class="btn btn-default update" href="">Cập nhật</a>
-                        <a class="btn btn-default check_out" href="">Thanh toán</a>
+                        <a class="btn btn-default update" href="?controller=shop">Tiếp tục mua hàng</a>
+                        <a class="btn btn-default check_out" href="?controller=checkout">Thanh toán</a>
                     </div>
                 </div>
             </div>

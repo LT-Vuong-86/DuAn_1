@@ -1,2 +1,3 @@
 <?php
-include "view/v_blog-single.php";
+    require_once("view/v_blog-single.php") ;
+?>

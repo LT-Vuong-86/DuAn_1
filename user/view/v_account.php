@@ -10,42 +10,38 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet">
 	<link href="../css/main.css" rel="stylesheet">
 	<link href="../css/responsive.css" rel="stylesheet">
-  </head><!--/head-->
-<style>
- 
+    <style>
+        .all_submit_form{
+            margin-left: -25px;
+        }
+
+        .body_acount_right{
+            background-color: rgb(255, 255, 255);
+            max-height: 400px;
+            overflow: scroll;
+            border-left: 15px solid whitesmoke;
+            border-top: 15px solid whitesmoke;
+            border-radius: 25px;
+            border-right: 15px solid whitesmoke;
+            border-bottom: 15px solid whitesmoke;
+        }
+
+        .body_acount_right form li {
+            margin-top: 20px;
+            width: 200px;
+        }
+
+        input[type='number']::-webkit-inner-spin-button,
+        input[type='number']::-webkit-outer-spin-button {
+                                -webkit-appearance: none;
+                                margin: 0;
+        }
   
-</style>
+    </style>
+</head><!--/head-->
+
 <body>
 	<header id="header">
-        <!--header-->
-        <div class="header_top">
-            <!--header_top-->
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="contactinfo">
-                            <ul class="nav nav-pills">
-                                <li><a href="#"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-                                <li><a href="#"><i class="fa fa-envelope"></i> info@domain.com</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="social-icons pull-right">
-                            <ul class="nav navbar-nav">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--/header_top-->
-
         <div class="header-middle">
             <!--header-middle-->
             <div class="container">
@@ -59,11 +55,10 @@
                     <div class="col-sm-8">
                         <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
-                        <li><a href="?controller=account"><i class="fa fa-user"></i>Tài khoản</a></li>
                                 <li><a href=""><i class="fa fa-star"></i>Danh sách yêu thích</a></li>
                                 <li><a href="?controller=checkout"><i class="fa fa-crosshairs"></i>Thanh toán</a></li>
                                 <li><a href="?controller=cart"><i class="fa fa-shopping-cart"></i>Giỏ hàng</a></li>
-                                <li><a href="?controller=login"><i class="fa fa-lock"></i>Đăng nhập</a></li>
+                                <li><a href="?controller=logout"><i class="fa fa-lock"></i>Đăng xuất</a></li>
                             </ul>
                         </div>
                     </div>
@@ -87,24 +82,11 @@
                         </div> -->
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
-                                <li><a href="?controller=home" class="active">Trang chủ</a></li>
-                                <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.html">Sản phẩm</a></li>
-                                        <li><a href="product-details.html">Chi tiêt sản phẩm</a></li>
-                                        <li><a href="checkout.html">Thanh toán</a></li>
-                                        <li><a href="cart.html">đơn hàng</a></li>
-                                        <li><a href="login.html">đăng nhập</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown"><a href="#">Nhật ký<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="blog.html">Danh sách nhật ký</a></li>
-                                        <li><a href="blog-single.html">nhật lý đơn </a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="404.html">404</a></li>
-                                <li><a href="contact-us.html">Liên hệ</a></li>
+                                <li>
+                                    <a href="?controller=home" class="active">Trang chủ</a>
+                                    <p>Tài khoản</p>
+                                </li>                                    
+                                
                             </ul>
                         </div>
                     </div>
@@ -122,248 +104,55 @@
     <section id="body_account">
         <div class="container">
             <div class="row body_account_row col-xs-12 col-sm-12">
-            
-                <div class="body_acount_left col-xs-12 col-md-3 ">
+                <div class="body_acount_left col-xs-12 col-md-3">
+                    <li class="body_acount_left_taikhoan"  id="click_menu"> 
+                        <h3 class="col-sm-6 col-xs-6">Tên tài khoản</h3 >
+                        <h1  class="col-sm-6 col-xs-6 click_none_html" >&dArr;</h1>
+                    </li>
+                    <div id="click_none_menu" class="col-sm-12 col-xs-12">
+                        <li class="tablinks"  onclick="openCity('thongtintaikhoan')" id="defaultOpen">Thông tin tài khoản</li>
+                        <li class="tablinks" onclick="openCity('quanlidonhang')" >Quản lý đơn hàng</li>
+                        <li class="tablinks" onclick="openCity('sanphamdamua')" >Sản phẩm đã mua</li>
+                    </div>
+                </div>
 
-		<li class="body_acount_left_taikhoan"  id="click_menu"> <h3 class="col-sm-6 col-xs-6">tên tài khoản</h3 ><h1  class="col-sm-6 col-xs-6 click_none_html" >&dArr;</h1></li>
-        <div id="click_none_menu" class="col-sm-12 col-xs-12">
-		<li class="tablinks"  onclick="openCity( 'thongtintaikhoan')" id="defaultOpen">thông tin tài khoản</li>
-		<li  class="tablinks" onclick="openCity('quanlidonhang')" >quản lý đơn hàng</li>
-		<li  class="tablinks" onclick="openCity('sanphamdamua')" >sản phẩm đã mua</li>
-       
-                    <li> tin nhắn</li>
-                    <li>giỏ hàng</li>
-        </div>
-
-        </div>
-                <div class="mid_body col-xs-1 col-md-1"></div>
-                <div id="thongtintaikhoan" class="body_acount_right col-xs-12 col-sm-12 col-md-8 tabcontent ">
-                    <form action="">
+                <div id="thongtintaikhoan" class="body_acount_right col-xs-12 col-sm-12 col-md-12 tabcontent">
+                    <form action="?controller=login" method="post">
                         <div class="body_acount_right_form_left col-xs-12 ">
-                            <li><span>Họ</span><span><input type="text" value="fghhhhu"></span></li>
-                            <li><span>Tên</span><span><input type="text" value="fghhhhu"></span></li>
-                            <li><span>Sdt</span><span><input type="text" value="fghhhhu"></span></li>
-                            <li><span>Email</span><span><input type="text" value="fghhhhu"></span></li>
-                            <li><span>giới tinh</span>
-                                <div class="form-group col-12">
-
-                                    <label class="form-radio">
-			<input class="form-radio__input" type="radio" name="customer_sex" value="1"  checked /><span class="form-radio__label">Nam</span>
-		</label>
-                                    <label class="form-radio">
-			<input class="form-radio__input" type="radio" name="customer_sex" value="0" /><span class="form-radio__label">Nữ</span>
-		</label>
-                                    <label class="form-radio">
-			<input class="form-radio__input" type="radio" name="customer_sex" value="2"  /><span class="form-radio__label">Khác</span>
-		</label>
-                                </div>
+                            <li>Tên đầy đủ:
+                                <td><?php echo $account[0]['full_name']?></td>
                             </li>
-                            <li><span>Ngày sinh</span><span><input type="text" value="02/03/2023"></span></li>
+                            <li>Tên người dùng:
+                                <td><?php echo $account[0]['username']?></td>
+                            </li>
+                            <li>Số điện thoại:
+                                <?php echo $account[0]['sdt']?>
+                            </li>
+                            <li>Email:
+                                <?php echo $account[0]['email']?>
+                            </li>
                             <div class="all_submit_form">
-                                <input class="submit_form" type="submit" value="cập nhập">
-                                <input class="submit_form" type="submit" value="đổi mật khẩu">
+                                <input class="submit_form" type="submit" value="Cập nhập">
+                                <input class="submit_form" type="submit" value="Đổi mật khẩu">
                             </div>
                         </div>
-                        <div class="body_acount_right_form_right">
-                            <li><span>tỉnh/thành phố</span><span><input type="text" value="Hà Nội"></span></li>
-                            <li><span>quận /huyện</span><span><input type="text" value="Hà Nội"></span></li>
-                            <li><span>phường/xã</span><span><input type="text" value="Hà Nội"></span></li>
-                            <li><span>chitiet</span></li><textarea name="" id="" cols="10" rows="3">tổng quát</textarea>
-
-
-                        </div>
                     </form>
-
-
-</div>
-<div id="quanlidonhang" class="tabcontent body_acount_right col-xs-12 col-md-12 col-md-8 " >
-	<h3>quản lý đơn hàng</h3>
-	<table class="col-xs-12 col-md-12">
-		<tr >
-			<th>ảnh</th>
-			<th>sản phẩm</th>
-			<th>ngày</th>
-			<th> trạng thái</th>
-			<th>tổng tiền</th>
-			
-		</tr>
-		<tr class="item_table">
-			
-			<td > <img src="../images/cart/three.png" alt=""></td>
-			<td class="col-xs-4 col-md-4">
-				<li>1:aghfedwqqefdfbgn</li>
-				<li>2:bfghfmngdff</li>
-				<li>1:cqrhreewrDFLQgkhôi sểuN4grDFLQgfPfCn5Kxg</li>
-				<li>1:dưeqfwrgtehr</li>
-			</td>
-			<td class="col-xs-2 col-md-2">34/23/2105</td>
-			<td class="col-xs-2 col-md-2">đang giao</td>
-			<td class="col-xs-2 col-md-2">4344k</td>
-		</tr>
-		<tr class="item_table">
-			
-			<td > <img src="../images/cart/three.png" alt=""></td>
-			<td class="col-xs-4 col-md-4">
-				<li>1:aghfedwqqefdfbgn</li>
-				<li>2:bfghfmngdff</li>
-				<li>1:cqrhreewrDFLQgkhôi sểuN4grDFLQgfPfCn5Kxg</li>
-				<li>1:dưeqfwrgtehr</li>
-			</td>
-			<td class="col-xs-2 col-md-2">34/23/2105</td>
-			<td class="col-xs-2 col-md-2">đang giao</td>
-			<td class="col-xs-2 col-md-2">4344k</td>
-		</tr>
-		<tr class="item_table">
-			
-			<td > <img src="../images/cart/three.png" alt=""></td>
-			<td class="col-xs-4 col-md-4">
-				<li>1:aghfedwqqefdfbgn</li>
-				<li>2:bfghfmngdff</li>
-				<li>1:cqrhreewrDFLQgkhôi sểuN4grDFLQgfPfCn5Kxg</li>
-				<li>1:dưeqfwrgtehr</li>
-			</td>
-			<td class="col-xs-2 col-md-2">34/23/2105</td>
-			<td class="col-xs-2 col-md-2">đang giao</td>
-			<td class="col-xs-2 col-md-2">4344k</td>
-		</tr>
-		
-		<tr class="item_table">
-			
-			<td > <img src="../images/cart/three.png" alt=""></td>
-			<td class="col-xs-4 col-md-4">
-				<li>1:aghfedwqqefdfbgn</li>
-				<li>2:bfghfmngdff</li>
-				<li>1:cqrhreewrDFLQgkhôi sểuN4grDFLQgfPfCn5Kxg</li>
-				<li>1:dưeqfwrgtehr</li>
-			</td>
-			<td class="col-xs-2 col-md-2">34/23/2105</td>
-			<td class="col-xs-2 col-md-2">đang giao</td>
-			<td class="col-xs-2 col-md-2">4344k</td>
-		</tr>
-		<tr class="item_table">
-			
-			<td > <img src="../images/cart/three.png" alt=""></td>
-			<td class="col-xs-4 col-md-4">
-				<li>1:aghfedwqqefdfbgn</li>
-				<li>2:bfghfmngdff</li>
-				<li>1:cqrhreewrDFLQgkhôi sểuN4grDFLQgfPfCn5Kxg</li>
-				<li>1:dưeqfwrgtehr</li>
-			</td>
-			<td class="col-xs-2 col-md-2">34/23/2105</td>
-			<td class="col-xs-2 col-md-2">đang giao</td>
-			<td class="col-xs-2 col-md-2">4344k</td>
-		</tr>
-	</table>
-</div>
-<div id="sanphamdamua" class="tabcontent body_acount_right col-xs-12 col-md-12 col-md-8 " >
-	<h3>sản phẩm đâ mua</h3>
-	<table class="col-xs-12 col-md-12">
-		<tr >
-			<th>ảnh</th>
-			<th>sản phẩm</th>
-			<th>ngày</th>
-			<th>giá</th>
-			<th>hoạt động</th>
-			
-			
-		</tr>
-		<tr class="item_table">
-			
-			<td > <img src="../images/cart/three.png" alt=""></td>
-			<td class="col-xs-4 col-md-4">
-				<li>1:aghfedwqqefdfbgn</li>
-				<li>2:bfghfmngdff</li>
-				<li>1:cqrhreewrDFLQgkhôi sểuN4grDFLQgfPfCn5Kxg</li>
-				<li>1:dưeqfwrgtehr</li>
-			</td>
-			<td class="col-xs-2 col-md-2">34/23/2105</td>
-			<td class="col-xs-2 col-md-2"> 999k</td>
-			<td class="col-xs-4 col-md-4">
-				<a href=""><input type="submit" value="mua lại"></a>
-				<a href=""><input type="submit" value="đánh giá"></a>
-			</td>
-
-		</tr>
-
-	</table>
-</div>
-</div>
-</div>
-
                 </div>
-                <div id="quanlidonhang" class="tabcontent body_acount_right col-xs-12 col-md-8 ">
-                    <h3>quản lý đơn hàng</h3>
+
+                <div id="quanlidonhang" class="tabcontent body_acount_right col-xs-12 col-md-12 col-md-12 " >
+                    <h3>Quản lý đơn hàng</h3>
                     <table class="col-xs-12 col-md-12">
                         <tr>
-                            <th>ảnh</th>
-                            <th>sản phẩm</th>
-                            <th>ngày</th>
-                            <th> trạng thái</th>
-                            <th>tổng tiền</th>
-
-
+                            <th>Ảnh</th>
+                            <th>Sản phẩm</th>
+                            <th>Ngày mua</th>
+                            <th>Trạng thái đơn hàng</th>
+                            <th>Tổng tiền</th>
                         </tr>
                         <tr class="item_table">
-
-                            <td> <img src="../images/cart/three.png" alt=""></td>
-                            <td class="col-xs-4 col-md-4">
-                                <li>1:aghfedwqqefdfbgn</li>
-                                <li>2:bfghfmngdff</li>
-                                <li>1:cqrhreewrDFLQgkhôi sểuN4grDFLQgfPfCn5Kxg</li>
-                                <li>1:dưeqfwrgtehr</li>
-                            </td>
-                            <td class="col-xs-2 col-md-2">34/23/2105</td>
-                            <td class="col-xs-2 col-md-2">đang giao</td>
-                            <td class="col-xs-2 col-md-2">4344k</td>
-                        </tr>
-                        <tr class="item_table">
-
-                            <td> <img src="../images/cart/three.png" alt=""></td>
-                            <td class="col-xs-4 col-md-4">
-                                <li>1:aghfedwqqefdfbgn</li>
-                                <li>2:bfghfmngdff</li>
-                                <li>1:cqrhreewrDFLQgkhôi sểuN4grDFLQgfPfCn5Kxg</li>
-                                <li>1:dưeqfwrgtehr</li>
-                            </td>
-                            <td class="col-xs-2 col-md-2">34/23/2105</td>
-                            <td class="col-xs-2 col-md-2">đang giao</td>
-                            <td class="col-xs-2 col-md-2">4344k</td>
-                        </tr>
-                        <tr class="item_table">
-
-                            <td> <img src="../images/cart/three.png" alt=""></td>
-                            <td class="col-xs-4 col-md-4">
-                                <li>1:aghfedwqqefdfbgn</li>
-                                <li>2:bfghfmngdff</li>
-                                <li>1:cqrhreewrDFLQgkhôi sểuN4grDFLQgfPfCn5Kxg</li>
-                                <li>1:dưeqfwrgtehr</li>
-                            </td>
-                            <td class="col-xs-2 col-md-2">34/23/2105</td>
-                            <td class="col-xs-2 col-md-2">đang giao</td>
-                            <td class="col-xs-2 col-md-2">4344k</td>
-                        </tr>
-
-                        <tr class="item_table">
-
-                            <td> <img src="../images/cart/three.png" alt=""></td>
-                            <td class="col-xs-4 col-md-4">
-                                <li>1:aghfedwqqefdfbgn</li>
-                                <li>2:bfghfmngdff</li>
-                                <li>1:cqrhreewrDFLQgkhôi sểuN4grDFLQgfPfCn5Kxg</li>
-                                <li>1:dưeqfwrgtehr</li>
-                            </td>
-                            <td class="col-xs-2 col-md-2">34/23/2105</td>
-                            <td class="col-xs-2 col-md-2">đang giao</td>
-                            <td class="col-xs-2 col-md-2">4344k</td>
-                        </tr>
-                        <tr class="item_table">
-
-                            <td> <img src="../images/cart/three.png" alt=""></td>
-                            <td class="col-xs-4 col-md-4">
-                                <li>1:aghfedwqqefdfbgn</li>
-                                <li>2:bfghfmngdff</li>
-                                <li>1:cqrhreewrDFLQgkhôi sểuN4grDFLQgfPfCn5Kxg</li>
-                                <li>1:dưeqfwrgtehr</li>
+                            <td><img src="<?php echo $value['anh_chinh']?>" alt=""></td>
+                            <td class="col-xs-4 col-md-3">
+                                <li></li>
                             </td>
                             <td class="col-xs-2 col-md-2">34/23/2105</td>
                             <td class="col-xs-2 col-md-2">đang giao</td>
@@ -371,9 +160,120 @@
                         </tr>
                     </table>
                 </div>
+
+                <div id="sanphamdamua" class="tabcontent body_acount_right col-xs-12 col-md-12 col-md-8 " >
+                    <h3>sản phẩm đâ mua</h3>
+                    <table class="col-xs-12 col-md-12">
+                        <tr >
+                            <th>ảnh</th>
+                            <th>sản phẩm</th>
+                            <th>ngày</th>
+                            <th>giá</th>
+                            <th>hoạt động</th>
+                            
+                            
+                        </tr>
+                        <tr class="item_table">
+                            
+                            <td > <img src="../images/cart/three.png" alt=""></td>
+                            <td class="col-xs-4 col-md-4">
+                                <li>1:aghfedwqqefdfbgn</li>
+                                <li>2:bfghfmngdff</li>
+                                <li>1:cqrhreewrDFLQgkhôi sểuN4grDFLQgfPfCn5Kxg</li>
+                                <li>1:dưeqfwrgtehr</li>
+                            </td>
+                            <td class="col-xs-2 col-md-2">34/23/2105</td>
+                            <td class="col-xs-2 col-md-2"> 999k</td>
+                            <td class="col-xs-4 col-md-4">
+                                <a href=""><input type="submit" value="mua lại"></a>
+                                <a href=""><input type="submit" value="đánh giá"></a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div id="quanlidonhang" class="tabcontent body_acount_right col-xs-12 col-md-8 ">
+                <h3>quản lý đơn hàng</h3>
+                <table class="col-xs-12 col-md-12">
+                    <tr>
+                        <th>ảnh</th>
+                        <th>sản phẩm</th>
+                        <th>ngày</th>
+                        <th> trạng thái</th>
+                        <th>tổng tiền</th>
+
+
+                    </tr>
+                    <tr class="item_table">
+
+                        <td> <img src="../images/cart/three.png" alt=""></td>
+                        <td class="col-xs-4 col-md-4">
+                            <li>1:aghfedwqqefdfbgn</li>
+                            <li>2:bfghfmngdff</li>
+                            <li>1:cqrhreewrDFLQgkhôi sểuN4grDFLQgfPfCn5Kxg</li>
+                            <li>1:dưeqfwrgtehr</li>
+                        </td>
+                        <td class="col-xs-2 col-md-2">34/23/2105</td>
+                        <td class="col-xs-2 col-md-2">đang giao</td>
+                        <td class="col-xs-2 col-md-2">4344k</td>
+                    </tr>
+                    <tr class="item_table">
+
+                        <td> <img src="../images/cart/three.png" alt=""></td>
+                        <td class="col-xs-4 col-md-4">
+                            <li>1:aghfedwqqefdfbgn</li>
+                            <li>2:bfghfmngdff</li>
+                            <li>1:cqrhreewrDFLQgkhôi sểuN4grDFLQgfPfCn5Kxg</li>
+                            <li>1:dưeqfwrgtehr</li>
+                        </td>
+                        <td class="col-xs-2 col-md-2">34/23/2105</td>
+                        <td class="col-xs-2 col-md-2">đang giao</td>
+                        <td class="col-xs-2 col-md-2">4344k</td>
+                    </tr>
+                    <tr class="item_table">
+
+                        <td> <img src="../images/cart/three.png" alt=""></td>
+                        <td class="col-xs-4 col-md-4">
+                            <li>1:aghfedwqqefdfbgn</li>
+                            <li>2:bfghfmngdff</li>
+                            <li>1:cqrhreewrDFLQgkhôi sểuN4grDFLQgfPfCn5Kxg</li>
+                            <li>1:dưeqfwrgtehr</li>
+                        </td>
+                        <td class="col-xs-2 col-md-2">34/23/2105</td>
+                        <td class="col-xs-2 col-md-2">đang giao</td>
+                        <td class="col-xs-2 col-md-2">4344k</td>
+                    </tr>
+
+                    <tr class="item_table">
+
+                        <td> <img src="../images/cart/three.png" alt=""></td>
+                        <td class="col-xs-4 col-md-4">
+                            <li>1:aghfedwqqefdfbgn</li>
+                            <li>2:bfghfmngdff</li>
+                            <li>1:cqrhreewrDFLQgkhôi sểuN4grDFLQgfPfCn5Kxg</li>
+                            <li>1:dưeqfwrgtehr</li>
+                        </td>
+                        <td class="col-xs-2 col-md-2">34/23/2105</td>
+                        <td class="col-xs-2 col-md-2">đang giao</td>
+                        <td class="col-xs-2 col-md-2">4344k</td>
+                    </tr>
+                    <tr class="item_table">
+
+                        <td> <img src="../images/cart/three.png" alt=""></td>
+                        <td class="col-xs-4 col-md-4">
+                            <li>1:aghfedwqqefdfbgn</li>
+                            <li>2:bfghfmngdff</li>
+                            <li>1:cqrhreewrDFLQgkhôi sểuN4grDFLQgfPfCn5Kxg</li>
+                            <li>1:dưeqfwrgtehr</li>
+                        </td>
+                        <td class="col-xs-2 col-md-2">34/23/2105</td>
+                        <td class="col-xs-2 col-md-2">đang giao</td>
+                        <td class="col-xs-2 col-md-2">4344k</td>
+                    </tr>
+                </table>
             </div>
         </div>
-
     </section>
 
     <footer id="footer">
