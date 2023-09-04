@@ -152,7 +152,7 @@ public function get_join($column=array(),$table1,$table2,$condition,$condition1=
             // }
             
             foreach ($files as $file) {
-             $file = self::validateUploadFile($file, $uploadPath);
+            // $file = self::validateUploadFile($file, $uploadPath);
             if ($files != false) {
                  move_uploaded_file($file["tmp_name"], $uploadPath .'/'.$file["name"]);
             }else {
@@ -186,9 +186,7 @@ public function get_join($column=array(),$table1,$table2,$condition,$condition1=
 {
   // Lấy kết nối đến cơ sở dữ liệu
   return $this->conn->insert_id;
-
   // Trả về ID của bản ghi mới nhất
- 
 }
      
        

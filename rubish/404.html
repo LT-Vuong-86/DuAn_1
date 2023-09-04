@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -9,13 +9,14 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet">
 	<link href="../css/main.css" rel="stylesheet">
 	<link href="../css/responsive.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->       
    </head><!--/head-->
 
-<body>
+<!-- <body>
 	<div class="container text-center">
         <div class="logo-404">
             <a href="index.html"><img src="images/home/logo.png" alt="" /></a>
@@ -27,7 +28,74 @@
             <h2><a href="index.html">Đưa tôi về nhà</a></h2>
         </div>
     </div>
+    <input type="number" id="quantity" value="1">
+    <button id="increase_quantity">Tăng</button>
+    <button id="decrease_quantity">Giảm</button> -->
+    
+<!-- <script>
+   let fd= parseInt(document.querySelector("#quantity").innerHTML)
+    function increaseQuantity() {
+        // Tăng số lượng lên 1
+        document.querySelector("#quantity").innerHTML = fd + 1;
+      }
+      
+      function decreaseQuantity() {
+        // Giảm số lượng xuống 1
+        document.querySelector("#quantity").innerHTML = fd - 1;
+      }
+      document.querySelector("#increase_quantity").addEventListener("click", increaseQuantity);
+document.querySelector("#decrease_quantity").addEventListener("click", decreaseQuantity);
+</script> -->
 
-   
+   <!-- <script>
+    // Tăng số lượng lên 1
+    var quantity = document.querySelector("#quantity").value;
+var quantity2 = document.querySelector("#increase_quantity");
+var quantity1 = document.querySelector("#decrease_quantity");
+quantity2.value = parseInt(quantity.value) + 1;
+document.getElementById("quantity").innerHTML=quantity+1
+// Giảm số lượng xuống 1
+quantity.addEventListener("change", function() {
+    document.getElementById("quantity").innerHTML.parseInt(quantity.value) - 1;
+  });
+quantity1.value = parseInt(quantity.value) - 1;
+
+   </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Tăng giảm số lượng</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="buttons_added">
+        <input class="minus is-form" type="button" value="-">
+        <input aria-label="quantity" class="input-qty" max="100" min="1" name="" type="number" value="1">
+        <input class="plus is-form" type="button" value="+">
+      </div>
+  <script>
+    //<![CDATA[
+        $('input.input-qty').each(function() {
+          var $this = $(this),
+            qty = $this.parent().find('.is-form'),
+            min = Number($this.attr('min')),
+            max = Number($this.attr('max'))
+          if (min == 0) {
+            var d = 0
+          } else d = min
+          $(qty).on('click', function() {
+            if ($(this).hasClass('minus')) {
+              if (d > min) d += -1
+            } else if ($(this).hasClass('plus')) {
+              var x = Number($this.val()) + 1
+              if (x <= max) d += 1
+            }
+            $this.attr('value', d).val(d)
+          })
+        })
+        //]]></script>
+
 </body>
 </html>
