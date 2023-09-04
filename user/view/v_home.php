@@ -13,6 +13,23 @@
     <link href="../css/animate.css" rel="stylesheet">
 	<link href="../css/main.css" rel="stylesheet">
 	<link href="../css/responsive.css" rel="stylesheet">
+    <style>
+        h5{
+            word-wrap: break-word;
+            white-space: normal;
+            overflow: hidden;
+            display: -webkit-box;
+            text-overflow: ellipsis;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            line-height: 14px; 
+            font-size: 16px;
+        }
+        h4{
+            float: left; 
+            color: crimson;
+        }
+    </style>
     </head><!--/head-->
 
 <body>
@@ -52,11 +69,12 @@
                     <div class="col-sm-8">
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
-                            <li><a href="?controller=account"><i class="fa fa-user"></i> Tài khoản</a></li>
+                                <li><a href="?controller=account"><i class="fa fa-user"></i> Tài khoản</a></li>
                                 <li><a href="#"><i class="fa fa-star"></i>Danh sách yêu thích</a></li>
                                 <li><a href="?controller=checkout"><i class="fa fa-crosshairs"></i>Thanh toán</a></li>
                                 <li><a href="?controller=cart"><i class="fa fa-shopping-cart"></i>Giỏ hàng</a></li>
                                 <li><a href="?controller=logout"><i class="fa fa-lock"></i>Đăng xuất</a></li>
+                                
                              </ul>
                         </div>
                     </div>
@@ -81,7 +99,8 @@
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
                                 <li><a href="?controller=home" class="active">Trang chủ</a></li>
-                                <li class="dropdown"><a href="">Mail<i class="fa fa-angle-down"></i></a>
+                                <li class="dropdown">
+                                    <a href="">Mail<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="?controller=shop">Cửa hàng</a></li>
                                         <li><a href="?controller=checkout">Thủ tục thanh toán</a></li>
@@ -206,82 +225,30 @@
                 <div class="col-md-9 col-xs-12 padding-right">
                     <div class="features_items ">
                         <!--features_items-->
-                        <h2 class="title text-center">Sản phẩm nổi bật</h2>
-                        <div class="col-sm-4">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center">
-                                        <img src="../images/home/product1.jpg" alt="" />
-                                        <h2>$56</h2>
-                                        <p> Phiên bản màu đen Easy Polo</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
+                        <h2 class="title text-center">Một số sản phẩm nổi bật</h2>
+                        
+                        <?php
+                            $i = 0;
+                            foreach ($sanpham as $key => $value) {
+                                if(++$i == 7) break;
+                        ?>
+                        <a href="?controller=product-detail&id=<?php echo $value['id_sanpham']?>">
+                            <div class="col-sm-4"> 
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            <img class="img-responsive" style="width:100%; height:250px; object-fit: cover;" src="<?php echo $value['anh_chinh']?>" alt="" />
+                                            <h5 style="color: black;"><?php echo $value['tensanpham']?></h5>
+                                        </div>
+                                        <div>
+                                            <h4><sup>đ</sup><?php echo number_format($value['gia'])?></h4>
+                                            <h6 style="float: right">Đã bán: <?php echo $value['daban']?></h6>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center">
-                                        <img src="../images/home/product2.jpg" alt="" />
-                                        <h2>$56</h2>
-                                        <p>Phiên bản màu đen Easy Polo</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center">
-                                        <img src="../images/home/product3.jpg" alt="" />
-                                        <h2>$56</h2>
-                                        <p>Phiên bản màu đen Easy Polo</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center">
-                                        <img src="../images/home/product4.jpg" alt="" />
-                                        <h2>$56</h2>
-                                        <p>Phiên bản màu đen Easy Polo</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
-                                    </div>
-                                    <img src="../images/home/new.png" class="new" alt="" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center">
-                                        <img src="../images/home/product5.jpg" alt="" />
-                                        <h2>$56</h2>
-                                        <p>Phiên bản màu đen Easy Polo</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
-                                    </div>
-                                    <img src="../images/home/sale.png" class="new" alt="" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center">
-                                        <img src="../images/home/product6.jpg" alt="" />
-                                        <h2>$56</h2>
-                                        <p>Phiên bản màu đen Easy Polo</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> thêm vào giỏ hàng</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                        </a>
+                        <?php }?>
                     </div>
                     <!--features_items-->
 
@@ -289,11 +256,10 @@
                         <!--category-tab-->
                         <div class="col-sm-12">
                             <ul class="nav nav-tabs">
-                                <li class="active"><a href="#tshirt" data-toggle="tab">Áo thun</a></li>
-                                <li><a href="#blazers" data-toggle="tab">áo cộc tay</a></li>
-                                <li><a href="#sunglass" data-toggle="tab">Kính râm</a></li>
+                                <li class="active"><a href="#tshirt" data-toggle="tab">Vest</a></li>
+                                <li><a href="#blazers" data-toggle="tab">Quần nữ</a></li>
+                                <li><a href="#dress" data-toggle="tab">Váy, đầm</a></li>
                                 <li><a href="#kids" data-toggle="tab">Trẻ em</a></li>
-                                <li><a href="#poloshirt" data-toggle="tab">áo thun có cổ</a></li>
                             </ul>
                         </div>
                         <div class="tab-content">
@@ -305,7 +271,7 @@
                                                 <img src="../images/home/gallery1.jpg" alt="" />
                                                 <h2>$56</h2>
                                                 <p>Phiên bản màu đen Easy Polo</p>
-                                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> thêm vào giỏ hàng</a>
+                                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
                                             </div>
 
                                         </div>
@@ -318,7 +284,7 @@
                                                 <img src="../images/home/gallery2.jpg" alt="" />
                                                 <h2>$56</h2>
                                                 <p>Phiên bản màu đen Easy Polo</p>
-                                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> thêm vào giỏ hàng</a>
+                                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
                                             </div>
 
                                         </div>
@@ -407,7 +373,7 @@
                                 </div>
                             </div>
 
-                            <div class="tab-pane fade" id="sunglass">
+                            <div class="tab-pane fade" id="dress">
                                 <div class="col-sm-3">
                                     <div class="product-image-wrapper">
                                         <div class="single-products">

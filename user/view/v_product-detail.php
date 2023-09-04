@@ -18,6 +18,33 @@
         .category-tab ul {
             background: whitesmoke;
         }
+        input[type='number']::-webkit-inner-spin-button,
+        input[type='number']::-webkit-outer-spin-button {
+                                -webkit-appearance: none;
+                                margin: 0;
+        }
+        #product-variation{
+            overflow: hidden;
+            min-width: 5rem;
+            min-height: 2.125rem;
+            box-sizing: border-box;
+            padding: .25rem .75rem;
+            margin: 0 8px 8px 0;
+            color: rgba(0,0,0,.8);
+            text-align: center;
+            border-radius: 2px;
+            border: 1px solid rgba(0,0,0,.09);
+            position: relative;
+            background: whitesmoke;
+            outline: 0;
+            word-break: break-word;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #product-variation:hover{
+            border-color: red;
+        }
     </style>
 </head>
 <!--/head-->
@@ -30,30 +57,7 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="logo pull-left">
-                        <a href="?controller=home"><img src="../images/home/logo.png" alt="" /></a>
-                        </div>
-                        <div class="btn-group pull-right">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									USA
-									<span class="caret"></span>
-								</button>
-                                <ul class="dropdown-menu">
-                                    <li><a href="">Canada</a></li>
-                                    <li><a href="">UK</a></li>
-                                </ul>
-                            </div>
-
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									DOLLAR
-									<span class="caret"></span>
-								</button>
-                                <ul class="dropdown-menu">
-                                    <li><a href="">Canadian Dollar</a></li>
-                                    <li><a href="">Pound</a></li>
-                                </ul>
-                            </div>
+                            <a href="?controller=home"><img src="../images/home/logo.png" alt="" /></a>
                         </div>
                     </div>
                     <div class="col-sm-8">
@@ -88,9 +92,9 @@
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
                                 <li><a href="?controller=home" class="active">Trang chủ</a></li>
-                                <li class="dropdown"><a href="?controller=shop">Shop<i class="fa fa-angle-down"></i></a>
+                                <li class="dropdown"><a href="#">Mail<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="?controller=shop">Các sản phẩm</a></li>
+                                        <li><a href="?controller=shop">Cửa hàng</a></li>
                                         <li><a href="?controller=checkout">Thủ tục thanh toán</a></li>
                                         <li><a href="?controller=cart">Giỏ hàng</a></li>
                                     </ul>
@@ -181,17 +185,6 @@
                                 </div>
                             </div>
                         </div>
-                      
-
-                        <div class="price-range">
-                            <!--price-range-->
-                            <h2>Phạm vi giá</h2>
-                            <div class="well">
-                                <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2"><br />
-                                <b>$ 0</b> <b class="pull-right">$ 600</b>
-                            </div>
-                        </div>
-                        <!--/price-range-->
 
                         <div class="shipping text-center">
                             <!--shipping-->
@@ -201,33 +194,33 @@
 
                     </div>
                 </div>
-
+                    
                 <div class="col-sm-9 padding-right">
                     <div class="product-details">
                         <!--product-details-->
                         <div class="col-sm-5">
                             <div class="view-product">
-                                <img src="../images/product-details/1.jpg" alt="" />
+                                <img src="<?php echo $product[0]['anh_chinh']?>" alt="" />
                             </div>
                             <div id="similar-product" class="carousel slide" data-ride="carousel">
 
                                 <!-- Wrapper for slides -->
                                 <div class="carousel-inner">
                                     <div class="item active">
-                                        <img class="imagess" src="../images/product-details/similar1.jpg" alt=""></a>
-                                        <img class="imagess" src="../images/product-details/similar2.jpg" alt="">
-                                        <img class="imagess" src="../images/product-details/similar3.jpg" alt="">
-                                        <img class="imagess" src="../images/product-details/similar2.jpg" alt="">
-                                        <img class="imagess" src="../images/product-details/similar3.jpg" alt="">
+                                        <?php 
+                                            foreach($anhphu as $key => $value){?>
+                                            <img style="width:100px; height:100px;" class="imagess" src="<?php echo $value['anh']?>" alt="">
+                                            
+                                        <?php }?>
+                                        
                                     </div>
-                                  
                                 </div>
 
                                 <!-- Controls -->
                                 <a class="left item-control" href="#similar-product" data-slide="prev">
                                     <i class="fa fa-angle-left"></i>
                                 </a>
-                                <a class="right item-control" href="#similar-product" data-slide="next">
+                                <a style="margin-right: -13px;" class="right item-control" href="#similar-product" data-slide="next">
                                     <i class="fa fa-angle-right"></i>
                                 </a>
                             </div>
@@ -240,26 +233,32 @@
 
                                 <!-- /// product-name //// -->
                                 <div class="product-content-right-product-name">
-                                    <strong><h1>ELLIE DRESS - ĐẦM REN SERONA</h1></strong>
-                                    <p>Web ID: 1089772</p>
+                                    <strong>
+                                        <h1>
+                                            <?php echo $product[0]['tensanpham']?>
+                                        </h1>
+                                    </strong>
+                                    <p>Web ID: <?php echo $product[0]['id_sanpham']?></p>
                                     <img src="../images/product-details/rating.png" alt="" />
                                 </div>
 
                                 <!-- //// productproduct-giá //// -->
                                 <div class="product-content-right-product-price">
-                                    <span class="cart">2.990.000<sup>đ</sup></span>
+                                    <span class="cart"><?php echo number_format($product[0]['gia'])?><sup>đ</sup></span>
                                 </div>
-
-                                <!-- /// product-color /// -->
+                                
+                                
                                 <div class="product-content-right-product-color">
                                     <p style="font-weight: bold;">Loại sản phẩm</p>
+                                    <?php 
+                                        foreach($anhphu as $key => $value){
+                                    ?>
                                     <div class="size_color">
-                                        <li>loại 1</li>
-                                        <li>loại 2</li>
-                                        <li>loại 3</li>
-                                        <li>loại 4</li>
+                                        <button id="product-variation" class="active" aria-label="color"><li style="border: none"><?php echo $value['ten_anhphu']?></li></button>
                                     </div>
+                                    <?php }?>
                                 </div>
+                               
 
                                 <!-- //// product-size //// -->
                                 <div class="product-content-right-product-size">
@@ -272,23 +271,26 @@
                                         <li>XXL</li>
                                     </div>
                                 </div>
-                                <p style="color: red;">Vui lòng chọn kích thước</p>
-                                <!-- /// product-quantity /// -->
+                    
                                 <div class="quantity">
-                                    <p style="font-weight: bold;">Số lượng: </p>
                                     <span>
-										<input type="button" value="-">
-										<input type="number" min="0" value="1">
-										<input type="button" value="+">
+                                    
+                                    <a style="text-decoration: none;" href="?controller=xulyCart&method=giam&id=<?php echo $value['id_sanpham']?>">
+                                        <input style="cursor: pointer;" type="button" value="-">
+                                    </a>
+                                        <input type="number" min="1" max="100" value="<?php echo $value['sl']?>">
+                                    <a style="text-decoration: none;" href="?controller=xulyCart&method=tang&id=<?php echo $value['id_sanpham']?>">
+                                        <input type="button" value="+">
+                                    </a>
 									</span>
                                 </div>
 
 
                                 <!-- /// product-button /// -->
                                 <div class="product-content-right-product-button">
-                                    <button> THÊM VÀO THẺ</button>
-                                    <button> MUA NGAY</button>
-                                    <button>&hearts; </button>
+                                    <a href="?controller=addToCart&id=<?php echo $value['id_sanpham']?>"><button>THÊM VÀO GIỎ HÀNG</button></a>
+                                    <a href=""><button>MUA NGAY</button></a>
+                                    <a href=""><button>&hearts;</button></a>
                                 </div>
 
                                 </span>

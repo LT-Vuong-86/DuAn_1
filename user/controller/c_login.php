@@ -25,6 +25,7 @@
                 }
             }
         }
+        
         if(!$loi){
             $_SESSION['ss_user'] = $user[0]['id'];
             header('location: ?controller=home');

@@ -2,5 +2,5 @@
     if(isset($_SESSION['ss_user'])){
         unset($_SESSION['ss_user']);
     }
-    header('location: index.php');
+    header('location: ?controller=login');
 ?>

@@ -1228,8 +1228,13 @@ margin: 20px 20px 20px 20px;
   width:70px;
 }
 .body_acount_right form .body_acount_right_form_left{
-  width: 300px;
+  width: 50%;
 }
+
+.body_acount_right form .body_acount_right_form_left li{
+    width: 100%
+}
+
 .body_acount_right form{
   display: flex;
   margin-left: 20px;
@@ -1240,7 +1245,7 @@ margin: 20px 20px 20px 20px;
 .body_acount_right li input{
   background-color: white;
   float: right;
-  width: 200px;
+  width: 250px;
   height: 30px;
   border-radius: 3% 3%  20% 3%;
   padding: 7px 40px 10px 10px;
@@ -1740,7 +1745,6 @@ section #form {
   height: 40px;
   margin-bottom: 20px;
   outline: medium none;
-  padding-left: 10px;
   width: 100%;
 }
 
@@ -1905,7 +1909,6 @@ section #form {
   overflow: hidden;
   text-align: center;
   width: 35px;
-  float: left;
 }
 
 

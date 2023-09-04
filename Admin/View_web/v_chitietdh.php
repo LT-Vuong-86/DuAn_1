@@ -1,33 +1,168 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin | Chi tiết đơn hàng</title>
+    <link rel="stylesheet" href="./assets/css/donhang.css">
+    <title>Document</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
 
-    *{
-        font-family: 'Ubuntu', sans-serif;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+        *{
+            font-family: 'Ubuntu', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    :root{
-        --black: black;
-        --white: #fff;
-        --yellow: #F5A623;
-        --grey: grey;
-        --smoke: rgb(220, 220, 220);
-    }
+        :root{
+            --black: black;
+            --white: #fff;
+            --yellow: #F5A623;
+            --grey: grey;
+            --smoke: rgb(220, 220, 220);
+        }
 
-    body{
-        min-height: 100vh;
-        overflow-x: hidden;
-    }
+        body{
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
 
-    .topbar{
+        .details{
+            position: relative;
+            width: 100%;
+            padding: 20px;
+            display: grid;
+            grid-gap: 30px;
+            margin-top: 10px;
+        }
+
+        .details .recentstaff{
+            position: relative;
+            display: grid;
+            min-height: 500px;
+            background: var(--white);
+            padding: 20px;
+            box-shadow: 0 7px 25px var(--black);
+            border-radius: 20px;
+        }
+
+        .details .cardHeader{
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .cardHeader h2{
+            font-weight: 600;
+            color: var(--black);
+        }
+
+        .cardHeader .btn{
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            padding: 5px 10px;
+            background: var(--yellow);
+            text-decoration: none;
+            color: var(--white);
+            border-radius: 6px;
+        }
+
+        .details table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .details table thead td{
+            font-weight: 600;
+        }
+
+        .details .recentstaff table tr{
+            color: var(--grey);
+            border-bottom: 1px solid var(--black);
+        }
+
+        .details .recentstaff table tr:last-child{
+            border-bottom: none;
+        }
+
+        .details .recentstaff table tbody tr:hover{
+            background: var(--yellow);
+            color: var(--black );
+        }
+
+        .details .recentstaff table tr td{
+            padding: 10px;
+        }
+
+        .details .recentstaff table tr td:last-child {
+            text-align: center;
+        }
+
+        .details .recentstaff table tr td:nth-child(2),
+        .details .recentstaff table tr td:nth-child(5),
+        .details .recentstaff table tr td:nth-child(6) {
+            text-align: center;
+        }
+
+        .details .recentstaff table tr td:nth-child(3),
+        .details .recentstaff table tr td:nth-child(4) {
+            text-align: start;
+        }
+
+        .details .recentstaff table tr td:nth-child(7) {
+            text-align: end;
+        }
+
+        .status.delivered{
+            padding: 2px 4px;
+            background: greenyellow;
+            color: var(--white);
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .status.pending{
+            padding: 2px 4px;
+            background: rgb(255, 111, 0);
+            color: var(--white);
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .status.return{
+            padding: 2px 4px;
+            background: red;
+            color: var(--white);
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .status.inProgress{
+            padding: 2px 4px;
+            background: #1795ce;
+            color: var(--white);
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .main{
+            position: absolute;
+            width: calc(100% - 300px);
+            left: 300px;
+            min-height: 100vh;
+            background: var(--white);
+            transition: 0.5s;
+        }
+
+        .topbar{
             width: 100%;
             height: 60px;
             display: flex;
@@ -36,34 +171,9 @@
             padding: 0 10px;
         }
 
-        .search{
-            position: relative;
-            width: 400px;
-            margin: 0 10px;
-        }
+       
 
-        .search label{
-            position: relative;
-            width: 100%;
-        }
-
-        .search label input{
-            width: 100%;
-            height: 40px;
-            border-radius: 40px;
-            padding: 5px 20px;
-            padding-left: 35px;
-            font-size: 18px;
-            outline: none;
-            border: 1px solid var(--black);
-        }
-
-        .search label i{
-            position: absolute;
-            top: 0;
-            left: 10px;
-            font-size: 1.2rem;
-        }
+        
 
         .toggle{
             position: relative;
@@ -95,79 +205,89 @@
             height: 100%;
             object-fit: cover;
         }
+        .table{
+            width: 100%;
+            text-align: center;
+        }
+        table, th, td {
+            
+     border: 1px solid black;
+    }
+    .msp{
+        width: 100px;
+    }
     </style>
 </head>
 <body>
     <div class="topbar">
         <div class="toggle">
+            
         </div>
 
-        <div class="search">
-            <label for="">
-                <input type="text" placeholder="Tìm kiếm...">
-                <i class='bx bx-search'></i>
-            </label>
-        </div>
 
         <div class="user">
             <img src="./img/iconE.png" alt="">
         </div>
     </div>
 
-    <div class="chitiet">
+    <div class="details">
+        <div class="recentstaff">
+        <h2>Trạng thái đơn hàng</h2>
+        <a href="?controller=donhang">Quay lại</a>
+        <form action="" method="post">
+            <div class="cardHeader">
+                
+                <button class="btn" name="btn_donhang">Lưu trạng thái</button>
+            </div>
+            
+        <div class="chitiet">
         <?php
             if (isset($_SESSION['ss_admin'])) {
 
-                $user = $db->get('admin',array('id'=>$_SESSION['ss_admin']));
-                if($user[0]['level']==0) {?>
+                ?>
 				<div class="row">
-					<h3 class="text-center col-md-12">Xử lí đơn hàng</h3>
+					<h3 class="text-center col-md-12">Chi tiết đơn hàng</h3>
 				</div>
-				<div class="row">
-					<b class="text col-md-12">Mã đơn: <?php echo $data_order[0]['id'] ?></b>
-					<b class="text col-md-12">Họ tên: <?php echo $data_order[0]['full_name'] ?></b>
-					<b class="text col-md-12">Địa chỉ: <?php echo $data_order[0]['address'] ?></b>
-					<b class="text col-md-12">Số điện thoại: <?php echo $data_order[0]['phone'] ?></b>
-					<b class="text col-md-12">Email: <?php echo $data_order[0]['email'] ?></b>
-					<b class="text col-md-12">Tổng đơn: <?php echo number_format($data_order[0]['amount']) ?>đ</b>
-				</div>
+				
 				<div class="row">
 					<table class="table">
 					  <thead>
 					    <tr>
+                            <th class="msp" >Mã sản phẩm</th>
 					      <th scope="col">Ảnh</th>
 					      <th scope="col">Tên sản phẩm</th>
-					      <th scope="col">Số lượng</th>
-					      <th scope="col">Đơn giá</th>
-					      <th scope="col">Tổng tiền</th>
+                          <th>Ngày đặt</th>
+                          <th scope="col">Đơn giá</th>    
+					      <th scope="col">Ghi chú</th>
+                          
+					      
 					    </tr>
 					  </thead>
 					  <tbody>
 					    <tr>
-					    <?php foreach ($data_order_detail as $key => $value) {
+					    <?php foreach ($ctdonhang as $key => $value) {
 					    	//Lấy dữ liệu sản phẩm tương ứng
-					    	$data_product = $db->get('sanpham',array('id'=>$value['id_sanpham']))
+					    	$sanpham = $db->get('sanpham',array('id_sanpham'=>$value['id_sanpham']));
+                            
 					   	?>
-					      <th scope="row"><img height="50" width="50" src="<?php echo $data_product[0]['anh'] ?>"></th>
-					      <td><?php echo $data_product[0]['tensanpham'] ?></td>
-					      <td><?php echo $value['soluong'] ?></td>
-					      <td><?php echo $value['gia'] ?></td>
-					      <td><?php echo $value['tongtien'] ?></td>	      
+                        <td><?php echo $value['id_sanpham'] ?></td>
+					      <th scope="row"><img height="100" width="100"  src="../images/sanpham/<?php echo $sanpham[0]['anh_chinh']?>" > </th>
+					      <td><?php echo $sanpham[0]['tensanpham'] ?></td>
+					      <td><?php echo $value['ngaydat'] ?></td>
+					      <td><?php echo number_format($sanpham[0]['gia']) ?>đ</td>
+					      <td style="max-width:300px"><?php echo $value['ghichu'] ?></td>	      
 					    </tr>
 					    <?php } ?>
 					  </tbody>
 					</table>
 				</div>
-				<div class="row mt-4">
-					<div class="col-md-10"></div>
-					<a href="?controller=xuli_order&id=<?php echo $id ?>" class="btn btn-success col-md-2">Duyệt đơn</a>
-				</div>
+				
 			<?php }
-            }else{?>
-				<div class="row">
-					<h3 class="text-center text-danger col-md-12">Bạn không có quyền </h3>
-				</div>
-            <?php } ?>
+             ?>
+			
     </div>  
+            </form>
+        </div>
+    </div>
 </body>
 </html>

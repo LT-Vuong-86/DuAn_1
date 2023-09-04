@@ -72,5 +72,32 @@
             $query = mysqli_query($this->conn, $sql);
             return $query;
         }
+
+        public function get_limit($table, $condition=array(), $limit)
+		{	
+			//Bước 1 : Khởi tạo cấu trúc câu lệnh truy vấn
+			$sql = "SELECT * FROM $table";
+			//Bước 2: Kiểm tra xem có điều kiện không và cộng chuỗi tương ứng 
+			if (!empty($condition)) {
+				$sql.=" WHERE";
+				foreach ($condition as $key => $value) {
+					$sql.= " $key = '$value' AND";
+				}
+				$sql = trim($sql, "AND");
+			}
+			//Bước 3: cộng chuỗi có thêm điều kiện limit vào
+			$sql .= " LIMIT $limit";
+			//Bước 4: Chạy câu lệnh
+			$query = mysqli_query($this->conn,$sql);
+			//Bước 5: Khởi tạo 1 biến mảng và lặp hết dữ liệu lấy được từ câu truy vấn ở trên cho vào mảng đó
+			$result = array();
+			if ($query) {
+				while ($row = mysqli_fetch_assoc($query)) {
+					$result[] = $row;
+				}
+			}
+			//Bước 6: Cho hàm trả về giá trị 
+			return $result;
+		}
     }
 ?>

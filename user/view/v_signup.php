@@ -39,6 +39,7 @@
         }
 
         .container h2{
+            margin-left: -10px;
             margin-top: -15px;
             margin-bottom: 15px;
             text-align: center;
@@ -49,14 +50,7 @@
                                 -webkit-appearance: none;
                                 margin: 0;
         }
-        
-        input{
-            text-transform: capitalize;
-        }
-        textarea{
-            text-transform: capitalize;
-        }
-
+    
         body input.button{
             align-items: center;
             display: flex;
@@ -110,15 +104,25 @@
             width: 70px;
         }
         .form-check-input{
-            padding-right: 20px;
+            padding-top: -20px;
             position: absolute;
+        }
+
+        .form-check-label{
+            padding-left: 15px;
+            width: 100px;
+        }
+
+        input[type="radio"], 
+        input[type="checkbox"]{
+            margin: -10px 0 0;
         }
     </style>
    </head><!--/head-->
 <body>
 	<div class="container">
         <form action="?controller=signup" method="post">
-            <h2 class="h2h2h2">Đăng ký người dùng mới</h2>
+            <h2 class="h2h2h2">Đăng ký trở thành khách hàng mới</h2>
             <div class="col-sm-12">
                 <div class="signup-form-tt row mt-5" >
                     <!--sign up form-->
@@ -140,13 +144,9 @@
                     <div class="col-sm-6 col-xs-12">
                         <h5>Vai trò</h5>
                         <div >
-                            <div id="role_nhanvien" class="form-check form-check-inline">
-                                <input class="form-check-input" name="vaitro" type="radio" checked id="nhanvien" value="nhanvien"/>
-                                <label class="form-check-label" for="nam">Nhân viên</label>
-                            </div>
                             <div id="role_khachhang" class="form-check form-check-inline">
-                                <input class="form-check-input" name="vaitro" type="radio" id="khachhang" value="khachhang"/>
-                                <label class="form-check-label" for="nu">Khách hàng</label>
+                                <input class="form-check-input" name="vaitro" type="radio" checked id="nguoidung" value="nguoidung"/>
+                                <label class="form-check-label" for="nguoidung">Người dùng</label>
                             </div>
                         </div>
                     </div>
@@ -177,11 +177,11 @@
 
                     <div class="col-sm-12 col-xs-12">
                         <h5>Địa chỉ</h5>
-                        <input class="col-sm-12 col-xs-12" type="text" name="diachi" placeholder="Chi tiết"></input>
+                        <input class="col-sm-12 col-xs-12" type="text" name="diachi" placeholder="Nơi ở hiện tại"></input>
                     </div>
                 
                     <div class="col-sm-12 col-xs-12">
-                        <input type="submit" class="button" name="btn_signup" value="Đăng ký">
+                        <input type="submit" class="button" name="btn_signup" value="Quay lại đăng nhập">
                     </div>
                 </div>
                 <!--/sign up form -->

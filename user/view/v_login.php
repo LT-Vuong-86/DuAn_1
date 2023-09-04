@@ -48,7 +48,6 @@
             color: black;
             text-decoration: none;
             position: relative;
-            padding: 20px 30px;
             display: flex;
             align-items: center;
             transition: all .3s;
@@ -107,7 +106,7 @@
                 <div class="col-sm-12">
                     <div class="login-form">
                         <!--login form-->
-                        <h2 style="text-align:center">Hãy Đăng Nhập tài khoản của bạn</h2>
+                        <h2 style="text-align:center">Bạn đã là khách hàng</h2>
                         <form action="#" method="post">
                             <div class="row mt-5">
                                 <input type="text" name="username" placeholder="Tên đăng nhập" class="form-control col-md-6" 
@@ -133,7 +132,7 @@
                         
                             
                             <div class="dangky">
-                                <h5>Chưa có tài khoản? <span><a href="?controller=signup">Đăng ký</a></span></h5>
+                                <h5>Nếu chưa hãy <span><a href="?controller=signup">Đăng ký</a></span></h5>
                             </div>
 						</form>
 					</div>

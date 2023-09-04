@@ -14,6 +14,31 @@
     <link href="../css/animate.css" rel="stylesheet">
     <link href="../css/main.css" rel="stylesheet">
     <link href="../css/responsive.css" rel="stylesheet">
+    <style>
+        h4{
+            float: left; 
+            color: crimson;
+        }
+        h6{
+            float: left;
+            position: absolute;
+            margin-top: 35px;
+            margin-left: 10px;
+        }
+        .product-image-wrapper{
+            padding: 5px;
+            border: 1px solid black;
+        }
+        .product-image-wrapper:hover{
+            box-shadow: 0 0 10px;
+        }
+        .watch{
+            border: none;
+            border-radius: 18px;
+            background: orange;
+        }
+
+    </style>
   </head>
 <!--/head-->
 
@@ -25,30 +50,7 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="logo pull-left">
-                        <a href="?controller=home"><img src="../images/home/logo.png" alt="" /></a>
-                        </div>
-                        <div class="btn-group pull-right">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									USA
-									<span class="caret"></span>
-								</button>
-                                <ul class="dropdown-menu">
-                                    <li><a href="">Canada</a></li>
-                                    <li><a href="">UK</a></li>
-                                </ul>
-                            </div>
-
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									DOLLAR
-									<span class="caret"></span>
-								</button>
-                                <ul class="dropdown-menu">
-                                    <li><a href="">Canadian Dollar</a></li>
-                                    <li><a href="">Pound</a></li>
-                                </ul>
-                            </div>
+                            <a href="?controller=home"><img src="../images/home/logo.png" alt="" /></a>
                         </div>
                     </div>
                     <div class="col-sm-8">
@@ -157,9 +159,9 @@
                                     <div id="womens" class="panel-collapse collapse">
                                         <div class="panel-body">
                                             <ul>
-                                                <li><a href="">Đầm</a></li>
-                                                <li><a href="">Quần</a></li>
-                                                <li><a href="">Áo nữ</a></li>
+                                                <li><a href="?controller=dam">Đầm</a></li>
+                                                <li><a href="?controller=quannu">Quần</a></li>
+                                                <li><a href="?controller=aonu&id=<?php echo $aonu[0]['id_danhmuc']?>">Áo nữ</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -209,36 +211,35 @@
                 </div>
 
                 <div class="col-sm-9 padding-right">
-                    <div class="features_items">
+                    <div class="features_items" >
                         <!--features_items-->
                         <h2 class="title text-center">Cửa hàng</h2>
                         <?php
                             $i = 0;
                             foreach ($sanpham as $key => $value) {
-                                if(++$i > 12) break;
+                                if(++$i == 10) break;
                             ?>
-                            <div class="col-sm-4"> 
-                                <div class="product-image-wrapper">
-                                    <div class="single-products">
-                                        <div class="productinfo text-center">
-                                            <img src="<?php echo $value['anh_chinh']?>" alt="" />
-                                            <h2><?php echo $value['gia']?></h2>
-                                            <p><?php echo $value['tensanpham']?></p>
-                                            <a href="?controller=addToCart&id=<?php echo $value['id_sanpham']?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
+                                <div class="col-sm-4"> 
+                                    <div class="product-image-wrapper">
+                                        <div class="single-products">
+                                            <div class="productinfo text-center">
+                                                <img class="img-responsive" style="width:100%; height:250px; object-fit: cover;" src="<?php echo $value['anh_chinh']?>" alt="" />
+                                                <h5 style="color: black;"><?php echo $value['tensanpham']?></h5>
+                                            </div>
+                                            <div>
+                                                <h4><sup>đ</sup><?php echo number_format($value['gia'])?></h4>
+                                                <h6>Đã bán: <?php echo $value['daban']?></h6>
+                                            </div>
+                                            <a href="?controller=product-detail&id=<?php echo $value['id_sanpham']?>">
+                                                <button class="watch" style="float:right; margin-top:30px; margin-left:20px">Xem ngay</button>
+                                            </a>
                                         </div>
                                     </div>
-                                    <div class="choose">
-                                        <ul class="nav nav-pills nav-justified">
-                                            <li><a href=""><i class="fa fa-plus-square"></i>Thêm vào danh sách yêu thích</a></li>
-                                            <li><a href=""><i class="fa fa-plus-square"></i>Thêm vào để so sánh</a></li>
-                                        </ul>
-                                    </div>
                                 </div>
-                            </div>
                             <?php }?>
 
                         <ul class="pagination">
-                            <li class="active"><a href="?Controller=shop">1</a></li>
+                            <li class="active"><a href="?controller=shop">1</a></li>
                             <li><a href="?controller=shop2">2</a></li>
                             <li><a href="?controller=shop3">3</a></li>
                             <li><a href="">&raquo;</a></li>
@@ -252,86 +253,6 @@
 
     <footer id="footer">
         <!--Footer-->
-        <div class="footer-top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-2">
-                        <div class="companyinfo">
-                            <h2><span>e</span>-shopper</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-7">
-                        <div class="col-sm-3">
-                            <div class="video-gallery text-center">
-                                <a href="#">
-                                    <div class="iframe-img">
-                                        <img src="../images/home/iframe1.png" alt="" />
-                                    </div>
-                                    <div class="overlay-icon">
-                                        <i class="fa fa-play-circle-o"></i>
-                                    </div>
-                                </a>
-                                <p>Circle of Hands</p>
-                                <h2>24 DEC 2014</h2>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-3">
-                            <div class="video-gallery text-center">
-                                <a href="#">
-                                    <div class="iframe-img">
-                                        <img src="../images/home/iframe2.png" alt="" />
-                                    </div>
-                                    <div class="overlay-icon">
-                                        <i class="fa fa-play-circle-o"></i>
-                                    </div>
-                                </a>
-                                <p>Circle of Hands</p>
-                                <h2>24 DEC 2014</h2>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-3">
-                            <div class="video-gallery text-center">
-                                <a href="#">
-                                    <div class="iframe-img">
-                                        <img src="../images/home/iframe3.png" alt="" />
-                                    </div>
-                                    <div class="overlay-icon">
-                                        <i class="fa fa-play-circle-o"></i>
-                                    </div>
-                                </a>
-                                <p>Circle of Hands</p>
-                                <h2>24 DEC 2014</h2>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-3">
-                            <div class="video-gallery text-center">
-                                <a href="#">
-                                    <div class="iframe-img">
-                                        <img src="../images/home/iframe4.png" alt="" />
-                                    </div>
-                                    <div class="overlay-icon">
-                                        <i class="fa fa-play-circle-o"></i>
-                                    </div>
-                                </a>
-                                <p>Circle of Hands</p>
-                                <h2>24 DEC 2014</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="address">
-                            <img src="../images/home/map.png" alt="" />
-                            <p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div class="footer-widget">
             <div class="container">
                 <div class="row">

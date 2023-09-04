@@ -7,59 +7,79 @@ if(isset($_SESSION['ss_admin'])){
         $id = $_GET['id'];
         switch ($method) {
             case 'xoa':
-                $id = $_GET['id'];
-                $db->delete('sanpham', array('id'=>$id));
+                $id = $_GET['id'];   
+                $db->delete('anh_phu',array('id_sanpham'=>$id)) ;      
+                $db->delete('sanpham', array('id_sanpham'=>$id));  
+                           
                 header('Location: ?controller=sanpham');
                 break;
 
             case 'sua':
                 $id = $_GET['id'];
-                $data_nhanvien = $db->get('sanpham', array('id'=>$id));
+                $data_sanpham = $db->get('sanpham', array('id_sanpham'=>$id));
                 if(isset($_POST['btn_suasanpham'])){
-                    $username = $_POST['username'];
-                    $full_name = $_POST['full_name'];
-                    $email = $_POST['email'];
-                    $sdt = $_POST['sdt'];
-                    $vaitro = $_POST['vaitro'];
-                    $diachi = $_POST['diachi'];
-
+                    $tensanpham = isset($_POST['tensanpham']) ? $_POST['tensanpham']  : $data_sanpham[0]['tensanpham'] ;
+                    $tonkho = isset($_POST['tonkho']) ? $_POST['tonkho'] : $data_sanpham[0]['tonkho'];
+                    $gia = isset($_POST['gia']) ? $_POST['gia'] : $data_sanpham[0]['gia'];
+                    $xuatxu = isset($_POST['xuatxu']) ? $_POST['xuatxu'] : $data_sanpham[0]['xuatxu'];
+                    $daban = isset($_POST['daban']) ? $_POST['daban'] : $data_sanpham[0]['daban'];
+                    $danhmuc=isset($_POST['id_dm']) ? $_POST['id_dm'] : $data_sanpham[0]['id_dm'];
+                    $uploadedFile=$_FILES['anh_chinh'];
+                    $uploadedFilevdb=$_FILES['anh_chinh']['tmp_name'];
+                                   
+                        $anh_chinh=$db->uploadfile($uploadedFile );
+                     
                     $loi = array();
-                    if($username == ''){
-                        $loi['username'] = 'Tên đăng nhập không được để trống';
+                    if($tensanpham == ''){
+                        $loi['username'] = 'không được để trống';
                     }
 
-                    if($full_name == ''){
+                    if($tonkho == ''){
                         $loi['full_name'] = 'Tên đầy đủ không được để trống';
                     }
 
-                    if($email == ''){
+                    if($daban == ''){
                         $loi['email'] = 'Email không được để trống';
                     }
 
-                    if($sdt == ''){
+                    if($danhmuc == ''){
                         $loi['sdt'] = 'SĐT không được để trống';
                     }
 
-                    if($vaitro == ''){
+                    if($uploadedFile == ''){
                         $loi['vaitro'] = 'Vai trò không được để trống';
                     }
                     
-                    if($diachi == ''){
+                    if($gia == ''){
                         $loi['diachi'] = 'Địa chỉ không được để trống';
                     }
                     if(!$loi){
-                        $db->update('taikhoan',array(
-                            'username'=>$username,
-                            'full_name'=>$full_name,
-                            'email'=>$email,
-                            'sdt'=>$sdt,
-                            'vaitro'=>$vaitro,
-                            'diachi'=>$diachi
-                        ),array('id'=>$id));
-                        header('location: ?controller=nhanvien');
+                         if (!empty($anh_chinh)) {
+                        $db->update('sanpham',array(
+                            'tensanpham'=>$tensanpham,  
+                            'anh_chinh' =>$anh_chinh,
+                            'tonkho'=>$tonkho,
+                            'gia'=>$gia,
+                            'xuatxu'=>$xuatxu,
+                            'daban'=>$daban,
+                            'id_danhmuc'=>$danhmuc
+                        ),array('id_sanpham'=>$id));
+                        
+                    }else {
+                        $db->update('sanpham',array(
+                            'tensanpham'=>$tensanpham,  
+                            'tonkho'=>$tonkho,
+                            'gia'=>$gia,
+                            'xuatxu'=>$xuatxu,
+                            'daban'=>$daban,
+                            'id_danhmuc'=>$danhmuc
+                        ),array('id_sanpham'=>$id));
+                       
                     }
+                    header('location: ?controller=sanpham');
+                 }  
                 }
-                require 'View_web/v_suanhanvien.php';
+                require 'View_web/v_suasanpham.php';
                 break;
 
             default:

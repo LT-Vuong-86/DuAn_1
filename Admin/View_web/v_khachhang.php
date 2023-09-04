@@ -63,10 +63,10 @@
             border-bottom-left-radius: 30px;
         }
 
-        .navigation ul li:hover,
+        /* .navigation ul li:hover,
         .navigation ul li.hovered{
             background: var(--white);
-        }
+        } */
 
         .navigation ul li:nth-child(1){
             margin-bottom: 40px;
@@ -82,10 +82,10 @@
             color: var(--white);
         }
 
-        .navigation ul li:hover a,
+        /* .navigation ul li:hover a,
         .navigation ul li.hovered a{
             color: var(--black);
-        }
+        } */
 
         .navigation ul li a .icon{
             position: relative;
@@ -112,7 +112,7 @@
             text-align: start;
             white-space: nowrap;
         }
-
+/* 
         .navigation ul li:hover a::before,
         .navigation ul li.hovered a::before{
             content: '';
@@ -125,8 +125,8 @@
             border-radius: 50%;
             box-shadow: 35px 35px 0 10px var(--white);
             pointer-events: none;
-        }
-
+        } */
+/* 
         .navigation ul li:hover a::after,
         .navigation ul li.hovered a::after{
             content: '';
@@ -139,7 +139,7 @@
             border-radius: 50%;
             box-shadow: 35px -35px 0 10px var(--white);
             pointer-events: none;
-        }
+        } */
 
         .main{
             position: absolute;
@@ -200,10 +200,18 @@
             border: 1px solid var(--black);
         }
 
-        .search label i{
+        .search label span:hover{
+            cursor: pointer;
+            opacity: 0.6;
+        }
+        .search label span{
             position: absolute;
             top: 0;
-            left: 10px;
+            margin-top: -11px;
+            border-radius: 45%;
+            margin-right: -10px;
+            right: 10px;
+           cursor: pointer;
             font-size: 1.2rem;
         }
 
@@ -343,16 +351,18 @@
         .details .recentstaff table tr td:last-child {
             text-align: center;
         }
-
+        .details .recentstaff table tr td:nth-child(7),
         .details .recentstaff table tr td:nth-child(1),
         .details .recentstaff table tr td:nth-child(3),
         .details .recentstaff table tr td:nth-child(6){
             text-align: center;
+            max-width: 250px;
+        }
+        .details .recentstaff table tr td:nth-child(2){
+            max-width: 50px;
         }
 
-        .details .recentstaff table tr td:nth-child(7){
-            text-align: end;
-        }
+      
 
         .details .recentstaff td a.chitiet{
             position: relative;
@@ -420,6 +430,24 @@
             text-shadow: 0 0 10px crimson;
             font-weight: bold;
         }
+        .active_admin{
+            background: var(--yellow);
+        }
+        .search_codition{
+            position: absolute;
+        }
+        .search_codition h4 {
+            margin-left: -120px;
+           
+        }
+        .search_codition select{
+            margin-left: -120px;
+            
+        }
+       .toggle form {
+            width:2000px ;
+            display: flex;
+        }
 
     </style>
 </head>
@@ -430,7 +458,9 @@
             <li>
                     <a href="?controller=trangchu">
                         <span class="icon"><img style="width: 40px; height: 40px;" src="assets/img/iconE.png" alt=""></span>
-                        <span class="title">E-SHOPPER</span>
+                        <span class="title"><?php if (isset( $_SESSION['name_admin'] )) {
+                            echo  $_SESSION['name_admin'] ;
+                        } ?></span>
                     </a>
                 </li>
 
@@ -442,9 +472,9 @@
                 </li>
 
                 <li>
-                    <a href="?controller=nhanvien">
+                    <a href="?controller=taikhoan">
                         <span class="icon"><i class='bx bxs-user-detail'></i></span>
-                        <span class="title">Nhân viên</span>
+                        <span class="title">Tài khoản</span>
                     </a>
                 </li>
 
@@ -477,7 +507,7 @@
                 </li>
                 
                 <li>
-                    <a href="?controller=khachhang">
+                    <a href="?controller=khachhang" class="active_admin">
                         <span class="icon"><i class='bx bx-user nav_icon'></i></span>
                         <span class="title">Khách hàng</span>
                     </a>
@@ -497,14 +527,22 @@
                 <div class="toggle">
                     <i class='bx bx-menu' ></i>
                 </div>
-
+                <form action="" method="post">
+                <div class="search_codition">
+                    <h4>Tìm kiếm theo</h4>
+                    <select name="search_codition" id="">
+                    <option value="username">Tên khách hàng</option>
+                        <option value="id_kh">Mã đơn hàng</option>
+                        <option value="sdt">SĐT</option>
+                    </select>
+                </div>
                 <div class="search">
                     <label for="">
-                        <input type="text" placeholder="Tìm kiếm...">
-                        <i class='bx bx-search'></i>
+                        <input type="text" name="content" placeholder="Tìm kiếm...">
+                        <span><input type="submit" name="search"></span>
                     </label>
                 </div>
-
+                </form>
                 <div class="user">
                     <img src="assets/img/iconE.png" alt="">
                 </div>
@@ -520,11 +558,12 @@
                         <thead>
                             <tr>
                                 <td>STT</td>
-                                <td>Tên đăng nhập</td>
-                                <td>Tên đầy đủ</td>
+                                <td>Mã khách hàng</td>
+                                <td>Tên khách hàng</td>
                                 <td>SĐT</td>
                                 <td>Email</td>
-                                <td>Nơi ở</td>
+                                <td>Địa chỉ</td>
+                                
                                 <td>Thao tác</td>
                             </tr>
                         </thead>
@@ -535,18 +574,25 @@
                                 foreach($data_khachhang as $key => $value){?>
                             <tr>
                                 <td><?php echo $i++?></td>
+                                <td><?php echo $value['id_kh']?></td>
                                 <td><?php echo $value['username']?></td>
-                                <td><?php echo $value['name']?></td>
                                 <td><?php echo $value['sdt']?></td>
                                 <td><?php echo $value['email']?></td>
                                 <td><?php echo $value['diachi']?></td>
+                                
                                 <td class="xuly">
-                                    <a  class="xoa" onclick="return confirm('Xóa nhân viên này?');" 
-                                        href="?controller=xulynhanvien&method=xoa&id=<?php echo $value['id']?>">
+                                <a  class="sua" onclick="return confirm('Sửa khách hàng này?');" 
+                                        href="?controller=xulykhachhang&method=sua&id=<?php echo $value['id_kh']?>">
+                                        <button  class="noselect">
+                                            <span class="textsua">Sửa</span>
+                                        </button>
+                                    </a>
+                                    <!-- <a  class="xoa" onclick="return confirm('Xóa khách hàng này?');" 
+                                        href="?controller=xulykhachhang&method=xoa&id=<?php echo $value['id_kh']?>">
                                         <button  class="noselect">
                                             <span class="textxoa">Xóa</span>
                                         </button>
-                                    </a>
+                                    </a> -->
                                 </td>
                                 <?php }?>
                             </tr>
@@ -559,14 +605,14 @@
 
     <script>
         //add hovered
-        let list = document.querySelectorAll(".navigation li");
-        function activeLink(){
-            list.forEach(item=>{
-                item.classList.remove("hovered");
-            });
-            this.classList.add("hovered");
-        }
-        list.forEach((item) => item.addEventListener("mouseover", activeLink));
+        // let list = document.querySelectorAll(".navigation li");
+        // function activeLink(){
+        //     list.forEach(item=>{
+        //         item.classList.remove("hovered");
+        //     });
+        //     this.classList.add("hovered");
+        // }
+        // list.forEach((item) => item.addEventListener("mouseover", activeLink));
 
         //menu toggle
         let toggle = document.querySelector(".toggle");
@@ -578,7 +624,6 @@
             main.classList.toggle("active");
         }
     </script>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+   
 </body>
 </html>

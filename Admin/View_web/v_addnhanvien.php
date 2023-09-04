@@ -3,15 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <title>Thêm nhân viên</title></title>
+       <title>Thêm nhân viên</title></title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
-
+       
         *{
             margin: 0;
             padding: 0;
@@ -38,7 +32,7 @@
         }
 
         .container{
-            width: 400px;
+            width: 800px;
             height: auto;
             border: 1px solid black;
             border-radius: 10px;
@@ -173,20 +167,9 @@
             margin-top: 35px;       
         }
 
-        @keyframes rotate{
-            100%{
-                background-position: 15% 50%;
-            }
-        }
-
-        @media (width >= 500px){
-            body{
-                padding: 0;
-            }
-            .container{
-                margin: 0;
-                width: 400px;
-            }
+       
+        form div{
+            padding-left: 20px;
         }
 
     </style>
@@ -194,10 +177,12 @@
 <body>
 <div class="container">
     <form action="?controller=addnhanvien" method="post">
-        <div><h2 class="text-uppercase text-center">Thêm nhân viên</h2></div>
+        <div><h2 class="text-uppercase text-center">Thêm tài khoản</h2></div>
+        
         <div id="username" class="form-control row mx-1">
+        <h4>Username</h4>
             <input name="username" type="text" placeholder="Tên đăng nhập" 
-            value="<?php echo (isset($username))?$username:'' ?>" required>
+            value="" required>
         </div>
         <div id="canhbao" class="row mt-2">
             <?php if(isset($loi['username'])){?>
@@ -206,8 +191,9 @@
         </div> 
 
         <div id="full_name" class="form-control row mx-1">
+        <h4>Fullname</h4>
             <input name="full_name" type="text" placeholder="Tên đầy đủ" 
-            value="<?php echo (isset($full_name))?$full_name:'' ?>" required>
+            value="" required>
         </div>
         <div id="canhbao" class="row mt-2">
             <?php if(isset($loi['full_name'])){?>
@@ -216,8 +202,9 @@
         </div>
 
         <div id="matkhau" class="form-control row mx-1">
+        <h4>Password</h4>
             <input name="pass" type="password" placeholder="Mật khẩu" 
-            value="<?php echo (isset($password))?$password:'' ?>" required>
+            value="" required>
         </div>
         <div id="canhbao" class="row mt-2">
             <?php if(isset($loi['pass'])){?>
@@ -225,17 +212,8 @@
             <?php }?>
         </div>
 
-        <div id="email" class="form-control row mx-1">
-            <input name="email" type="text" placeholder="Email" 
-            value="<?php echo (isset($email))?$email:'' ?>" required>
-        </div>
-        <div id="canhbao" class="row mt-2">
-            <?php if(isset($loi['email'])){?>
-                <p class="text-danger"><?php echo $loi['email']?></p> 
-            <?php }?>
-        </div>
-
         <div id="sdt" class="form-control row mx-1">
+        <h4>Phone number</h4>
             <input name="sdt" type="text" placeholder="SĐT" 
             value="<?php echo (isset($sdt))?$sdt:'' ?>" required>
         </div>
@@ -247,8 +225,9 @@
 
 
         <div id="vaitro" class="form-control row mx-1">
+            <h4>Role</h4>
             <input name="vaitro" type="text" placeholder="Vai trò" 
-            value="<?php echo (isset($vaitro))?$vaitro:'' ?>" required>
+            value="<?php echo (isset($vaitro))?$vaitro:'' ?>"  <?php  if ($user[0]['vaitro']=='manager') { echo "disabled"; }?> required>
         </div>
         <div id="canhbao" class="row mt-2">
             <?php if(isset($loi['vaitro'])){?>
@@ -256,16 +235,29 @@
             <?php }?>
         </div>
 
+
+        <div id="email" class="form-control row mx-1">
+        <h4>Email</h4>
+            <input name="email" type="text" placeholder="Email" 
+            value="" <?php  if ($user[0]['vaitro']=='manager') { echo "required"; }?> >
+        </div>
+        <div id="canhbao" class="row mt-2">
+            <?php if(isset($loi['email'])){?>
+                <p class="text-danger"><?php echo $loi['email']?></p> 
+            <?php }?>
+        </div>
+
         <div id="diachi" class="form-control row mx-1">
-            <input name="diachi" type="text" placeholder="Nơi ở hiện tại" 
-            value="<?php echo (isset($diachi))?$diachi:'' ?>" required>
+        <h4>address</h4>
+            <input name="diachi" type="text" placeholder="Địa chỉ " 
+            value="<?php echo (isset($diachi))?$diachi:'' ?>" <?php  if ($user[0]['vaitro']=='manager') { echo "required"; }?>>
         </div>
         <div id="canhbao" class="row mt-2">
             <?php if(isset($loi['diachi'])){?>
                 <p class="text-danger"><?php echo $loi['diachi']?></p> 
             <?php }?>
         </div>
-    
+
         <button style="border: none; border-radius:25px; background: white; width: 100%;" 
         class="button" name="btn_addnhanvien" type="submit">
             <span>add</span>

@@ -38,7 +38,7 @@ body{
 }
 
 .container{
-    width: 400px;
+    width: 800px;
     height: auto;
     border: 1px solid black;
     border-radius: 10px;
@@ -148,7 +148,13 @@ h3{
     margin-bottom: 25px;
 }
 
+#id_dm select{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
 #id_dm{
+    height: 50px;
     margin-bottom: 35px;
 }
 
@@ -180,81 +186,98 @@ h3{
     margin-bottom: 35px;       
 }
 
-@keyframes rotate{
-    100%{
-        background-position: 15% 50%;
-    }
-}
 
-@media (width >= 500px){
-    body{
-        padding: 0;
-    }
-    .container{
-        margin: 0;
-        width: 400px;
-    }
-}
+
+
         
     </style>
 </head>
 <body>
 <div class="container">
-    <form action="#" method="post">
+    <form action="#" method="post"  enctype="multipart/form-data">
         <div>
-            <h3 class="text-uppercase text-center">Cập nhật nhân viên</h3>
+            <h3 class="text-uppercase text-center">Cập nhật sản phẩm</h3>
         </div>
         <h6>Tên danh mục:</h6>
-        <div id="id_dm" class="form-control row mx-1">
-            <input name="id_dm" type="text" placeholder="Hãy điền tên danh mục..." 
-            value="<?php echo $data_nhanvien[0]['id_dm'] ?>" >
-        </div> 
+        <div id="id_dm"  >
+        
+            
+            <select name="id_dm"  >
+                <option value="1"<?php if ($data_sanpham[0]['id_danhmuc']==1) {
+                    echo "selected";
+                } ?>>Áo nữ</option>
+                <option value="2"<?php if ($data_sanpham[0]['id_danhmuc']==2) {
+                    echo "selected";
+                } ?>>Quần nữ</option>
+                <option value="3"<?php if ($data_sanpham[0]['id_danhmuc']==3) {
+                    echo "selected";
+                } ?>>Váy đầm nữ</option>
+                <option value="4"<?php if ($data_sanpham[0]['id_danhmuc']==4) {
+                    echo "selected";
+                } ?>>Áo nam</option>
+                <option value="5"<?php if ($data_sanpham[0]['id_danhmuc']==5) {
+                    echo "selected";
+                } ?>>Quần nam</option>
+                <option value="6"<?php if ($data_sanpham[0]['id_danhmuc']==6) {
+                    echo "selected";
+                } ?>>Vest nam</option>
+                <option value="7"<?php if ($data_sanpham[0]['id_danhmuc']==7) {
+                    echo "selected";
+                } ?>>Áo trẻ em</option>
+                <option value="8"<?php if ($data_sanpham[0]['id_danhmuc']==8) {
+                    echo "selected";
+                } ?>>Quần trẻ em</option>
+                <option value="9"<?php if ($data_sanpham[0]['id_danhmuc']==9) {
+                    echo "selected";
+                } ?>>Bộ quần áo trẻ em</option>
+            </select>
+        </div>
 
         <h6>Tên sản phẩm:</h6>
         <div id="tensanpham" class="form-control row mx-1">
             <input name="tensanpham" type="text" placeholder="Hãy điền tên sản phẩm..." 
-            value="<?php echo $data_nhanvien[0]['tensanpham'] ?>" >
+            value="<?php echo $data_sanpham[0]['tensanpham'] ?>" >
         </div>
 
         <h6>Ảnh sản phẩm:</h6>
         <div id="anh" class="form-control row mx-1">
-            <input name="anh" type="text" placeholder="Hãy chọn ảnh sản phẩm..." 
-            value="<?php echo $data_nhanvien[0]['anh'] ?>" >
+            <input name="anh_chinh[]"  type="file" value="
+            <?php if (isset( $data_sanpham[0]['anh_chinh'])) { ?>
+                <?php echo $data_sanpham[0]['anh_chinh'] ?> <?php } ?>" >
+            <?php if (isset( $data_sanpham[0]['anh_chinh'])) { ?>          
+            <img  src="../images/sanpham/<?php echo $data_sanpham[0]['anh_chinh'] ?>" alt="">
+       <?php } ?>
         </div>
 
         <h6>Tồn kho:</h6>
         <div id="tonkho" class="form-control row mx-1">
             <input name="tonkho" type="text" placeholder="Số hàng tồn..." 
-            value="<?php echo $data_nhanvien[0]['tonkho'] ?>" >
+            value="<?php echo $data_sanpham[0]['tonkho'] ?>" >
         </div>
 
         <h6>Giá trị:</h6>
         <div id="gia" class="form-control row mx-1">
             <input name="gia" type="text" placeholder="Giá của 1 sản phẩm?..." 
-            value="<?php echo $data_nhanvien[0]['gia'] ?>" >
+            value="<?php echo $data_sanpham[0]['gia'] ?>" >
         </div>
 
         
         <h6>Xuất xứ:</h6>
         <div id="xuatxu" class="form-control row mx-1">
             <input name="xuatxu" type="text" placeholder="Nơi ở hiện tại..." 
-            value="<?php echo $data_nhanvien[0]['xuatxu'] ?>" >
+            value="<?php echo $data_sanpham[0]['xuatxu'] ?>" >
         </div>
 
-        <h6>Trạng thái:</h6>
-        <div id="trangthai" class="form-control row mx-1">
-            <input name="trangthai" type="text" placeholder="Nơi ở hiện tại..." 
-            value="<?php echo $data_nhanvien[0]['trangthai'] ?>" >
-        </div>
+        
 
         <h6>Đã bán:</h6>
         <div id="daban" class="form-control row mx-1">
             <input name="daban" type="text" placeholder="Nơi ở hiện tại..." 
-            value="<?php echo $data_nhanvien[0]['daban'] ?>" >
+            value="<?php echo $data_sanpham[0]['daban'] ?>" >
         </div>
 
         <button type="submit" style="border: none; border-radius:25px; background: white; width: 100%;" 
-        class="button" name="btn_suanhanvien" onclick="return confirm('Bạn đồng ý sửa?');">
+        class="button" name="btn_suasanpham" onclick="return confirm('Bạn đồng ý sửa?');">
           
             <!-- <svg width="13px" height="10" viewBox="0 0 13 10">
                 <path d="M1,5 L11,5"></path>

@@ -14,17 +14,22 @@
             $loi['password'] = 'Password không được để trống';
         }
         if(!$loi){
-            $user = $db->get('admin', array('username'=>$username));
-            if(empty($user)){
+            $admin = $db->get('taikhoan', array('username'=>$username));
+            if(empty($admin)){
                 $loi['username'] = 'Tên đăng nhập không tồn tại';
             }else{
-                if($password!=$user[0]['password']){
+                if($password!=$admin[0]['pass']){
                     $loi['password'] = 'Sai mật khẩu';
+                }
+                if ($admin[0]['vaitro']=='user') {
+                    $loi['admin']='bạn không có quyền';
                 }
             }
         }
         if(!$loi){
-            $_SESSION['ss_admin'] = $user[0]['id'];
+            
+            $_SESSION['ss_admin'] = $admin[0]['id'];
+            $_SESSION['name_admin'] = $admin[0]['full_name'];           
             header('location: ?controller=trangchu');
         }
     }

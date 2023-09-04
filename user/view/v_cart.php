@@ -13,6 +13,73 @@
     <link href="../css/animate.css" rel="stylesheet">
 	<link href="../css/main.css" rel="stylesheet">
 	<link href="../css/responsive.css" rel="stylesheet">
+    <style>
+        button {
+            width: 78px;
+            height: 36.5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            background: red;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+            background: #e62222;
+            padding-right: -100px;
+            justify-content: space-between;
+        }
+
+        button, button span {
+            transition: 0.02s;
+        }
+
+        button .text {
+            padding-left: 5px;
+            transform: translateX(10px);
+            color: white;
+            font-weight: bold;
+        }
+
+        button .icon {
+            visibility: hidden;
+            position: absolute;
+            transform: translateX(20px);
+            height: 40px;
+            width: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button svg {
+            width: 15px;
+            fill: #eee;
+        }
+
+        button:hover {
+            background: #ff3636;
+        }
+
+        button:hover .text {
+            color: transparent;
+        }
+
+        button:hover .icon {
+        width: 90px;
+        border-left: none;
+        transform: translateX(-10px);
+        visibility: visible;
+        }
+
+        button:focus {
+        outline: none;
+        }
+
+        button:active .icon svg {
+        transform: scale(1);
+        }
+        
+    </style>
    </head><!--/head-->
 
 <body>
@@ -72,14 +139,13 @@
             <div class="table-responsive cart_info">
                 <table class="table table-condensed">
                     <thead>
-                        <tr class="cart_menu">
+                        <tr class="cart_menu text-center">
                             <td class="image">Ảnh</td>
                             <td class="description">Tên mặt hàng</td>
-                            <td class="price">Giá</td>
+                            <td class="price">Đơn giá</td>
                             <td class="quantity">Số lượng</td>
-                            <td class="total">Tổng</td>
-                            <td class="delete">Xử lý</td>
-                            <td></td>
+                            <td class="total">Thành tiền</td>
+                            <td class="delete"></td>
                         </tr>
                     </thead>
                     <tbody>
@@ -87,24 +153,21 @@
                             $tongtien = 0;
                             if(isset($_SESSION['cart'])){
                                 foreach ($_SESSION['cart'] as $key => $value){
-                                    
                                     $tongtien+=$value['sl']*$value['gia'];
                         ?>
                         <tr class="text-center">
-                            <td><img class="img-responsive" src="<?php echo $value['anh']?>" width="100" alt=""></td>
+                            <td><img class="img-responsive" src="<?php echo $value['anh_chinh']?>" width="100" alt=""></td>
                             <td><?php echo $value['tensanpham']?></td>
-                            <td><?php echo $value['gia']?></td>
+                            <td><?php echo number_format($value['gia'])?>đ</td>
                             <td >
-                                <a style="text-decoration: none;" href="?controller=xuly&method=giam&id=<?php echo $value['id']?>">-</a>
-                                    <?php echo $value['sl']?>
-                                <a style="text-decoration: none;" href="?controller=xuly&method=tang&id=<?php echo $value['id']?>">+</a>
+                                <?php echo $value['sl']?>
                             </td>
                             <td>
                                 <?php echo number_format($value['gia']*$value['sl'])?>đ
                             </td>
                             <td>
-                                <a style="text-decoration: none;" onclick="return confirm('Xóa sản phẩm này?');" href="?controller=xulyCart&method=xoa&id=<?php echo $value['id']?>">
-                                    <button button class="noselect">
+                                <a style="text-decoration: none;" onclick="return confirm('Xóa sản phẩm này?');" href="?controller=xulyCart&method=xoa&id=<?php echo $value['id_sanpham']?>">
+                                    <button class="noselect">
                                         <span class="text">Delete</span>
                                         <span class="icon">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -116,6 +179,10 @@
                             </td>
                         </tr>
                         <?php   }  }?>
+
+                        <tr>
+                            <td><a name="btn_xoatoanbo" href="?controller=xulyCart&method=xoatoanbo&id=<?php echo $value['id_sanpham']?>">Xóa toàn bộ</a></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -133,9 +200,7 @@
                 <div class="col-sm-12">
                     <div class="total_area">
                         <ul>
-                            <li>Số sản phẩm<span><?php ?></span></li>
-                            <li>Phí vận chuyển <span>Miễn phí</span></li>
-                            <li>Tổng <span>$61</span></li>
+                            <li>Tổng tiền<span><?php echo number_format($tongtien)?></span></li>
                         </ul>
                         <a class="btn btn-default update" href="?controller=shop">Tiếp tục mua hàng</a>
                         <a class="btn btn-default check_out" href="?controller=checkout">Thanh toán</a>

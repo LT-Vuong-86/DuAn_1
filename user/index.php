@@ -7,7 +7,7 @@
             $controller = $_GET['controller'];
         }
         else{
-            $controller = 'home';
+            $controller = 'login';
         }
 
         include 'Controller/c_' .$controller. '.php';
